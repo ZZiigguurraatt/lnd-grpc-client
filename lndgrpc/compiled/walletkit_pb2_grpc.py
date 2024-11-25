@@ -2,12 +2,30 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from lndgrpc.compiled import lightning_pb2 as lndgrpc_dot_compiled_dot_lightning__pb2
 from lndgrpc.compiled import signer_pb2 as lndgrpc_dot_compiled_dot_signer__pb2
 from lndgrpc.compiled import walletkit_pb2 as lndgrpc_dot_compiled_dot_walletkit__pb2
 
 
 class WalletKitStub(object):
-    """WalletKit is a service that gives access to the core functionalities of the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WalletKit is a service that gives access to the core functionalities of the
     daemon's wallet.
     """
 
@@ -51,6 +69,11 @@ class WalletKitStub(object):
                 '/walletrpc.WalletKit/NextAddr',
                 request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.AddrRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.AddrResponse.FromString,
+                )
+        self.GetTransaction = channel.unary_unary(
+                '/walletrpc.WalletKit/GetTransaction',
+                request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.Transaction.FromString,
                 )
         self.ListAccounts = channel.unary_unary(
                 '/walletrpc.WalletKit/ListAccounts',
@@ -97,6 +120,11 @@ class WalletKitStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.Transaction.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.PublishResponse.FromString,
                 )
+        self.RemoveTransaction = channel.unary_unary(
+                '/walletrpc.WalletKit/RemoveTransaction',
+                request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.RemoveTransactionResponse.FromString,
+                )
         self.SendOutputs = channel.unary_unary(
                 '/walletrpc.WalletKit/SendOutputs',
                 request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.SendOutputsRequest.SerializeToString,
@@ -116,6 +144,11 @@ class WalletKitStub(object):
                 '/walletrpc.WalletKit/BumpFee',
                 request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeResponse.FromString,
+                )
+        self.BumpForceCloseFee = channel.unary_unary(
+                '/walletrpc.WalletKit/BumpForceCloseFee',
+                request_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeResponse.FromString,
                 )
         self.ListSweeps = channel.unary_unary(
                 '/walletrpc.WalletKit/ListSweeps',
@@ -145,7 +178,24 @@ class WalletKitStub(object):
 
 
 class WalletKitServicer(object):
-    """WalletKit is a service that gives access to the core functionalities of the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WalletKit is a service that gives access to the core functionalities of the
     daemon's wallet.
     """
 
@@ -161,7 +211,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LeaseOutput(self, request, context):
-        """
+        """lncli: `wallet leaseoutput`
         LeaseOutput locks an output to the given ID, preventing it from being
         available for any future coin selection attempts. The absolute time of the
         lock's expiration is returned. The expiration of the lock can be extended by
@@ -173,7 +223,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ReleaseOutput(self, request, context):
-        """
+        """lncli: `wallet releaseoutput`
         ReleaseOutput unlocks an output, allowing it to be available for coin
         selection if it remains unspent. The ID should match the one used to
         originally lock the output.
@@ -183,7 +233,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListLeases(self, request, context):
-        """
+        """lncli: `wallet listleases`
         ListLeases lists all currently locked utxos.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -217,8 +267,16 @@ class WalletKitServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListAccounts(self, request, context):
+    def GetTransaction(self, request, context):
+        """lncli: `wallet gettx`
+        GetTransaction returns details for a transaction found in the wallet.
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAccounts(self, request, context):
+        """lncli: `wallet accounts list`
         ListAccounts retrieves all accounts belonging to the wallet by default. A
         name and key scope filter can be provided to filter through all of the
         wallet accounts and return only those matching.
@@ -228,7 +286,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RequiredReserve(self, request, context):
-        """
+        """lncli: `wallet requiredreserve`
         RequiredReserve returns the minimum amount of satoshis that should be kept
         in the wallet in order to fee bump anchor channels if necessary. The value
         scales with the number of public anchor channels but is capped at a maximum.
@@ -238,7 +296,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListAddresses(self, request, context):
-        """
+        """lncli: `wallet addresses list`
         ListAddresses retrieves all the addresses along with their balance. An
         account name filter can be provided to filter through all of the
         wallet accounts and return the addresses of only those matching.
@@ -248,7 +306,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SignMessageWithAddr(self, request, context):
-        """
+        """lncli: `wallet addresses signmessage`
         SignMessageWithAddr returns the compact signature (base64 encoded) created
         with the private key of the provided address. This requires the address
         to be solely based on a public key lock (no scripts). Obviously the internal
@@ -267,7 +325,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def VerifyMessageWithAddr(self, request, context):
-        """
+        """lncli: `wallet addresses verifymessage`
         VerifyMessageWithAddr returns the validity and the recovered public key of
         the provided compact signature (base64 encoded). The verification is
         twofold. First the validity of the signature itself is checked and then
@@ -293,7 +351,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ImportAccount(self, request, context):
-        """
+        """lncli: `wallet accounts import`
         ImportAccount imports an account backed by an account extended public key.
         The master key fingerprint denotes the fingerprint of the root key
         corresponding to the account public key (also known as the key with
@@ -323,7 +381,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ImportPublicKey(self, request, context):
-        """
+        """lncli: `wallet accounts import-pubkey`
         ImportPublicKey imports a public key as watch-only into the wallet. The
         public key is converted into a simple address of the given type and that
         address script is watched on chain. For Taproot keys, this will only watch
@@ -357,11 +415,20 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def PublishTransaction(self, request, context):
-        """
+        """lncli: `wallet publishtx`
         PublishTransaction attempts to publish the passed transaction to the
         network. Once this returns without an error, the wallet will continually
         attempt to re-broadcast the transaction on start up, until it enters the
         chain.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveTransaction(self, request, context):
+        """lncli: `wallet removetx`
+        RemoveTransaction attempts to remove the provided transaction from the
+        internal transaction store of the wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -378,7 +445,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def EstimateFee(self, request, context):
-        """
+        """lncli: `wallet estimatefeerate`
         EstimateFee attempts to query the internal fee estimator of the wallet to
         determine the fee (in sat/kw) to attach to a transaction in order to
         achieve the confirmation target.
@@ -388,7 +455,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def PendingSweeps(self, request, context):
-        """
+        """lncli: `wallet pendingsweeps`
         PendingSweeps returns lists of on-chain outputs that lnd is currently
         attempting to sweep within its central batching engine. Outputs with similar
         fee rates are batched together in order to sweep them within a single
@@ -403,39 +470,51 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def BumpFee(self, request, context):
-        """
-        BumpFee bumps the fee of an arbitrary input within a transaction. This RPC
-        takes a different approach than bitcoind's bumpfee command. lnd has a
-        central batching engine in which inputs with similar fee rates are batched
-        together to save on transaction fees. Due to this, we cannot rely on
-        bumping the fee on a specific transaction, since transactions can change at
-        any point with the addition of new inputs. The list of inputs that
-        currently exist within lnd's central batching engine can be retrieved
-        through the PendingSweeps RPC.
+        """lncli: `wallet bumpfee`
+        BumpFee is an endpoint that allows users to interact with lnd's sweeper
+        directly. It takes an outpoint from an unconfirmed transaction and sends it
+        to the sweeper for potential fee bumping. Depending on whether the outpoint
+        has been registered in the sweeper (an existing input, e.g., an anchor
+        output) or not (a new input, e.g., an unconfirmed wallet utxo), this will
+        either be an RBF or CPFP attempt.
 
-        When bumping the fee of an input that currently exists within lnd's central
-        batching engine, a higher fee transaction will be created that replaces the
-        lower fee transaction through the Replace-By-Fee (RBF) policy. If it
+        When receiving an input, lnd’s sweeper needs to understand its time
+        sensitivity to make economical fee bumps - internally a fee function is
+        created using the deadline and budget to guide the process. When the
+        deadline is approaching, the fee function will increase the fee rate and
+        perform an RBF.
+
+        When a force close happens, all the outputs from the force closing
+        transaction will be registered in the sweeper. The sweeper will then handle
+        the creation, publish, and fee bumping of the sweeping transactions.
+        Everytime a new block comes in, unless the sweeping transaction is
+        confirmed, an RBF is attempted. To interfere with this automatic process,
+        users can use BumpFee to specify customized fee rate, budget, deadline, and
+        whether the sweep should happen immediately. It's recommended to call
+        `ListSweeps` to understand the shape of the existing sweeping transaction
+        first - depending on the number of inputs in this transaction, the RBF
+        requirements can be quite different.
 
         This RPC also serves useful when wanting to perform a Child-Pays-For-Parent
         (CPFP), where the child transaction pays for its parent's fee. This can be
         done by specifying an outpoint within the low fee transaction that is under
         the control of the wallet.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-        The fee preference can be expressed either as a specific fee rate or a delta
-        of blocks in which the output should be swept on-chain within. If a fee
-        preference is not explicitly specified, then an error is returned.
-
-        Note that this RPC currently doesn't perform any validation checks on the
-        fee preference being provided. For now, the responsibility of ensuring that
-        the new fee preference is sufficient is delegated to the user.
+    def BumpForceCloseFee(self, request, context):
+        """lncli: `wallet bumpforceclosefee`
+        BumpForceCloseFee is an endpoint that allows users to bump the fee of a
+        channel force close. This only works for channels with option_anchors.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListSweeps(self, request, context):
-        """
+        """lncli: `wallet listsweeps`
         ListSweeps returns a list of the sweep transactions our node has produced.
         Note that these sweeps may not be confirmed yet, as we record sweeps on
         broadcast, not confirmation.
@@ -445,10 +524,10 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LabelTransaction(self, request, context):
-        """
+        """lncli: `wallet labeltx`
         LabelTransaction adds a label to a transaction. If the transaction already
         has a label the call will fail unless the overwrite bool is set. This will
-        overwrite the exiting transaction label. Labels must not be empty, and
+        overwrite the existing transaction label. Labels must not be empty, and
         cannot exceed 500 characters.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -456,17 +535,27 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def FundPsbt(self, request, context):
-        """
+        """lncli: `wallet psbt fund`
         FundPsbt creates a fully populated PSBT that contains enough inputs to fund
-        the outputs specified in the template. There are two ways of specifying a
-        template: Either by passing in a PSBT with at least one output declared or
-        by passing in a raw TxTemplate message.
+        the outputs specified in the template. There are three ways a user can
+        specify what we call the template (a list of inputs and outputs to use in
+        the PSBT): Either as a PSBT packet directly with no coin selection (using
+        the legacy "psbt" field), a PSBT with advanced coin selection support (using
+        the new "coin_select" field) or as a raw RPC message (using the "raw"
+        field).
+        The legacy "psbt" and "raw" modes, the following restrictions apply:
+        1. If there are no inputs specified in the template, coin selection is
+        performed automatically.
+        2. If the template does contain any inputs, it is assumed that full
+        coin selection happened externally and no additional inputs are added. If
+        the specified inputs aren't enough to fund the outputs with the given fee
+        rate, an error is returned.
 
-        If there are no inputs specified in the template, coin selection is
-        performed automatically. If the template does contain any inputs, it is
-        assumed that full coin selection happened externally and no additional
-        inputs are added. If the specified inputs aren't enough to fund the outputs
-        with the given fee rate, an error is returned.
+        The new "coin_select" mode does not have these restrictions and allows the
+        user to specify a PSBT with inputs and outputs and still perform coin
+        selection on top of that.
+        For all modes this RPC requires any inputs that are specified to be locked
+        by the user (if they belong to this node in the first place).
 
         After either selecting or verifying the inputs, all input UTXOs are locked
         with an internal app ID.
@@ -499,7 +588,7 @@ class WalletKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def FinalizePsbt(self, request, context):
-        """
+        """lncli: `wallet psbt finalize`
         FinalizePsbt expects a partial transaction with all inputs and outputs fully
         declared and tries to sign all inputs that belong to the wallet. Lnd must be
         the last signer of the transaction. That means, if there are any unsigned
@@ -554,6 +643,11 @@ def add_WalletKitServicer_to_server(servicer, server):
                     request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.AddrRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.AddrResponse.SerializeToString,
             ),
+            'GetTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTransaction,
+                    request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.Transaction.SerializeToString,
+            ),
             'ListAccounts': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAccounts,
                     request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.ListAccountsRequest.FromString,
@@ -599,6 +693,11 @@ def add_WalletKitServicer_to_server(servicer, server):
                     request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.Transaction.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.PublishResponse.SerializeToString,
             ),
+            'RemoveTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveTransaction,
+                    request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.RemoveTransactionResponse.SerializeToString,
+            ),
             'SendOutputs': grpc.unary_unary_rpc_method_handler(
                     servicer.SendOutputs,
                     request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.SendOutputsRequest.FromString,
@@ -618,6 +717,11 @@ def add_WalletKitServicer_to_server(servicer, server):
                     servicer.BumpFee,
                     request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeResponse.SerializeToString,
+            ),
+            'BumpForceCloseFee': grpc.unary_unary_rpc_method_handler(
+                    servicer.BumpForceCloseFee,
+                    request_deserializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeResponse.SerializeToString,
             ),
             'ListSweeps': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSweeps,
@@ -652,7 +756,24 @@ def add_WalletKitServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class WalletKit(object):
-    """WalletKit is a service that gives access to the core functionalities of the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WalletKit is a service that gives access to the core functionalities of the
     daemon's wallet.
     """
 
@@ -772,6 +893,23 @@ class WalletKit(object):
         return grpc.experimental.unary_unary(request, target, '/walletrpc.WalletKit/NextAddr',
             lndgrpc_dot_compiled_dot_walletkit__pb2.AddrRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_walletkit__pb2.AddrResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/walletrpc.WalletKit/GetTransaction',
+            lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_lightning__pb2.Transaction.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -929,6 +1067,23 @@ class WalletKit(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def RemoveTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/walletrpc.WalletKit/RemoveTransaction',
+            lndgrpc_dot_compiled_dot_walletkit__pb2.GetTransactionRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_walletkit__pb2.RemoveTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def SendOutputs(request,
             target,
             options=(),
@@ -993,6 +1148,23 @@ class WalletKit(object):
         return grpc.experimental.unary_unary(request, target, '/walletrpc.WalletKit/BumpFee',
             lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_walletkit__pb2.BumpFeeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BumpForceCloseFee(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/walletrpc.WalletKit/BumpForceCloseFee',
+            lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_walletkit__pb2.BumpForceCloseFeeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

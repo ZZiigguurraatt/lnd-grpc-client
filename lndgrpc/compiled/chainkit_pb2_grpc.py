@@ -21,6 +21,11 @@ class ChainKitStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockResponse.FromString,
                 )
+        self.GetBlockHeader = channel.unary_unary(
+                '/chainrpc.ChainKit/GetBlockHeader',
+                request_serializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderResponse.FromString,
+                )
         self.GetBestBlock = channel.unary_unary(
                 '/chainrpc.ChainKit/GetBestBlock',
                 request_serializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBestBlockRequest.SerializeToString,
@@ -41,6 +46,14 @@ class ChainKitServicer(object):
     def GetBlock(self, request, context):
         """lncli: `chain getblock`
         GetBlock returns a block given the corresponding block hash.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBlockHeader(self, request, context):
+        """lncli: `chain getblockheader`
+        GetBlockHeader returns a block header with a particular block hash.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -71,6 +84,11 @@ def add_ChainKitServicer_to_server(servicer, server):
                     servicer.GetBlock,
                     request_deserializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockResponse.SerializeToString,
+            ),
+            'GetBlockHeader': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBlockHeader,
+                    request_deserializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderResponse.SerializeToString,
             ),
             'GetBestBlock': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBestBlock,
@@ -108,6 +126,23 @@ class ChainKit(object):
         return grpc.experimental.unary_unary(request, target, '/chainrpc.ChainKit/GetBlock',
             lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBlockHeader(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/chainrpc.ChainKit/GetBlockHeader',
+            lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_chainkit__pb2.GetBlockHeaderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

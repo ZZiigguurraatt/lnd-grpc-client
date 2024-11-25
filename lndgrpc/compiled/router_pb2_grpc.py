@@ -7,7 +7,24 @@ from lndgrpc.compiled import router_pb2 as lndgrpc_dot_compiled_dot_router__pb2
 
 
 class RouterStub(object):
-    """Router is a service that offers advanced interaction with the router
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Router is a service that offers advanced interaction with the router
     subsystem of the daemon.
     """
 
@@ -107,10 +124,37 @@ class RouterStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusResponse.FromString,
                 )
+        self.XAddLocalChanAliases = channel.unary_unary(
+                '/routerrpc.Router/XAddLocalChanAliases',
+                request_serializer=lndgrpc_dot_compiled_dot_router__pb2.AddAliasesRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_router__pb2.AddAliasesResponse.FromString,
+                )
+        self.XDeleteLocalChanAliases = channel.unary_unary(
+                '/routerrpc.Router/XDeleteLocalChanAliases',
+                request_serializer=lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesResponse.FromString,
+                )
 
 
 class RouterServicer(object):
-    """Router is a service that offers advanced interaction with the router
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Router is a service that offers advanced interaction with the router
     subsystem of the daemon.
     """
 
@@ -118,14 +162,17 @@ class RouterServicer(object):
         """
         SendPaymentV2 attempts to route a payment described by the passed
         PaymentRequest to the final destination. The call returns a stream of
-        payment updates.
+        payment updates. When using this RPC, make sure to set a fee limit, as the
+        default routing fee limit is 0 sats. Without a non-zero fee limit only
+        routes without fees will be attempted which often fails with
+        FAILURE_REASON_NO_ROUTE.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TrackPaymentV2(self, request, context):
-        """
+        """lncli: `trackpayment`
         TrackPaymentV2 returns an update stream for the payment identified by the
         payment hash.
         """
@@ -179,7 +226,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ResetMissionControl(self, request, context):
-        """
+        """lncli: `resetmc`
         ResetMissionControl clears all mission control state and starts with a clean
         slate.
         """
@@ -188,7 +235,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QueryMissionControl(self, request, context):
-        """
+        """lncli: `querymc`
         QueryMissionControl exposes the internal mission control state to callers.
         It is a development feature.
         """
@@ -197,7 +244,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def XImportMissionControl(self, request, context):
-        """
+        """lncli: `importmc`
         XImportMissionControl is an experimental API that imports the state provided
         to the internal mission control's state, using all results which are more
         recent than our existing values. These values will only be imported
@@ -208,7 +255,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetMissionControlConfig(self, request, context):
-        """
+        """lncli: `getmccfg`
         GetMissionControlConfig returns mission control's current config.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -216,7 +263,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SetMissionControlConfig(self, request, context):
-        """
+        """lncli: `setmccfg`
         SetMissionControlConfig will set mission control's config, if the config
         provided is valid.
         """
@@ -225,7 +272,7 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QueryProbability(self, request, context):
-        """
+        """lncli: `queryprob`
         Deprecated. QueryProbability returns the current success probability
         estimate for a given node pair and amount. The call returns a zero success
         probability if no channel is available or if the amount violates min/max
@@ -236,10 +283,14 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def BuildRoute(self, request, context):
-        """
+        """lncli: `buildroute`
         BuildRoute builds a fully specified route based on a list of hop public
         keys. It retrieves the relevant channel policies from the graph in order to
         calculate the correct fees and time locks.
+        Note that LND will use its default final_cltv_delta if no value is supplied.
+        Make sure to add the correct final_cltv_delta depending on the invoice
+        restriction. Moreover the caller has to make sure to provide the
+        payment_addr if the route is paying an invoice which signaled it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -286,11 +337,35 @@ class RouterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateChanStatus(self, request, context):
-        """
+        """lncli: `updatechanstatus`
         UpdateChanStatus attempts to manually set the state of a channel
         (enabled, disabled, or auto). A manual "disable" request will cause the
         channel to stay disabled until a subsequent manual request of either
         "enable" or "auto".
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def XAddLocalChanAliases(self, request, context):
+        """
+        XAddLocalChanAliases is an experimental API that creates a set of new
+        channel SCID alias mappings. The final total set of aliases in the manager
+        after the add operation is returned. This is only a locally stored alias,
+        and will not be communicated to the channel peer via any message. Therefore,
+        routing over such an alias will only work if the peer also calls this same
+        RPC on their end. If an alias already exists, an error is returned
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def XDeleteLocalChanAliases(self, request, context):
+        """
+        XDeleteLocalChanAliases is an experimental API that deletes a set of alias
+        mappings. The final total set of aliases in the manager after the delete
+        operation is returned. The deletion will not be communicated to the channel
+        peer via any message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -389,6 +464,16 @@ def add_RouterServicer_to_server(servicer, server):
                     request_deserializer=lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusResponse.SerializeToString,
             ),
+            'XAddLocalChanAliases': grpc.unary_unary_rpc_method_handler(
+                    servicer.XAddLocalChanAliases,
+                    request_deserializer=lndgrpc_dot_compiled_dot_router__pb2.AddAliasesRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_router__pb2.AddAliasesResponse.SerializeToString,
+            ),
+            'XDeleteLocalChanAliases': grpc.unary_unary_rpc_method_handler(
+                    servicer.XDeleteLocalChanAliases,
+                    request_deserializer=lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'routerrpc.Router', rpc_method_handlers)
@@ -397,7 +482,24 @@ def add_RouterServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Router(object):
-    """Router is a service that offers advanced interaction with the router
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Router is a service that offers advanced interaction with the router
     subsystem of the daemon.
     """
 
@@ -704,5 +806,39 @@ class Router(object):
         return grpc.experimental.unary_unary(request, target, '/routerrpc.Router/UpdateChanStatus',
             lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_router__pb2.UpdateChanStatusResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def XAddLocalChanAliases(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/routerrpc.Router/XAddLocalChanAliases',
+            lndgrpc_dot_compiled_dot_router__pb2.AddAliasesRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_router__pb2.AddAliasesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def XDeleteLocalChanAliases(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/routerrpc.Router/XDeleteLocalChanAliases',
+            lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_router__pb2.DeleteAliasesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

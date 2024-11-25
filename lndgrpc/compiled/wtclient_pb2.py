@@ -15,21 +15,27 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/wtclient.proto\x12\x0bwtclientrpc\"2\n\x0f\x41\x64\x64TowerRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"\x12\n\x10\x41\x64\x64TowerResponse\"5\n\x12RemoveTowerRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"\x15\n\x13RemoveTowerResponse\"?\n\x13GetTowerInfoRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x18\n\x10include_sessions\x18\x02 \x01(\x08\"\x92\x01\n\x0cTowerSession\x12\x13\n\x0bnum_backups\x18\x01 \x01(\r\x12\x1b\n\x13num_pending_backups\x18\x02 \x01(\r\x12\x13\n\x0bmax_backups\x18\x03 \x01(\r\x12\x1e\n\x12sweep_sat_per_byte\x18\x04 \x01(\rB\x02\x18\x01\x12\x1b\n\x13sweep_sat_per_vbyte\x18\x05 \x01(\r\"\x8f\x01\n\x05Tower\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x11\n\taddresses\x18\x02 \x03(\t\x12 \n\x18\x61\x63tive_session_candidate\x18\x03 \x01(\x08\x12\x14\n\x0cnum_sessions\x18\x04 \x01(\r\x12+\n\x08sessions\x18\x05 \x03(\x0b\x32\x19.wtclientrpc.TowerSession\"-\n\x11ListTowersRequest\x12\x18\n\x10include_sessions\x18\x01 \x01(\x08\"8\n\x12ListTowersResponse\x12\"\n\x06towers\x18\x01 \x03(\x0b\x32\x12.wtclientrpc.Tower\"\x0e\n\x0cStatsRequest\"\x9c\x01\n\rStatsResponse\x12\x13\n\x0bnum_backups\x18\x01 \x01(\r\x12\x1b\n\x13num_pending_backups\x18\x02 \x01(\r\x12\x1a\n\x12num_failed_backups\x18\x03 \x01(\r\x12\x1d\n\x15num_sessions_acquired\x18\x04 \x01(\r\x12\x1e\n\x16num_sessions_exhausted\x18\x05 \x01(\r\"=\n\rPolicyRequest\x12,\n\x0bpolicy_type\x18\x01 \x01(\x0e\x32\x17.wtclientrpc.PolicyType\"b\n\x0ePolicyResponse\x12\x13\n\x0bmax_updates\x18\x01 \x01(\r\x12\x1e\n\x12sweep_sat_per_byte\x18\x02 \x01(\rB\x02\x18\x01\x12\x1b\n\x13sweep_sat_per_vbyte\x18\x03 \x01(\r*$\n\nPolicyType\x12\n\n\x06LEGACY\x10\x00\x12\n\n\x06\x41NCHOR\x10\x01\x32\xc5\x03\n\x10WatchtowerClient\x12G\n\x08\x41\x64\x64Tower\x12\x1c.wtclientrpc.AddTowerRequest\x1a\x1d.wtclientrpc.AddTowerResponse\x12P\n\x0bRemoveTower\x12\x1f.wtclientrpc.RemoveTowerRequest\x1a .wtclientrpc.RemoveTowerResponse\x12M\n\nListTowers\x12\x1e.wtclientrpc.ListTowersRequest\x1a\x1f.wtclientrpc.ListTowersResponse\x12\x44\n\x0cGetTowerInfo\x12 .wtclientrpc.GetTowerInfoRequest\x1a\x12.wtclientrpc.Tower\x12>\n\x05Stats\x12\x19.wtclientrpc.StatsRequest\x1a\x1a.wtclientrpc.StatsResponse\x12\x41\n\x06Policy\x12\x1a.wtclientrpc.PolicyRequest\x1a\x1b.wtclientrpc.PolicyResponseB3Z1github.com/lightningnetwork/lnd/lnrpc/wtclientrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/wtclient.proto\x12\x0bwtclientrpc\"2\n\x0f\x41\x64\x64TowerRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"\x12\n\x10\x41\x64\x64TowerResponse\"5\n\x12RemoveTowerRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"\x15\n\x13RemoveTowerResponse\"(\n\x16\x44\x65\x61\x63tivateTowerRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\")\n\x17\x44\x65\x61\x63tivateTowerResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"-\n\x17TerminateSessionRequest\x12\x12\n\nsession_id\x18\x01 \x01(\x0c\"*\n\x18TerminateSessionResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"c\n\x13GetTowerInfoRequest\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x18\n\x10include_sessions\x18\x02 \x01(\x08\x12\"\n\x1a\x65xclude_exhausted_sessions\x18\x03 \x01(\x08\"\x9e\x01\n\x0cTowerSession\x12\x13\n\x0bnum_backups\x18\x01 \x01(\r\x12\x1b\n\x13num_pending_backups\x18\x02 \x01(\r\x12\x13\n\x0bmax_backups\x18\x03 \x01(\r\x12\x1e\n\x12sweep_sat_per_byte\x18\x04 \x01(\rB\x02\x18\x01\x12\x1b\n\x13sweep_sat_per_vbyte\x18\x05 \x01(\r\x12\n\n\x02id\x18\x06 \x01(\x0c\"\xd0\x01\n\x05Tower\x12\x0e\n\x06pubkey\x18\x01 \x01(\x0c\x12\x11\n\taddresses\x18\x02 \x03(\t\x12$\n\x18\x61\x63tive_session_candidate\x18\x03 \x01(\x08\x42\x02\x18\x01\x12\x18\n\x0cnum_sessions\x18\x04 \x01(\rB\x02\x18\x01\x12/\n\x08sessions\x18\x05 \x03(\x0b\x32\x19.wtclientrpc.TowerSessionB\x02\x18\x01\x12\x33\n\x0csession_info\x18\x06 \x03(\x0b\x32\x1d.wtclientrpc.TowerSessionInfo\"\xa5\x01\n\x10TowerSessionInfo\x12 \n\x18\x61\x63tive_session_candidate\x18\x01 \x01(\x08\x12\x14\n\x0cnum_sessions\x18\x02 \x01(\r\x12+\n\x08sessions\x18\x03 \x03(\x0b\x32\x19.wtclientrpc.TowerSession\x12,\n\x0bpolicy_type\x18\x04 \x01(\x0e\x32\x17.wtclientrpc.PolicyType\"Q\n\x11ListTowersRequest\x12\x18\n\x10include_sessions\x18\x01 \x01(\x08\x12\"\n\x1a\x65xclude_exhausted_sessions\x18\x02 \x01(\x08\"8\n\x12ListTowersResponse\x12\"\n\x06towers\x18\x01 \x03(\x0b\x32\x12.wtclientrpc.Tower\"\x0e\n\x0cStatsRequest\"\x9c\x01\n\rStatsResponse\x12\x13\n\x0bnum_backups\x18\x01 \x01(\r\x12\x1b\n\x13num_pending_backups\x18\x02 \x01(\r\x12\x1a\n\x12num_failed_backups\x18\x03 \x01(\r\x12\x1d\n\x15num_sessions_acquired\x18\x04 \x01(\r\x12\x1e\n\x16num_sessions_exhausted\x18\x05 \x01(\r\"=\n\rPolicyRequest\x12,\n\x0bpolicy_type\x18\x01 \x01(\x0e\x32\x17.wtclientrpc.PolicyType\"b\n\x0ePolicyResponse\x12\x13\n\x0bmax_updates\x18\x01 \x01(\r\x12\x1e\n\x12sweep_sat_per_byte\x18\x02 \x01(\rB\x02\x18\x01\x12\x1b\n\x13sweep_sat_per_vbyte\x18\x03 \x01(\r*1\n\nPolicyType\x12\n\n\x06LEGACY\x10\x00\x12\n\n\x06\x41NCHOR\x10\x01\x12\x0b\n\x07TAPROOT\x10\x02\x32\x84\x05\n\x10WatchtowerClient\x12G\n\x08\x41\x64\x64Tower\x12\x1c.wtclientrpc.AddTowerRequest\x1a\x1d.wtclientrpc.AddTowerResponse\x12P\n\x0bRemoveTower\x12\x1f.wtclientrpc.RemoveTowerRequest\x1a .wtclientrpc.RemoveTowerResponse\x12\\\n\x0f\x44\x65\x61\x63tivateTower\x12#.wtclientrpc.DeactivateTowerRequest\x1a$.wtclientrpc.DeactivateTowerResponse\x12_\n\x10TerminateSession\x12$.wtclientrpc.TerminateSessionRequest\x1a%.wtclientrpc.TerminateSessionResponse\x12M\n\nListTowers\x12\x1e.wtclientrpc.ListTowersRequest\x1a\x1f.wtclientrpc.ListTowersResponse\x12\x44\n\x0cGetTowerInfo\x12 .wtclientrpc.GetTowerInfoRequest\x1a\x12.wtclientrpc.Tower\x12>\n\x05Stats\x12\x19.wtclientrpc.StatsRequest\x1a\x1a.wtclientrpc.StatsResponse\x12\x41\n\x06Policy\x12\x1a.wtclientrpc.PolicyRequest\x1a\x1b.wtclientrpc.PolicyResponseB3Z1github.com/lightningnetwork/lnd/lnrpc/wtclientrpcb\x06proto3')
 
 _POLICYTYPE = DESCRIPTOR.enum_types_by_name['PolicyType']
 PolicyType = enum_type_wrapper.EnumTypeWrapper(_POLICYTYPE)
 LEGACY = 0
 ANCHOR = 1
+TAPROOT = 2
 
 
 _ADDTOWERREQUEST = DESCRIPTOR.message_types_by_name['AddTowerRequest']
 _ADDTOWERRESPONSE = DESCRIPTOR.message_types_by_name['AddTowerResponse']
 _REMOVETOWERREQUEST = DESCRIPTOR.message_types_by_name['RemoveTowerRequest']
 _REMOVETOWERRESPONSE = DESCRIPTOR.message_types_by_name['RemoveTowerResponse']
+_DEACTIVATETOWERREQUEST = DESCRIPTOR.message_types_by_name['DeactivateTowerRequest']
+_DEACTIVATETOWERRESPONSE = DESCRIPTOR.message_types_by_name['DeactivateTowerResponse']
+_TERMINATESESSIONREQUEST = DESCRIPTOR.message_types_by_name['TerminateSessionRequest']
+_TERMINATESESSIONRESPONSE = DESCRIPTOR.message_types_by_name['TerminateSessionResponse']
 _GETTOWERINFOREQUEST = DESCRIPTOR.message_types_by_name['GetTowerInfoRequest']
 _TOWERSESSION = DESCRIPTOR.message_types_by_name['TowerSession']
 _TOWER = DESCRIPTOR.message_types_by_name['Tower']
+_TOWERSESSIONINFO = DESCRIPTOR.message_types_by_name['TowerSessionInfo']
 _LISTTOWERSREQUEST = DESCRIPTOR.message_types_by_name['ListTowersRequest']
 _LISTTOWERSRESPONSE = DESCRIPTOR.message_types_by_name['ListTowersResponse']
 _STATSREQUEST = DESCRIPTOR.message_types_by_name['StatsRequest']
@@ -64,6 +70,34 @@ RemoveTowerResponse = _reflection.GeneratedProtocolMessageType('RemoveTowerRespo
   })
 _sym_db.RegisterMessage(RemoveTowerResponse)
 
+DeactivateTowerRequest = _reflection.GeneratedProtocolMessageType('DeactivateTowerRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEACTIVATETOWERREQUEST,
+  '__module__' : 'lndgrpc.compiled.wtclient_pb2'
+  # @@protoc_insertion_point(class_scope:wtclientrpc.DeactivateTowerRequest)
+  })
+_sym_db.RegisterMessage(DeactivateTowerRequest)
+
+DeactivateTowerResponse = _reflection.GeneratedProtocolMessageType('DeactivateTowerResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEACTIVATETOWERRESPONSE,
+  '__module__' : 'lndgrpc.compiled.wtclient_pb2'
+  # @@protoc_insertion_point(class_scope:wtclientrpc.DeactivateTowerResponse)
+  })
+_sym_db.RegisterMessage(DeactivateTowerResponse)
+
+TerminateSessionRequest = _reflection.GeneratedProtocolMessageType('TerminateSessionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _TERMINATESESSIONREQUEST,
+  '__module__' : 'lndgrpc.compiled.wtclient_pb2'
+  # @@protoc_insertion_point(class_scope:wtclientrpc.TerminateSessionRequest)
+  })
+_sym_db.RegisterMessage(TerminateSessionRequest)
+
+TerminateSessionResponse = _reflection.GeneratedProtocolMessageType('TerminateSessionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TERMINATESESSIONRESPONSE,
+  '__module__' : 'lndgrpc.compiled.wtclient_pb2'
+  # @@protoc_insertion_point(class_scope:wtclientrpc.TerminateSessionResponse)
+  })
+_sym_db.RegisterMessage(TerminateSessionResponse)
+
 GetTowerInfoRequest = _reflection.GeneratedProtocolMessageType('GetTowerInfoRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETTOWERINFOREQUEST,
   '__module__' : 'lndgrpc.compiled.wtclient_pb2'
@@ -84,6 +118,13 @@ Tower = _reflection.GeneratedProtocolMessageType('Tower', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:wtclientrpc.Tower)
   })
 _sym_db.RegisterMessage(Tower)
+
+TowerSessionInfo = _reflection.GeneratedProtocolMessageType('TowerSessionInfo', (_message.Message,), {
+  'DESCRIPTOR' : _TOWERSESSIONINFO,
+  '__module__' : 'lndgrpc.compiled.wtclient_pb2'
+  # @@protoc_insertion_point(class_scope:wtclientrpc.TowerSessionInfo)
+  })
+_sym_db.RegisterMessage(TowerSessionInfo)
 
 ListTowersRequest = _reflection.GeneratedProtocolMessageType('ListTowersRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTTOWERSREQUEST,
@@ -134,10 +175,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'Z1github.com/lightningnetwork/lnd/lnrpc/wtclientrpc'
   _TOWERSESSION.fields_by_name['sweep_sat_per_byte']._options = None
   _TOWERSESSION.fields_by_name['sweep_sat_per_byte']._serialized_options = b'\030\001'
+  _TOWER.fields_by_name['active_session_candidate']._options = None
+  _TOWER.fields_by_name['active_session_candidate']._serialized_options = b'\030\001'
+  _TOWER.fields_by_name['num_sessions']._options = None
+  _TOWER.fields_by_name['num_sessions']._serialized_options = b'\030\001'
+  _TOWER.fields_by_name['sessions']._options = None
+  _TOWER.fields_by_name['sessions']._serialized_options = b'\030\001'
   _POLICYRESPONSE.fields_by_name['sweep_sat_per_byte']._options = None
   _POLICYRESPONSE.fields_by_name['sweep_sat_per_byte']._serialized_options = b'\030\001'
-  _POLICYTYPE._serialized_start=1001
-  _POLICYTYPE._serialized_end=1037
+  _POLICYTYPE._serialized_start=1494
+  _POLICYTYPE._serialized_end=1543
   _ADDTOWERREQUEST._serialized_start=48
   _ADDTOWERREQUEST._serialized_end=98
   _ADDTOWERRESPONSE._serialized_start=100
@@ -146,24 +193,34 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _REMOVETOWERREQUEST._serialized_end=173
   _REMOVETOWERRESPONSE._serialized_start=175
   _REMOVETOWERRESPONSE._serialized_end=196
-  _GETTOWERINFOREQUEST._serialized_start=198
-  _GETTOWERINFOREQUEST._serialized_end=261
-  _TOWERSESSION._serialized_start=264
-  _TOWERSESSION._serialized_end=410
-  _TOWER._serialized_start=413
-  _TOWER._serialized_end=556
-  _LISTTOWERSREQUEST._serialized_start=558
-  _LISTTOWERSREQUEST._serialized_end=603
-  _LISTTOWERSRESPONSE._serialized_start=605
-  _LISTTOWERSRESPONSE._serialized_end=661
-  _STATSREQUEST._serialized_start=663
-  _STATSREQUEST._serialized_end=677
-  _STATSRESPONSE._serialized_start=680
-  _STATSRESPONSE._serialized_end=836
-  _POLICYREQUEST._serialized_start=838
-  _POLICYREQUEST._serialized_end=899
-  _POLICYRESPONSE._serialized_start=901
-  _POLICYRESPONSE._serialized_end=999
-  _WATCHTOWERCLIENT._serialized_start=1040
-  _WATCHTOWERCLIENT._serialized_end=1493
+  _DEACTIVATETOWERREQUEST._serialized_start=198
+  _DEACTIVATETOWERREQUEST._serialized_end=238
+  _DEACTIVATETOWERRESPONSE._serialized_start=240
+  _DEACTIVATETOWERRESPONSE._serialized_end=281
+  _TERMINATESESSIONREQUEST._serialized_start=283
+  _TERMINATESESSIONREQUEST._serialized_end=328
+  _TERMINATESESSIONRESPONSE._serialized_start=330
+  _TERMINATESESSIONRESPONSE._serialized_end=372
+  _GETTOWERINFOREQUEST._serialized_start=374
+  _GETTOWERINFOREQUEST._serialized_end=473
+  _TOWERSESSION._serialized_start=476
+  _TOWERSESSION._serialized_end=634
+  _TOWER._serialized_start=637
+  _TOWER._serialized_end=845
+  _TOWERSESSIONINFO._serialized_start=848
+  _TOWERSESSIONINFO._serialized_end=1013
+  _LISTTOWERSREQUEST._serialized_start=1015
+  _LISTTOWERSREQUEST._serialized_end=1096
+  _LISTTOWERSRESPONSE._serialized_start=1098
+  _LISTTOWERSRESPONSE._serialized_end=1154
+  _STATSREQUEST._serialized_start=1156
+  _STATSREQUEST._serialized_end=1170
+  _STATSRESPONSE._serialized_start=1173
+  _STATSRESPONSE._serialized_end=1329
+  _POLICYREQUEST._serialized_start=1331
+  _POLICYREQUEST._serialized_end=1392
+  _POLICYRESPONSE._serialized_start=1394
+  _POLICYRESPONSE._serialized_end=1492
+  _WATCHTOWERCLIENT._serialized_start=1546
+  _WATCHTOWERCLIENT._serialized_end=2190
 # @@protoc_insertion_point(module_scope)

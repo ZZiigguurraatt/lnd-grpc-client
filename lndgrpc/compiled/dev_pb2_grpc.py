@@ -7,7 +7,24 @@ from lndgrpc.compiled import lightning_pb2 as lndgrpc_dot_compiled_dot_lightning
 
 
 class DevStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -23,10 +40,27 @@ class DevStub(object):
 
 
 class DevServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    """
 
     def ImportGraph(self, request, context):
-        """
+        """lncli: `importgraph`
         ImportGraph imports a ChannelGraph into the graph database. Should only be
         used for development.
         """
@@ -50,7 +84,24 @@ def add_DevServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Dev(object):
-    """Missing associated documentation comment in .proto file."""
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    """
 
     @staticmethod
     def ImportGraph(request,

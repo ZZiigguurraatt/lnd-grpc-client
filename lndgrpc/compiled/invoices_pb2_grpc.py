@@ -7,7 +7,24 @@ from lndgrpc.compiled import lightning_pb2 as lndgrpc_dot_compiled_dot_lightning
 
 
 class InvoicesStub(object):
-    """Invoices is a service that can be used to create, accept, settle and cancel
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Invoices is a service that can be used to create, accept, settle and cancel
     invoices.
     """
 
@@ -42,10 +59,32 @@ class InvoicesStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_invoices__pb2.LookupInvoiceMsg.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.FromString,
                 )
+        self.HtlcModifier = channel.stream_stream(
+                '/invoicesrpc.Invoices/HtlcModifier',
+                request_serializer=lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyResponse.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyRequest.FromString,
+                )
 
 
 class InvoicesServicer(object):
-    """Invoices is a service that can be used to create, accept, settle and cancel
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Invoices is a service that can be used to create, accept, settle and cancel
     invoices.
     """
 
@@ -60,7 +99,7 @@ class InvoicesServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CancelInvoice(self, request, context):
-        """
+        """lncli: `cancelinvoice`
         CancelInvoice cancels a currently open invoice. If the invoice is already
         canceled, this call will succeed. If the invoice is already settled, it will
         fail.
@@ -70,7 +109,7 @@ class InvoicesServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AddHoldInvoice(self, request, context):
-        """
+        """lncli: `addholdinvoice`
         AddHoldInvoice creates a hold invoice. It ties the invoice to the hash
         supplied in the request.
         """
@@ -79,7 +118,7 @@ class InvoicesServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SettleInvoice(self, request, context):
-        """
+        """lncli: `settleinvoice`
         SettleInvoice settles an accepted invoice. If the invoice is already
         settled, this call will succeed.
         """
@@ -89,8 +128,19 @@ class InvoicesServicer(object):
 
     def LookupInvoiceV2(self, request, context):
         """
-        LookupInvoiceV2 attempts to look up at invoice. An invoice can be refrenced
+        LookupInvoiceV2 attempts to look up at invoice. An invoice can be referenced
         using either its payment hash, payment address, or set ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def HtlcModifier(self, request_iterator, context):
+        """
+        HtlcModifier is a bidirectional streaming RPC that allows a client to
+        intercept and modify the HTLCs that attempt to settle the given invoice. The
+        server will send HTLCs of invoices to the client and the client can modify
+        some aspects of the HTLC in order to pass the invoice acceptance tests.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -124,6 +174,11 @@ def add_InvoicesServicer_to_server(servicer, server):
                     request_deserializer=lndgrpc_dot_compiled_dot_invoices__pb2.LookupInvoiceMsg.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.SerializeToString,
             ),
+            'HtlcModifier': grpc.stream_stream_rpc_method_handler(
+                    servicer.HtlcModifier,
+                    request_deserializer=lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyResponse.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyRequest.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'invoicesrpc.Invoices', rpc_method_handlers)
@@ -132,7 +187,24 @@ def add_InvoicesServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Invoices(object):
-    """Invoices is a service that can be used to create, accept, settle and cancel
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Invoices is a service that can be used to create, accept, settle and cancel
     invoices.
     """
 
@@ -218,5 +290,22 @@ class Invoices(object):
         return grpc.experimental.unary_unary(request, target, '/invoicesrpc.Invoices/LookupInvoiceV2',
             lndgrpc_dot_compiled_dot_invoices__pb2.LookupInvoiceMsg.SerializeToString,
             lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def HtlcModifier(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/invoicesrpc.Invoices/HtlcModifier',
+            lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyResponse.SerializeToString,
+            lndgrpc_dot_compiled_dot_invoices__pb2.HtlcModifyRequest.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

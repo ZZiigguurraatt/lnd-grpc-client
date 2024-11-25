@@ -6,7 +6,24 @@ from lndgrpc.compiled import wtclient_pb2 as lndgrpc_dot_compiled_dot_wtclient__
 
 
 class WatchtowerClientStub(object):
-    """WatchtowerClient is a service that grants access to the watchtower client
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WatchtowerClient is a service that grants access to the watchtower client
     functionality of the daemon.
     """
 
@@ -25,6 +42,16 @@ class WatchtowerClientStub(object):
                 '/wtclientrpc.WatchtowerClient/RemoveTower',
                 request_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerResponse.FromString,
+                )
+        self.DeactivateTower = channel.unary_unary(
+                '/wtclientrpc.WatchtowerClient/DeactivateTower',
+                request_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerResponse.FromString,
+                )
+        self.TerminateSession = channel.unary_unary(
+                '/wtclientrpc.WatchtowerClient/TerminateSession',
+                request_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionResponse.FromString,
                 )
         self.ListTowers = channel.unary_unary(
                 '/wtclientrpc.WatchtowerClient/ListTowers',
@@ -49,12 +76,29 @@ class WatchtowerClientStub(object):
 
 
 class WatchtowerClientServicer(object):
-    """WatchtowerClient is a service that grants access to the watchtower client
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WatchtowerClient is a service that grants access to the watchtower client
     functionality of the daemon.
     """
 
     def AddTower(self, request, context):
-        """
+        """lncli: `wtclient add`
         AddTower adds a new watchtower reachable at the given address and
         considers it for new sessions. If the watchtower already exists, then
         any new addresses included will be considered when dialing it for
@@ -65,7 +109,7 @@ class WatchtowerClientServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RemoveTower(self, request, context):
-        """
+        """lncli: `wtclient remove`
         RemoveTower removes a watchtower from being considered for future session
         negotiations and from being used for any subsequent backups until it's added
         again. If an address is provided, then this RPC only serves as a way of
@@ -75,29 +119,52 @@ class WatchtowerClientServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeactivateTower(self, request, context):
+        """lncli: `wtclient deactivate`
+        DeactivateTower sets the given tower's status to inactive so that it
+        is not considered for session negotiation. Its sessions will also not
+        be used while the tower is inactive.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TerminateSession(self, request, context):
+        """lncli: `wtclient session terminate`
+        Terminate terminates the given session and marks it as terminal so that
+        it is not used for backups anymore.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListTowers(self, request, context):
-        """ListTowers returns the list of watchtowers registered with the client.
+        """lncli: `wtclient towers`
+        ListTowers returns the list of watchtowers registered with the client.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTowerInfo(self, request, context):
-        """GetTowerInfo retrieves information for a registered watchtower.
+        """lncli: `wtclient tower`
+        GetTowerInfo retrieves information for a registered watchtower.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Stats(self, request, context):
-        """Stats returns the in-memory statistics of the client since startup.
+        """lncli: `wtclient stats`
+        Stats returns the in-memory statistics of the client since startup.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Policy(self, request, context):
-        """Policy returns the active watchtower client policy configuration.
+        """lncli: `wtclient policy`
+        Policy returns the active watchtower client policy configuration.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -115,6 +182,16 @@ def add_WatchtowerClientServicer_to_server(servicer, server):
                     servicer.RemoveTower,
                     request_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerResponse.SerializeToString,
+            ),
+            'DeactivateTower': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeactivateTower,
+                    request_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerResponse.SerializeToString,
+            ),
+            'TerminateSession': grpc.unary_unary_rpc_method_handler(
+                    servicer.TerminateSession,
+                    request_deserializer=lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionResponse.SerializeToString,
             ),
             'ListTowers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTowers,
@@ -144,7 +221,24 @@ def add_WatchtowerClientServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class WatchtowerClient(object):
-    """WatchtowerClient is a service that grants access to the watchtower client
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    WatchtowerClient is a service that grants access to the watchtower client
     functionality of the daemon.
     """
 
@@ -179,6 +273,40 @@ class WatchtowerClient(object):
         return grpc.experimental.unary_unary(request, target, '/wtclientrpc.WatchtowerClient/RemoveTower',
             lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_wtclient__pb2.RemoveTowerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeactivateTower(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wtclientrpc.WatchtowerClient/DeactivateTower',
+            lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_wtclient__pb2.DeactivateTowerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TerminateSession(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wtclientrpc.WatchtowerClient/TerminateSession',
+            lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_wtclient__pb2.TerminateSessionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

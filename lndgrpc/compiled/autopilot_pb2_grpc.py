@@ -6,7 +6,24 @@ from lndgrpc.compiled import autopilot_pb2 as lndgrpc_dot_compiled_dot_autopilot
 
 
 class AutopilotStub(object):
-    """Autopilot is a service that can be used to get information about the current
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Autopilot is a service that can be used to get information about the current
     state of the daemon's autopilot agent, and also supply it with information
     that can be used when deciding where to open channels.
     """
@@ -40,13 +57,30 @@ class AutopilotStub(object):
 
 
 class AutopilotServicer(object):
-    """Autopilot is a service that can be used to get information about the current
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Autopilot is a service that can be used to get information about the current
     state of the daemon's autopilot agent, and also supply it with information
     that can be used when deciding where to open channels.
     """
 
     def Status(self, request, context):
-        """
+        """lncli: `autopilot status`
         Status returns whether the daemon's autopilot agent is active.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -63,7 +97,7 @@ class AutopilotServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QueryScores(self, request, context):
-        """
+        """lncli: `autopilot query`
         QueryScores queries all available autopilot heuristics, in addition to any
         active combination of these heruristics, for the scores they would give to
         the given nodes.
@@ -112,7 +146,24 @@ def add_AutopilotServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Autopilot(object):
-    """Autopilot is a service that can be used to get information about the current
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Autopilot is a service that can be used to get information about the current
     state of the daemon's autopilot agent, and also supply it with information
     that can be used when deciding where to open channels.
     """

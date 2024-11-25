@@ -6,7 +6,24 @@ from lndgrpc.compiled import watchtower_pb2 as lndgrpc_dot_compiled_dot_watchtow
 
 
 class WatchtowerStub(object):
-    """Watchtower is a service that grants access to the watchtower server
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Watchtower is a service that grants access to the watchtower server
     functionality of the daemon.
     """
 
@@ -24,12 +41,29 @@ class WatchtowerStub(object):
 
 
 class WatchtowerServicer(object):
-    """Watchtower is a service that grants access to the watchtower server
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Watchtower is a service that grants access to the watchtower server
     functionality of the daemon.
     """
 
     def GetInfo(self, request, context):
-        """lncli: tower info
+        """lncli: `tower info`
         GetInfo returns general information concerning the companion watchtower
         including its public key and URIs where the server is currently
         listening for clients.
@@ -54,7 +88,24 @@ def add_WatchtowerServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Watchtower(object):
-    """Watchtower is a service that grants access to the watchtower server
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    Watchtower is a service that grants access to the watchtower server
     functionality of the daemon.
     """
 

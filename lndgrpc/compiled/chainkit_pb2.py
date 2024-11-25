@@ -14,12 +14,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/chainkit.proto\x12\x08\x63hainrpc\"%\n\x0fGetBlockRequest\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\"%\n\x10GetBlockResponse\x12\x11\n\traw_block\x18\x01 \x01(\x0c\"\x15\n\x13GetBestBlockRequest\"@\n\x14GetBestBlockResponse\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x02 \x01(\x05\"+\n\x13GetBlockHashRequest\x12\x14\n\x0c\x62lock_height\x18\x01 \x01(\x03\"*\n\x14GetBlockHashResponse\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\x32\xeb\x01\n\x08\x43hainKit\x12\x41\n\x08GetBlock\x12\x19.chainrpc.GetBlockRequest\x1a\x1a.chainrpc.GetBlockResponse\x12M\n\x0cGetBestBlock\x12\x1d.chainrpc.GetBestBlockRequest\x1a\x1e.chainrpc.GetBestBlockResponse\x12M\n\x0cGetBlockHash\x12\x1d.chainrpc.GetBlockHashRequest\x1a\x1e.chainrpc.GetBlockHashResponseB0Z.github.com/lightningnetwork/lnd/lnrpc/chainrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/chainkit.proto\x12\x08\x63hainrpc\"%\n\x0fGetBlockRequest\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\"%\n\x10GetBlockResponse\x12\x11\n\traw_block\x18\x01 \x01(\x0c\"+\n\x15GetBlockHeaderRequest\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\"2\n\x16GetBlockHeaderResponse\x12\x18\n\x10raw_block_header\x18\x01 \x01(\x0c\"\x15\n\x13GetBestBlockRequest\"@\n\x14GetBestBlockResponse\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x02 \x01(\x05\"+\n\x13GetBlockHashRequest\x12\x14\n\x0c\x62lock_height\x18\x01 \x01(\x03\"*\n\x14GetBlockHashResponse\x12\x12\n\nblock_hash\x18\x01 \x01(\x0c\x32\xc0\x02\n\x08\x43hainKit\x12\x41\n\x08GetBlock\x12\x19.chainrpc.GetBlockRequest\x1a\x1a.chainrpc.GetBlockResponse\x12S\n\x0eGetBlockHeader\x12\x1f.chainrpc.GetBlockHeaderRequest\x1a .chainrpc.GetBlockHeaderResponse\x12M\n\x0cGetBestBlock\x12\x1d.chainrpc.GetBestBlockRequest\x1a\x1e.chainrpc.GetBestBlockResponse\x12M\n\x0cGetBlockHash\x12\x1d.chainrpc.GetBlockHashRequest\x1a\x1e.chainrpc.GetBlockHashResponseB0Z.github.com/lightningnetwork/lnd/lnrpc/chainrpcb\x06proto3')
 
 
 
 _GETBLOCKREQUEST = DESCRIPTOR.message_types_by_name['GetBlockRequest']
 _GETBLOCKRESPONSE = DESCRIPTOR.message_types_by_name['GetBlockResponse']
+_GETBLOCKHEADERREQUEST = DESCRIPTOR.message_types_by_name['GetBlockHeaderRequest']
+_GETBLOCKHEADERRESPONSE = DESCRIPTOR.message_types_by_name['GetBlockHeaderResponse']
 _GETBESTBLOCKREQUEST = DESCRIPTOR.message_types_by_name['GetBestBlockRequest']
 _GETBESTBLOCKRESPONSE = DESCRIPTOR.message_types_by_name['GetBestBlockResponse']
 _GETBLOCKHASHREQUEST = DESCRIPTOR.message_types_by_name['GetBlockHashRequest']
@@ -37,6 +39,20 @@ GetBlockResponse = _reflection.GeneratedProtocolMessageType('GetBlockResponse', 
   # @@protoc_insertion_point(class_scope:chainrpc.GetBlockResponse)
   })
 _sym_db.RegisterMessage(GetBlockResponse)
+
+GetBlockHeaderRequest = _reflection.GeneratedProtocolMessageType('GetBlockHeaderRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETBLOCKHEADERREQUEST,
+  '__module__' : 'lndgrpc.compiled.chainkit_pb2'
+  # @@protoc_insertion_point(class_scope:chainrpc.GetBlockHeaderRequest)
+  })
+_sym_db.RegisterMessage(GetBlockHeaderRequest)
+
+GetBlockHeaderResponse = _reflection.GeneratedProtocolMessageType('GetBlockHeaderResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETBLOCKHEADERRESPONSE,
+  '__module__' : 'lndgrpc.compiled.chainkit_pb2'
+  # @@protoc_insertion_point(class_scope:chainrpc.GetBlockHeaderResponse)
+  })
+_sym_db.RegisterMessage(GetBlockHeaderResponse)
 
 GetBestBlockRequest = _reflection.GeneratedProtocolMessageType('GetBestBlockRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBESTBLOCKREQUEST,
@@ -75,14 +91,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETBLOCKREQUEST._serialized_end=82
   _GETBLOCKRESPONSE._serialized_start=84
   _GETBLOCKRESPONSE._serialized_end=121
-  _GETBESTBLOCKREQUEST._serialized_start=123
-  _GETBESTBLOCKREQUEST._serialized_end=144
-  _GETBESTBLOCKRESPONSE._serialized_start=146
-  _GETBESTBLOCKRESPONSE._serialized_end=210
-  _GETBLOCKHASHREQUEST._serialized_start=212
-  _GETBLOCKHASHREQUEST._serialized_end=255
-  _GETBLOCKHASHRESPONSE._serialized_start=257
-  _GETBLOCKHASHRESPONSE._serialized_end=299
-  _CHAINKIT._serialized_start=302
-  _CHAINKIT._serialized_end=537
+  _GETBLOCKHEADERREQUEST._serialized_start=123
+  _GETBLOCKHEADERREQUEST._serialized_end=166
+  _GETBLOCKHEADERRESPONSE._serialized_start=168
+  _GETBLOCKHEADERRESPONSE._serialized_end=218
+  _GETBESTBLOCKREQUEST._serialized_start=220
+  _GETBESTBLOCKREQUEST._serialized_end=241
+  _GETBESTBLOCKRESPONSE._serialized_start=243
+  _GETBESTBLOCKRESPONSE._serialized_end=307
+  _GETBLOCKHASHREQUEST._serialized_start=309
+  _GETBLOCKHASHREQUEST._serialized_end=352
+  _GETBLOCKHASHRESPONSE._serialized_start=354
+  _GETBLOCKHASHRESPONSE._serialized_end=396
+  _CHAINKIT._serialized_start=399
+  _CHAINKIT._serialized_end=719
 # @@protoc_insertion_point(module_scope)

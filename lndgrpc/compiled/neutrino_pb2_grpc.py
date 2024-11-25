@@ -6,7 +6,24 @@ from lndgrpc.compiled import neutrino_pb2 as lndgrpc_dot_compiled_dot_neutrino__
 
 
 class NeutrinoKitStub(object):
-    """NeutrinoKit is a service that can be used to get information about the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    NeutrinoKit is a service that can be used to get information about the
     current state of the neutrino instance, fetch blocks and add/remove peers.
     """
 
@@ -59,12 +76,29 @@ class NeutrinoKitStub(object):
 
 
 class NeutrinoKitServicer(object):
-    """NeutrinoKit is a service that can be used to get information about the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    NeutrinoKit is a service that can be used to get information about the
     current state of the neutrino instance, fetch blocks and add/remove peers.
     """
 
     def Status(self, request, context):
-        """
+        """lncli: `neutrino status`
         Status returns the status of the light client neutrino instance,
         along with height and hash of the best block, and a list of connected
         peers.
@@ -74,7 +108,7 @@ class NeutrinoKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AddPeer(self, request, context):
-        """
+        """lncli: `neutrino addpeer`
         AddPeer adds a new peer that has already been connected to the server.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -82,7 +116,7 @@ class NeutrinoKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DisconnectPeer(self, request, context):
-        """
+        """lncli: `neutrino disconnectpeer`
         DisconnectPeer disconnects a peer by target address. Both outbound and
         inbound nodes will be searched for the target node. An error message will
         be returned if the peer was not found.
@@ -92,7 +126,7 @@ class NeutrinoKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def IsBanned(self, request, context):
-        """
+        """lncli: `neutrino isbanned`
         IsBanned returns true if the peer is banned, otherwise false.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -100,7 +134,7 @@ class NeutrinoKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetBlockHeader(self, request, context):
-        """
+        """lncli: `neutrino getblockheader`
         GetBlockHeader returns a block header with a particular block hash.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -116,7 +150,7 @@ class NeutrinoKitServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetCFilter(self, request, context):
-        """
+        """lncli: `neutrino getcfilter`
         GetCFilter returns a compact filter from a block.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -125,6 +159,7 @@ class NeutrinoKitServicer(object):
 
     def GetBlockHash(self, request, context):
         """
+        Deprecated, use chainrpc.GetBlockHash instead.
         GetBlockHash returns the header hash of a block at a given height.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -182,7 +217,24 @@ def add_NeutrinoKitServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class NeutrinoKit(object):
-    """NeutrinoKit is a service that can be used to get information about the
+    """
+    Comments in this file will be directly parsed into the API
+    Documentation as descriptions of the associated method, message, or field.
+    These descriptions should go right above the definition of the object, and
+    can be in either block or // comment format.
+
+    An RPC method can be matched to an lncli command by placing a line in the
+    beginning of the description in exactly the following format:
+    lncli: `methodname`
+
+    Failure to specify the exact name of the command will cause documentation
+    generation to fail.
+
+    More information on how exactly the gRPC documentation is generated from
+    this proto file can be found here:
+    https://github.com/lightninglabs/lightning-api
+
+    NeutrinoKit is a service that can be used to get information about the
     current state of the neutrino instance, fetch blocks and add/remove peers.
     """
 

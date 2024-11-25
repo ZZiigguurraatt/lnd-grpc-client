@@ -142,17 +142,15 @@ mkvirtualenv gen_rpc_protos
 workon gen_rpc_protos
 # then
 
-pip install grpcio grpcio-tools googleapis-common-protos sh
+pip install grpcio-tools sh
 
-cd lndgrpc
-git clone --depth 1 https://github.com/googleapis/googleapis.git
-cd ..
 ```
 
 
 Set environment variables
 ```
 export APP_DIR=$HOME/Documents/lightning/lnd
+export TAPP_DIR=$HOME/Documents/lightning/taproot-assets
 export CLIENT_DIR=$HOME/Documents/lightning/lnd-grpc-client
 python3 rebuild_protos.py
 ```

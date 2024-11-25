@@ -112,6 +112,11 @@ class LightningStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoResponse.FromString,
                 )
+        self.GetDebugInfo = channel.unary_unary(
+                '/lnrpc.Lightning/GetDebugInfo',
+                request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoResponse.FromString,
+                )
         self.GetRecoveryInfo = channel.unary_unary(
                 '/lnrpc.Lightning/GetRecoveryInfo',
                 request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetRecoveryInfoRequest.SerializeToString,
@@ -497,8 +502,10 @@ class LightningServicer(object):
 
     def VerifyMessage(self, request, context):
         """lncli: `verifymessage`
-        VerifyMessage verifies a signature over a msg. The signature must be
-        zbase32 encoded and signed by an active node in the resident node's
+        VerifyMessage verifies a signature over a message and recovers the signer's
+        public key. The signature is only deemed valid if the recovered public key
+        corresponds to a node key in the public Lightning network. The signature
+        must be zbase32 encoded and signed by an active node in the resident node's
         channel database. In addition to returning the validity of the signature,
         VerifyMessage also returns the recovered pubkey from the signature.
         """
@@ -549,6 +556,16 @@ class LightningServicer(object):
         GetInfo returns general information concerning the lightning node including
         it's identity pubkey, alias, the chains it is connected to, and information
         concerning the number of open+pending channels.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDebugInfo(self, request, context):
+        """lncli: 'getdebuginfo'
+        GetDebugInfo returns debug information concerning the state of the daemon
+        and its subsystems. This includes the full configuration and the latest log
+        entries from the log file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -783,7 +800,7 @@ class LightningServicer(object):
         optionally specify the add_index and/or the settle_index. If the add_index
         is specified, then we'll first start by sending add invoice events for all
         invoices with an add_index greater than the specified value. If the
-        settle_index is specified, the next, we'll send out all settle events for
+        settle_index is specified, then next, we'll send out all settle events for
         invoices with a settle_index greater than the specified value. One or both
         of these fields can be set. If no fields are set, then we'll only send out
         the latest add/settle events.
@@ -811,7 +828,7 @@ class LightningServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeletePayment(self, request, context):
-        """
+        """lncli: `deletepayments`
         DeletePayment deletes an outgoing payment from DB. Note that it will not
         attempt to delete an In-Flight payment, since that would be unsafe.
         """
@@ -820,7 +837,7 @@ class LightningServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteAllPayments(self, request, context):
-        """
+        """lncli: `deletepayments --all`
         DeleteAllPayments deletes all outgoing payments from DB. Note that it will
         not attempt to delete In-Flight payments, since that would be unsafe.
         """
@@ -991,7 +1008,7 @@ class LightningServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def VerifyChanBackup(self, request, context):
-        """
+        """lncli: `verifychanbackup`
         VerifyChanBackup allows a caller to verify the integrity of a channel backup
         snapshot. This method will accept either a packed Single or a packed Multi.
         Specifying both will result in an error.
@@ -1213,6 +1230,11 @@ def add_LightningServicer_to_server(servicer, server):
                     servicer.GetInfo,
                     request_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoResponse.SerializeToString,
+            ),
+            'GetDebugInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDebugInfo,
+                    request_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoResponse.SerializeToString,
             ),
             'GetRecoveryInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRecoveryInfo,
@@ -1766,6 +1788,23 @@ class Lightning(object):
         return grpc.experimental.unary_unary(request, target, '/lnrpc.Lightning/GetInfo',
             lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_lightning__pb2.GetInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDebugInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/lnrpc.Lightning/GetDebugInfo',
+            lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_lightning__pb2.GetDebugInfoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

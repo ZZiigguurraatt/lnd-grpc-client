@@ -16,7 +16,7 @@ _sym_db = _symbol_database.Default()
 from lndgrpc.compiled import lightning_pb2 as lndgrpc_dot_compiled_dot_lightning__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/invoices.proto\x12\x0binvoicesrpc\x1a lndgrpc/compiled/lightning.proto\"(\n\x10\x43\x61ncelInvoiceMsg\x12\x14\n\x0cpayment_hash\x18\x01 \x01(\x0c\"\x13\n\x11\x43\x61ncelInvoiceResp\"\xe4\x01\n\x15\x41\x64\x64HoldInvoiceRequest\x12\x0c\n\x04memo\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x03\x12\x12\n\nvalue_msat\x18\n \x01(\x03\x12\x18\n\x10\x64\x65scription_hash\x18\x04 \x01(\x0c\x12\x0e\n\x06\x65xpiry\x18\x05 \x01(\x03\x12\x15\n\rfallback_addr\x18\x06 \x01(\t\x12\x13\n\x0b\x63ltv_expiry\x18\x07 \x01(\x04\x12%\n\x0broute_hints\x18\x08 \x03(\x0b\x32\x10.lnrpc.RouteHint\x12\x0f\n\x07private\x18\t \x01(\x08\"V\n\x12\x41\x64\x64HoldInvoiceResp\x12\x17\n\x0fpayment_request\x18\x01 \x01(\t\x12\x11\n\tadd_index\x18\x02 \x01(\x04\x12\x14\n\x0cpayment_addr\x18\x03 \x01(\x0c\"$\n\x10SettleInvoiceMsg\x12\x10\n\x08preimage\x18\x01 \x01(\x0c\"\x13\n\x11SettleInvoiceResp\"5\n\x1dSubscribeSingleInvoiceRequest\x12\x0e\n\x06r_hash\x18\x02 \x01(\x0cJ\x04\x08\x01\x10\x02\"\x99\x01\n\x10LookupInvoiceMsg\x12\x16\n\x0cpayment_hash\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0cpayment_addr\x18\x02 \x01(\x0cH\x00\x12\x10\n\x06set_id\x18\x03 \x01(\x0cH\x00\x12\x34\n\x0flookup_modifier\x18\x04 \x01(\x0e\x32\x1b.invoicesrpc.LookupModifierB\r\n\x0binvoice_ref*D\n\x0eLookupModifier\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x11\n\rHTLC_SET_ONLY\x10\x01\x12\x12\n\x0eHTLC_SET_BLANK\x10\x02\x32\x9b\x03\n\x08Invoices\x12V\n\x16SubscribeSingleInvoice\x12*.invoicesrpc.SubscribeSingleInvoiceRequest\x1a\x0e.lnrpc.Invoice0\x01\x12N\n\rCancelInvoice\x12\x1d.invoicesrpc.CancelInvoiceMsg\x1a\x1e.invoicesrpc.CancelInvoiceResp\x12U\n\x0e\x41\x64\x64HoldInvoice\x12\".invoicesrpc.AddHoldInvoiceRequest\x1a\x1f.invoicesrpc.AddHoldInvoiceResp\x12N\n\rSettleInvoice\x12\x1d.invoicesrpc.SettleInvoiceMsg\x1a\x1e.invoicesrpc.SettleInvoiceResp\x12@\n\x0fLookupInvoiceV2\x12\x1d.invoicesrpc.LookupInvoiceMsg\x1a\x0e.lnrpc.InvoiceB3Z1github.com/lightningnetwork/lnd/lnrpc/invoicesrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/invoices.proto\x12\x0binvoicesrpc\x1a lndgrpc/compiled/lightning.proto\"(\n\x10\x43\x61ncelInvoiceMsg\x12\x14\n\x0cpayment_hash\x18\x01 \x01(\x0c\"\x13\n\x11\x43\x61ncelInvoiceResp\"\xe4\x01\n\x15\x41\x64\x64HoldInvoiceRequest\x12\x0c\n\x04memo\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\x0c\x12\r\n\x05value\x18\x03 \x01(\x03\x12\x12\n\nvalue_msat\x18\n \x01(\x03\x12\x18\n\x10\x64\x65scription_hash\x18\x04 \x01(\x0c\x12\x0e\n\x06\x65xpiry\x18\x05 \x01(\x03\x12\x15\n\rfallback_addr\x18\x06 \x01(\t\x12\x13\n\x0b\x63ltv_expiry\x18\x07 \x01(\x04\x12%\n\x0broute_hints\x18\x08 \x03(\x0b\x32\x10.lnrpc.RouteHint\x12\x0f\n\x07private\x18\t \x01(\x08\"V\n\x12\x41\x64\x64HoldInvoiceResp\x12\x17\n\x0fpayment_request\x18\x01 \x01(\t\x12\x11\n\tadd_index\x18\x02 \x01(\x04\x12\x14\n\x0cpayment_addr\x18\x03 \x01(\x0c\"$\n\x10SettleInvoiceMsg\x12\x10\n\x08preimage\x18\x01 \x01(\x0c\"\x13\n\x11SettleInvoiceResp\"5\n\x1dSubscribeSingleInvoiceRequest\x12\x0e\n\x06r_hash\x18\x02 \x01(\x0cJ\x04\x08\x01\x10\x02\"\x99\x01\n\x10LookupInvoiceMsg\x12\x16\n\x0cpayment_hash\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0cpayment_addr\x18\x02 \x01(\x0cH\x00\x12\x10\n\x06set_id\x18\x03 \x01(\x0cH\x00\x12\x34\n\x0flookup_modifier\x18\x04 \x01(\x0e\x32\x1b.invoicesrpc.LookupModifierB\r\n\x0binvoice_ref\".\n\nCircuitKey\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\x12\x0f\n\x07htlc_id\x18\x02 \x01(\x04\"\xdd\x02\n\x11HtlcModifyRequest\x12\x1f\n\x07invoice\x18\x01 \x01(\x0b\x32\x0e.lnrpc.Invoice\x12\x36\n\x15\x65xit_htlc_circuit_key\x18\x02 \x01(\x0b\x32\x17.invoicesrpc.CircuitKey\x12\x15\n\rexit_htlc_amt\x18\x03 \x01(\x04\x12\x18\n\x10\x65xit_htlc_expiry\x18\x04 \x01(\r\x12\x16\n\x0e\x63urrent_height\x18\x05 \x01(\r\x12\x64\n\x1d\x65xit_htlc_wire_custom_records\x18\x06 \x03(\x0b\x32=.invoicesrpc.HtlcModifyRequest.ExitHtlcWireCustomRecordsEntry\x1a@\n\x1e\x45xitHtlcWireCustomRecordsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x04\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"z\n\x12HtlcModifyResponse\x12,\n\x0b\x63ircuit_key\x18\x01 \x01(\x0b\x32\x17.invoicesrpc.CircuitKey\x12\x15\n\x08\x61mt_paid\x18\x02 \x01(\x04H\x00\x88\x01\x01\x12\x12\n\ncancel_set\x18\x03 \x01(\x08\x42\x0b\n\t_amt_paid*D\n\x0eLookupModifier\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x11\n\rHTLC_SET_ONLY\x10\x01\x12\x12\n\x0eHTLC_SET_BLANK\x10\x02\x32\xf0\x03\n\x08Invoices\x12V\n\x16SubscribeSingleInvoice\x12*.invoicesrpc.SubscribeSingleInvoiceRequest\x1a\x0e.lnrpc.Invoice0\x01\x12N\n\rCancelInvoice\x12\x1d.invoicesrpc.CancelInvoiceMsg\x1a\x1e.invoicesrpc.CancelInvoiceResp\x12U\n\x0e\x41\x64\x64HoldInvoice\x12\".invoicesrpc.AddHoldInvoiceRequest\x1a\x1f.invoicesrpc.AddHoldInvoiceResp\x12N\n\rSettleInvoice\x12\x1d.invoicesrpc.SettleInvoiceMsg\x1a\x1e.invoicesrpc.SettleInvoiceResp\x12@\n\x0fLookupInvoiceV2\x12\x1d.invoicesrpc.LookupInvoiceMsg\x1a\x0e.lnrpc.Invoice\x12S\n\x0cHtlcModifier\x12\x1f.invoicesrpc.HtlcModifyResponse\x1a\x1e.invoicesrpc.HtlcModifyRequest(\x01\x30\x01\x42\x33Z1github.com/lightningnetwork/lnd/lnrpc/invoicesrpcb\x06proto3')
 
 _LOOKUPMODIFIER = DESCRIPTOR.enum_types_by_name['LookupModifier']
 LookupModifier = enum_type_wrapper.EnumTypeWrapper(_LOOKUPMODIFIER)
@@ -33,6 +33,10 @@ _SETTLEINVOICEMSG = DESCRIPTOR.message_types_by_name['SettleInvoiceMsg']
 _SETTLEINVOICERESP = DESCRIPTOR.message_types_by_name['SettleInvoiceResp']
 _SUBSCRIBESINGLEINVOICEREQUEST = DESCRIPTOR.message_types_by_name['SubscribeSingleInvoiceRequest']
 _LOOKUPINVOICEMSG = DESCRIPTOR.message_types_by_name['LookupInvoiceMsg']
+_CIRCUITKEY = DESCRIPTOR.message_types_by_name['CircuitKey']
+_HTLCMODIFYREQUEST = DESCRIPTOR.message_types_by_name['HtlcModifyRequest']
+_HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY = _HTLCMODIFYREQUEST.nested_types_by_name['ExitHtlcWireCustomRecordsEntry']
+_HTLCMODIFYRESPONSE = DESCRIPTOR.message_types_by_name['HtlcModifyResponse']
 CancelInvoiceMsg = _reflection.GeneratedProtocolMessageType('CancelInvoiceMsg', (_message.Message,), {
   'DESCRIPTOR' : _CANCELINVOICEMSG,
   '__module__' : 'lndgrpc.compiled.invoices_pb2'
@@ -89,13 +93,44 @@ LookupInvoiceMsg = _reflection.GeneratedProtocolMessageType('LookupInvoiceMsg', 
   })
 _sym_db.RegisterMessage(LookupInvoiceMsg)
 
+CircuitKey = _reflection.GeneratedProtocolMessageType('CircuitKey', (_message.Message,), {
+  'DESCRIPTOR' : _CIRCUITKEY,
+  '__module__' : 'lndgrpc.compiled.invoices_pb2'
+  # @@protoc_insertion_point(class_scope:invoicesrpc.CircuitKey)
+  })
+_sym_db.RegisterMessage(CircuitKey)
+
+HtlcModifyRequest = _reflection.GeneratedProtocolMessageType('HtlcModifyRequest', (_message.Message,), {
+
+  'ExitHtlcWireCustomRecordsEntry' : _reflection.GeneratedProtocolMessageType('ExitHtlcWireCustomRecordsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY,
+    '__module__' : 'lndgrpc.compiled.invoices_pb2'
+    # @@protoc_insertion_point(class_scope:invoicesrpc.HtlcModifyRequest.ExitHtlcWireCustomRecordsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _HTLCMODIFYREQUEST,
+  '__module__' : 'lndgrpc.compiled.invoices_pb2'
+  # @@protoc_insertion_point(class_scope:invoicesrpc.HtlcModifyRequest)
+  })
+_sym_db.RegisterMessage(HtlcModifyRequest)
+_sym_db.RegisterMessage(HtlcModifyRequest.ExitHtlcWireCustomRecordsEntry)
+
+HtlcModifyResponse = _reflection.GeneratedProtocolMessageType('HtlcModifyResponse', (_message.Message,), {
+  'DESCRIPTOR' : _HTLCMODIFYRESPONSE,
+  '__module__' : 'lndgrpc.compiled.invoices_pb2'
+  # @@protoc_insertion_point(class_scope:invoicesrpc.HtlcModifyResponse)
+  })
+_sym_db.RegisterMessage(HtlcModifyResponse)
+
 _INVOICES = DESCRIPTOR.services_by_name['Invoices']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z1github.com/lightningnetwork/lnd/lnrpc/invoicesrpc'
-  _LOOKUPMODIFIER._serialized_start=734
-  _LOOKUPMODIFIER._serialized_end=802
+  _HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY._options = None
+  _HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY._serialized_options = b'8\001'
+  _LOOKUPMODIFIER._serialized_start=1258
+  _LOOKUPMODIFIER._serialized_end=1326
   _CANCELINVOICEMSG._serialized_start=82
   _CANCELINVOICEMSG._serialized_end=122
   _CANCELINVOICERESP._serialized_start=124
@@ -112,6 +147,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SUBSCRIBESINGLEINVOICEREQUEST._serialized_end=576
   _LOOKUPINVOICEMSG._serialized_start=579
   _LOOKUPINVOICEMSG._serialized_end=732
-  _INVOICES._serialized_start=805
-  _INVOICES._serialized_end=1216
+  _CIRCUITKEY._serialized_start=734
+  _CIRCUITKEY._serialized_end=780
+  _HTLCMODIFYREQUEST._serialized_start=783
+  _HTLCMODIFYREQUEST._serialized_end=1132
+  _HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY._serialized_start=1068
+  _HTLCMODIFYREQUEST_EXITHTLCWIRECUSTOMRECORDSENTRY._serialized_end=1132
+  _HTLCMODIFYRESPONSE._serialized_start=1134
+  _HTLCMODIFYRESPONSE._serialized_end=1256
+  _INVOICES._serialized_start=1329
+  _INVOICES._serialized_end=1825
 # @@protoc_insertion_point(module_scope)

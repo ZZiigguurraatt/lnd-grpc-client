@@ -17,6 +17,10 @@ from .chainkit import ChainKitRPC
 from .watchtower import WatchTowerRPC
 from .watchtowerclient import WTClientRPC
 from .state import StateRPC
+from .taprootassets import TaprootAssetsRPC
+from .tapchannel import TaprootAssetChannelsRPC
+from .mint import MintRPC
+from .universe import UniverseRPC
 
 from threading import Thread
 import logging
@@ -111,7 +115,12 @@ class LNDClient(
 			ChainKitRPC,
 			WatchTowerRPC,
 			WTClientRPC,
-			StateRPC
+			StateRPC,
+			TaprootAssetsRPC,
+			TaprootAssetChannelsRPC,
+			MintRPC,
+			UniverseRPC,
+
 		):
 	"""merge all classes into a main class that connects to an lnd instance and provides all available function calls to that node"""
 

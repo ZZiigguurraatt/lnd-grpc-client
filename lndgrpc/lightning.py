@@ -126,18 +126,10 @@ class LightningRPC(BaseClient):
             sat_per_byte=sat_per_byte,
             **kwargs
         )
-        last_response = None
-        start = datetime.now().timestamp()
-        for r in self.get_lightning_stub().OpenChannel(request, timeout=30):
-            return r
-            last_response = r
-            print(last_response)
-            if datetime.now().timestamp() > 5:
-                return last_response
 
-        #     print(response)
-        #     last_response = response
-        # return response
+        for response in self.get_lightning_stub().OpenChannel(request, timeout=30):
+            yield response
+
 
     @handle_rpc_errors
     def list_invoices(self, **kwargs):

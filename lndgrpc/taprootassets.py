@@ -20,6 +20,19 @@ class TaprootAssetsRPC(BaseClient):
         response = self.get_taprootassets_stub().ListAssets(request)
         return response
 
+    @handle_rpc_errors
+    def send_asset(self, **kwargs):
+        request = taprootassets.SendAssetRequest(**kwargs)
+        response = self.get_taprootassets_stub().SendAsset(request)
+        return response
+
+    @handle_rpc_errors
+    def new_addr(self, **kwargs):
+        request = taprootassets.NewAddrRequest(**kwargs)
+        response = self.get_taprootassets_stub().NewAddr(request)
+        return response
+
+
 
 
 

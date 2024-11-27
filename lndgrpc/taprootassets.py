@@ -32,6 +32,11 @@ class TaprootAssetsRPC(BaseClient):
         response = self.get_taprootassets_stub().NewAddr(request)
         return response
 
+    @handle_rpc_errors
+    def get_tapd_info(self, **kwargs):
+        request = taprootassets.GetInfoRequest(**kwargs)
+        response = self.get_taprootassets_stub().GetInfo(request)
+        return response
 
 
 

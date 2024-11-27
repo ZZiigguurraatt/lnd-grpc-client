@@ -127,7 +127,7 @@ class LightningRPC(BaseClient):
             **kwargs
         )
 
-        for response in self.get_lightning_stub().OpenChannel(request, timeout=30):
+        for response in self.get_lightning_stub().OpenChannel(request):
             yield response
 
 

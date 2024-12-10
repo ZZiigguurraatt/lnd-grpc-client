@@ -15,6 +15,12 @@ class TaprootAssetsRPC(BaseClient):
         return self._taprootassets_stub
 
     @handle_rpc_errors
+    def fetch_asset_meta(self, **kwargs):
+        request = taprootassets.FetchAssetMetaRequest(**kwargs)
+        response = self.get_taprootassets_stub().FetchAssetMeta(request)
+        return response
+
+    @handle_rpc_errors
     def list_assets(self, **kwargs):
         request = taprootassets.ListAssetRequest(**kwargs)
         response = self.get_taprootassets_stub().ListAssets(request)

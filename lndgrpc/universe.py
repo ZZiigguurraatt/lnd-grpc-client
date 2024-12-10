@@ -20,5 +20,9 @@ class UniverseRPC(BaseClient):
         response = self.get_universe_stub().SyncUniverse(request)
         return response
 
-
+    @handle_rpc_errors
+    def query_asset_stats(self, **kwargs):
+        request = universe.AssetStatsQuery(**kwargs)
+        response = self.get_universe_stub().QueryAssetStats(request)
+        return response
 

@@ -37,6 +37,11 @@ class DevStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.ChannelGraph.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_dev__pb2.ImportGraphResponse.FromString,
                 )
+        self.Quiesce = channel.unary_unary(
+                '/devrpc.Dev/Quiesce',
+                request_serializer=lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceResponse.FromString,
+                )
 
 
 class DevServicer(object):
@@ -68,6 +73,16 @@ class DevServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Quiesce(self, request, context):
+        """
+        Quiesce instructs a channel to initiate the quiescence (stfu) protocol. This
+        RPC is for testing purposes only. The commit that adds it will be removed
+        once interop is confirmed.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DevServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -75,6 +90,11 @@ def add_DevServicer_to_server(servicer, server):
                     servicer.ImportGraph,
                     request_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.ChannelGraph.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_dev__pb2.ImportGraphResponse.SerializeToString,
+            ),
+            'Quiesce': grpc.unary_unary_rpc_method_handler(
+                    servicer.Quiesce,
+                    request_deserializer=lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -117,5 +137,22 @@ class Dev(object):
         return grpc.experimental.unary_unary(request, target, '/devrpc.Dev/ImportGraph',
             lndgrpc_dot_compiled_dot_lightning__pb2.ChannelGraph.SerializeToString,
             lndgrpc_dot_compiled_dot_dev__pb2.ImportGraphResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Quiesce(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/devrpc.Dev/Quiesce',
+            lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_dev__pb2.QuiescenceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -15,17 +15,33 @@ _sym_db = _symbol_database.Default()
 from lndgrpc.compiled import lightning_pb2 as lndgrpc_dot_compiled_dot_lightning__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1alndgrpc/compiled/dev.proto\x12\x06\x64\x65vrpc\x1a lndgrpc/compiled/lightning.proto\"\x15\n\x13ImportGraphResponse2F\n\x03\x44\x65v\x12?\n\x0bImportGraph\x12\x13.lnrpc.ChannelGraph\x1a\x1b.devrpc.ImportGraphResponseB.Z,github.com/lightningnetwork/lnd/lnrpc/devrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1alndgrpc/compiled/dev.proto\x12\x06\x64\x65vrpc\x1a lndgrpc/compiled/lightning.proto\"\x15\n\x13ImportGraphResponse\"9\n\x11QuiescenceRequest\x12$\n\x07\x63han_id\x18\x01 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\"\'\n\x12QuiescenceResponse\x12\x11\n\tinitiator\x18\x01 \x01(\x08\x32\x88\x01\n\x03\x44\x65v\x12?\n\x0bImportGraph\x12\x13.lnrpc.ChannelGraph\x1a\x1b.devrpc.ImportGraphResponse\x12@\n\x07Quiesce\x12\x19.devrpc.QuiescenceRequest\x1a\x1a.devrpc.QuiescenceResponseB.Z,github.com/lightningnetwork/lnd/lnrpc/devrpcb\x06proto3')
 
 
 
 _IMPORTGRAPHRESPONSE = DESCRIPTOR.message_types_by_name['ImportGraphResponse']
+_QUIESCENCEREQUEST = DESCRIPTOR.message_types_by_name['QuiescenceRequest']
+_QUIESCENCERESPONSE = DESCRIPTOR.message_types_by_name['QuiescenceResponse']
 ImportGraphResponse = _reflection.GeneratedProtocolMessageType('ImportGraphResponse', (_message.Message,), {
   'DESCRIPTOR' : _IMPORTGRAPHRESPONSE,
   '__module__' : 'lndgrpc.compiled.dev_pb2'
   # @@protoc_insertion_point(class_scope:devrpc.ImportGraphResponse)
   })
 _sym_db.RegisterMessage(ImportGraphResponse)
+
+QuiescenceRequest = _reflection.GeneratedProtocolMessageType('QuiescenceRequest', (_message.Message,), {
+  'DESCRIPTOR' : _QUIESCENCEREQUEST,
+  '__module__' : 'lndgrpc.compiled.dev_pb2'
+  # @@protoc_insertion_point(class_scope:devrpc.QuiescenceRequest)
+  })
+_sym_db.RegisterMessage(QuiescenceRequest)
+
+QuiescenceResponse = _reflection.GeneratedProtocolMessageType('QuiescenceResponse', (_message.Message,), {
+  'DESCRIPTOR' : _QUIESCENCERESPONSE,
+  '__module__' : 'lndgrpc.compiled.dev_pb2'
+  # @@protoc_insertion_point(class_scope:devrpc.QuiescenceResponse)
+  })
+_sym_db.RegisterMessage(QuiescenceResponse)
 
 _DEV = DESCRIPTOR.services_by_name['Dev']
 if _descriptor._USE_C_DESCRIPTORS == False:
@@ -34,6 +50,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'Z,github.com/lightningnetwork/lnd/lnrpc/devrpc'
   _IMPORTGRAPHRESPONSE._serialized_start=72
   _IMPORTGRAPHRESPONSE._serialized_end=93
-  _DEV._serialized_start=95
-  _DEV._serialized_end=165
+  _QUIESCENCEREQUEST._serialized_start=95
+  _QUIESCENCEREQUEST._serialized_end=152
+  _QUIESCENCERESPONSE._serialized_start=154
+  _QUIESCENCERESPONSE._serialized_end=193
+  _DEV._serialized_start=196
+  _DEV._serialized_end=332
 # @@protoc_insertion_point(module_scope)

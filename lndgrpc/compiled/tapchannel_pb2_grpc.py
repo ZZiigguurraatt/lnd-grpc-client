@@ -34,6 +34,11 @@ class TaprootAssetChannelsStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceResponse.FromString,
                 )
+        self.DecodeAssetPayReq = channel.unary_unary(
+                '/tapchannelrpc.TaprootAssetChannels/DecodeAssetPayReq',
+                request_serializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReq.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReqResponse.FromString,
+                )
 
 
 class TaprootAssetChannelsServicer(object):
@@ -81,6 +86,16 @@ class TaprootAssetChannelsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DecodeAssetPayReq(self, request, context):
+        """
+        DecodeAssetPayReq is similar to lnd's lnrpc.DecodePayReq, but it accepts an
+        asset ID and returns the invoice amount expressed in asset units along side
+        the normal information.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TaprootAssetChannelsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -103,6 +118,11 @@ def add_TaprootAssetChannelsServicer_to_server(servicer, server):
                     servicer.AddInvoice,
                     request_deserializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceResponse.SerializeToString,
+            ),
+            'DecodeAssetPayReq': grpc.unary_unary_rpc_method_handler(
+                    servicer.DecodeAssetPayReq,
+                    request_deserializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReq.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReqResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -179,5 +199,22 @@ class TaprootAssetChannels(object):
         return grpc.experimental.unary_unary(request, target, '/tapchannelrpc.TaprootAssetChannels/AddInvoice',
             lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_tapchannel__pb2.AddInvoiceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DecodeAssetPayReq(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/tapchannelrpc.TaprootAssetChannels/DecodeAssetPayReq',
+            lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReq.SerializeToString,
+            lndgrpc_dot_compiled_dot_tapchannel__pb2.AssetPayReqResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

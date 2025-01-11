@@ -104,6 +104,13 @@ service TaprootAssets {
     */
     rpc BurnAsset (BurnAssetRequest) returns (BurnAssetResponse);
 
+    /* tapcli: `assets listburns`
+    ListBurns lists the asset burns that this wallet has performed. These assets
+    are not recoverable in any way. Filters may be applied to return more
+    specific results.
+    */
+    rpc ListBurns (ListBurnsRequest) returns (ListBurnsResponse);
+
     /* tapcli: `getinfo`
     GetInfo returns the information for the node.
     */
@@ -248,6 +255,35 @@ message GenesisInfo {
     uint32 output_index = 6;
 }
 
+/*
+This message represents an external key used for deriving and managing
+hierarchical deterministic (HD) wallet addresses according to BIP-86.
+ */
+message ExternalKey {
+    /*
+    This field specifies the extended public key derived at depth 3 of the
+    BIP-86 hierarchy (e.g., m/86'/0'/0'). This key serves as the parent key for
+    deriving child public keys and addresses.
+     */
+    string xpub = 1;
+
+    /*
+    This field specifies the fingerprint of the master key, derived from the
+    first 4 bytes of the hash160 of the master public key. It is used to
+    identify the master key in BIP-86 derivation schemes.
+     */
+    bytes master_fingerprint = 2;
+
+    /*
+    This field specifies the extended BIP-86 derivation path used to derive a
+    child key from the XPub. Starting from the base path of the XPub
+    (e.g., m/86'/0'/0'), this path must contain exactly 5 components in total
+    (e.g., m/86'/0'/0'/0/0), with the additional components defining specific
+    child keys, such as individual addresses.
+     */
+    string derivation_path = 3;
+}
+
 message GroupKeyRequest {
     // The internal key for the asset group before any tweaks have been applied.
     KeyDescriptor raw_key = 1;
@@ -272,6 +308,14 @@ message GroupKeyRequest {
     member of this asset group.
     */
     bytes new_asset = 4;
+
+    /*
+    The external key is an optional field that allows specifying an
+    external signing key for the group virtual transaction during minting.
+    This key enables signing operations to be performed externally, outside
+    the daemon.
+     */
+    ExternalKey external_key = 5;
 }
 
 message TxOut {
@@ -1037,6 +1081,12 @@ message DecodedProof {
     // GroupKeyReveal is an optional field that includes the information needed
     // to derive the tweaked group key.
     GroupKeyReveal group_key_reveal = 13;
+
+    // AltLeaves represent data used to construct an Asset commitment, that
+    // will be inserted in the input anchor Tap commitment. These data-carrying
+    // leaves are used for a purpose distinct from representing individual
+    // individual Taproot Assets.
+    bytes alt_leaves = 14;
 }
 
 message VerifyProofResponse {
@@ -1202,6 +1252,9 @@ message BurnAssetRequest {
     // the burn. This needs to be set to the value "assets will be destroyed"
     // for the burn to succeed.
     string confirmation_text = 4;
+
+    // A note that may contain user defined metadata related to this burn.
+    string note = 5;
 }
 
 message BurnAssetResponse {
@@ -1210,6 +1263,38 @@ message BurnAssetResponse {
 
     // The burn transition proof for the asset burn output.
     DecodedProof burn_proof = 2;
+}
+
+message ListBurnsRequest {
+    // The asset id of the burnt asset.
+    bytes asset_id = 1;
+
+    // The tweaked group key of the group this asset belongs to.
+    bytes tweaked_group_key = 3;
+
+    // The txid of the transaction that the burn was anchored to.
+    bytes anchor_txid = 4;
+}
+
+message AssetBurn {
+    // A note that may contain user defined metadata related to this burn.
+    string note = 1;
+
+    // The asset id of the burnt asset.
+    bytes asset_id = 2;
+
+    // The tweaked group key of the group this asset belongs to.
+    bytes tweaked_group_key = 3;
+
+    // The amount of burnt assets.
+    uint64 amount = 4;
+
+    // The txid of the transaction that the burn was anchored to.
+    bytes anchor_txid = 5;
+}
+
+message ListBurnsResponse {
+    repeated AssetBurn burns = 1;
 }
 
 message OutPoint {

@@ -94,6 +94,11 @@ class TaprootAssetsStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetResponse.FromString,
                 )
+        self.ListBurns = channel.unary_unary(
+                '/taprpc.TaprootAssets/ListBurns',
+                request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsResponse.FromString,
+                )
         self.GetInfo = channel.unary_unary(
                 '/taprpc.TaprootAssets/GetInfo',
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.GetInfoRequest.SerializeToString,
@@ -266,6 +271,16 @@ class TaprootAssetsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListBurns(self, request, context):
+        """tapcli: `assets listburns`
+        ListBurns lists the asset burns that this wallet has performed. These assets
+        are not recoverable in any way. Filters may be applied to return more
+        specific results.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetInfo(self, request, context):
         """tapcli: `getinfo`
         GetInfo returns the information for the node.
@@ -383,6 +398,11 @@ def add_TaprootAssetsServicer_to_server(servicer, server):
                     servicer.BurnAsset,
                     request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetResponse.SerializeToString,
+            ),
+            'ListBurns': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBurns,
+                    request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsResponse.SerializeToString,
             ),
             'GetInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInfo,
@@ -683,6 +703,23 @@ class TaprootAssets(object):
         return grpc.experimental.unary_unary(request, target, '/taprpc.TaprootAssets/BurnAsset',
             lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_taprootassets__pb2.BurnAssetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBurns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/taprpc.TaprootAssets/ListBurns',
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.ListBurnsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -21,9 +21,17 @@ class MintRPC(BaseClient):
         response = self.get_mint_stub().MintAsset(request)
         return response
 
+    @handle_rpc_errors
+    def fund_batch(self, **kwargs):
+        request = mint.FundBatchRequest(**kwargs)
+        response = self.get_mint_stub().FundBatch(request)
+        return response
 
-
-
+    @handle_rpc_errors
+    def seal_batch(self, **kwargs):
+        request = mint.SealBatchRequest(**kwargs)
+        response = self.get_mint_stub().SealBatch(request)
+        return response
 
     def finalize_batch(self, short_response=False, **kwargs):
         request = mint.FinalizeBatchRequest(short_response=short_response, **kwargs)

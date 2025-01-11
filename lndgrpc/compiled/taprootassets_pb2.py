@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$lndgrpc/compiled/taprootassets.proto\x12\x06taprpc\"Q\n\tAssetMeta\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.taprpc.AssetMetaType\x12\x11\n\tmeta_hash\x18\x03 \x01(\x0c\"z\n\x10ListAssetRequest\x12\x14\n\x0cwith_witness\x18\x01 \x01(\x08\x12\x15\n\rinclude_spent\x18\x02 \x01(\x08\x12\x16\n\x0einclude_leased\x18\x03 \x01(\x08\x12!\n\x19include_unconfirmed_mints\x18\x04 \x01(\x08\"\xaf\x01\n\nAnchorInfo\x12\x11\n\tanchor_tx\x18\x01 \x01(\x0c\x12\x19\n\x11\x61nchor_block_hash\x18\x03 \x01(\t\x12\x17\n\x0f\x61nchor_outpoint\x18\x04 \x01(\t\x12\x14\n\x0cinternal_key\x18\x05 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x06 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x07 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x08 \x01(\r\"\x94\x01\n\x0bGenesisInfo\x12\x15\n\rgenesis_point\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tmeta_hash\x18\x03 \x01(\x0c\x12\x10\n\x08\x61sset_id\x18\x04 \x01(\x0c\x12%\n\nasset_type\x18\x05 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x14\n\x0coutput_index\x18\x06 \x01(\r\"\x91\x01\n\x0fGroupKeyRequest\x12&\n\x07raw_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12+\n\x0e\x61nchor_genesis\x18\x02 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x16\n\x0etapscript_root\x18\x03 \x01(\x0c\x12\x11\n\tnew_asset\x18\x04 \x01(\x0c\")\n\x05TxOut\x12\r\n\x05value\x18\x01 \x01(\x03\x12\x11\n\tpk_script\x18\x02 \x01(\x0c\"o\n\x0eGroupVirtualTx\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\x12\x1f\n\x08prev_out\x18\x02 \x01(\x0b\x32\r.taprpc.TxOut\x12\x12\n\ngenesis_id\x18\x03 \x01(\x0c\x12\x13\n\x0btweaked_key\x18\x04 \x01(\x0c\"3\n\x0cGroupWitness\x12\x12\n\ngenesis_id\x18\x01 \x01(\x0c\x12\x0f\n\x07witness\x18\x02 \x03(\x0c\"m\n\nAssetGroup\x12\x15\n\rraw_group_key\x18\x01 \x01(\x0c\x12\x19\n\x11tweaked_group_key\x18\x02 \x01(\x0c\x12\x15\n\rasset_witness\x18\x03 \x01(\x0c\x12\x16\n\x0etapscript_root\x18\x04 \x01(\x0c\"?\n\x0eGroupKeyReveal\x12\x15\n\rraw_group_key\x18\x01 \x01(\x0c\x12\x16\n\x0etapscript_root\x18\x02 \x01(\x0c\"A\n\rGenesisReveal\x12\x30\n\x13genesis_base_reveal\x18\x01 \x01(\x0b\x32\x13.taprpc.GenesisInfo\")\n\x0e\x44\x65\x63imalDisplay\x12\x17\n\x0f\x64\x65\x63imal_display\x18\x01 \x01(\r\"\xa8\x04\n\x05\x41sset\x12%\n\x07version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12*\n\rasset_genesis\x18\x02 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x11\n\tlock_time\x18\x05 \x01(\x05\x12\x1a\n\x12relative_lock_time\x18\x06 \x01(\x05\x12\x16\n\x0escript_version\x18\x07 \x01(\x05\x12\x12\n\nscript_key\x18\t \x01(\x0c\x12\x1b\n\x13script_key_is_local\x18\n \x01(\x08\x12\'\n\x0b\x61sset_group\x18\x0b \x01(\x0b\x32\x12.taprpc.AssetGroup\x12(\n\x0c\x63hain_anchor\x18\x0c \x01(\x0b\x32\x12.taprpc.AnchorInfo\x12+\n\x0eprev_witnesses\x18\r \x03(\x0b\x32\x13.taprpc.PrevWitness\x12\x10\n\x08is_spent\x18\x0e \x01(\x08\x12\x13\n\x0blease_owner\x18\x0f \x01(\x0c\x12\x14\n\x0clease_expiry\x18\x10 \x01(\x03\x12\x0f\n\x07is_burn\x18\x11 \x01(\x08\x12!\n\x19script_key_declared_known\x18\x12 \x01(\x08\x12\"\n\x1ascript_key_has_script_path\x18\x13 \x01(\x08\x12/\n\x0f\x64\x65\x63imal_display\x18\x14 \x01(\x0b\x32\x16.taprpc.DecimalDisplay\"}\n\x0bPrevWitness\x12\'\n\x07prev_id\x18\x01 \x01(\x0b\x32\x16.taprpc.PrevInputAsset\x12\x12\n\ntx_witness\x18\x02 \x03(\x0c\x12\x31\n\x10split_commitment\x18\x03 \x01(\x0b\x32\x17.taprpc.SplitCommitment\"4\n\x0fSplitCommitment\x12!\n\nroot_asset\x18\x01 \x01(\x0b\x32\r.taprpc.Asset\"l\n\x11ListAssetResponse\x12\x1d\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\r.taprpc.Asset\x12\x1d\n\x15unconfirmed_transfers\x18\x02 \x01(\x04\x12\x19\n\x11unconfirmed_mints\x18\x03 \x01(\x04\"*\n\x10ListUtxosRequest\x12\x16\n\x0einclude_leased\x18\x01 \x01(\x08\"\xc7\x01\n\x0bManagedUtxo\x12\x11\n\tout_point\x18\x01 \x01(\t\x12\x0f\n\x07\x61mt_sat\x18\x02 \x01(\x03\x12\x14\n\x0cinternal_key\x18\x03 \x01(\x0c\x12\x1a\n\x12taproot_asset_root\x18\x04 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x05 \x01(\x0c\x12\x1d\n\x06\x61ssets\x18\x06 \x03(\x0b\x32\r.taprpc.Asset\x12\x13\n\x0blease_owner\x18\x07 \x01(\x0c\x12\x19\n\x11lease_expiry_unix\x18\x08 \x01(\x03\"\xa1\x01\n\x11ListUtxosResponse\x12\x42\n\rmanaged_utxos\x18\x01 \x03(\x0b\x32+.taprpc.ListUtxosResponse.ManagedUtxosEntry\x1aH\n\x11ManagedUtxosEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\"\n\x05value\x18\x02 \x01(\x0b\x32\x13.taprpc.ManagedUtxo:\x02\x38\x01\"\x13\n\x11ListGroupsRequest\"\xc7\x01\n\x12\x41ssetHumanReadable\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x04\x12\x11\n\tlock_time\x18\x03 \x01(\x05\x12\x1a\n\x12relative_lock_time\x18\x04 \x01(\x05\x12\x0b\n\x03tag\x18\x05 \x01(\t\x12\x11\n\tmeta_hash\x18\x06 \x01(\x0c\x12\x1f\n\x04type\x18\x07 \x01(\x0e\x32\x11.taprpc.AssetType\x12%\n\x07version\x18\x08 \x01(\x0e\x32\x14.taprpc.AssetVersion\";\n\rGroupedAssets\x12*\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x1a.taprpc.AssetHumanReadable\"\x92\x01\n\x12ListGroupsResponse\x12\x36\n\x06groups\x18\x01 \x03(\x0b\x32&.taprpc.ListGroupsResponse.GroupsEntry\x1a\x44\n\x0bGroupsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.taprpc.GroupedAssets:\x02\x38\x01\"\x92\x01\n\x13ListBalancesRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x08H\x00\x12\x13\n\tgroup_key\x18\x02 \x01(\x08H\x00\x12\x14\n\x0c\x61sset_filter\x18\x03 \x01(\x0c\x12\x18\n\x10group_key_filter\x18\x04 \x01(\x0c\x12\x16\n\x0einclude_leased\x18\x05 \x01(\x08\x42\n\n\x08group_by\"K\n\x0c\x41ssetBalance\x12*\n\rasset_genesis\x18\x01 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x0f\n\x07\x62\x61lance\x18\x03 \x01(\x04\"7\n\x11\x41ssetGroupBalance\x12\x11\n\tgroup_key\x18\x01 \x01(\x0c\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x04\"\xd5\x02\n\x14ListBalancesResponse\x12G\n\x0e\x61sset_balances\x18\x01 \x03(\x0b\x32/.taprpc.ListBalancesResponse.AssetBalancesEntry\x12R\n\x14\x61sset_group_balances\x18\x02 \x03(\x0b\x32\x34.taprpc.ListBalancesResponse.AssetGroupBalancesEntry\x1aJ\n\x12\x41ssetBalancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.taprpc.AssetBalance:\x02\x38\x01\x1aT\n\x17\x41ssetGroupBalancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12(\n\x05value\x18\x02 \x01(\x0b\x32\x19.taprpc.AssetGroupBalance:\x02\x38\x01\"+\n\x14ListTransfersRequest\x12\x13\n\x0b\x61nchor_txid\x18\x01 \x01(\t\"A\n\x15ListTransfersResponse\x12(\n\ttransfers\x18\x01 \x03(\x0b\x32\x15.taprpc.AssetTransfer\"+\n\tChainHash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12\x10\n\x08hash_str\x18\x02 \x01(\t\"\x81\x02\n\rAssetTransfer\x12\x1a\n\x12transfer_timestamp\x18\x01 \x01(\x03\x12\x16\n\x0e\x61nchor_tx_hash\x18\x02 \x01(\x0c\x12\x1d\n\x15\x61nchor_tx_height_hint\x18\x03 \x01(\r\x12\x1c\n\x14\x61nchor_tx_chain_fees\x18\x04 \x01(\x03\x12%\n\x06inputs\x18\x05 \x03(\x0b\x32\x15.taprpc.TransferInput\x12\'\n\x07outputs\x18\x06 \x03(\x0b\x32\x16.taprpc.TransferOutput\x12/\n\x14\x61nchor_tx_block_hash\x18\x07 \x01(\x0b\x32\x11.taprpc.ChainHash\"[\n\rTransferInput\x12\x14\n\x0c\x61nchor_point\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\"\xb5\x01\n\x14TransferOutputAnchor\x12\x10\n\x08outpoint\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03\x12\x14\n\x0cinternal_key\x18\x03 \x01(\x0c\x12\x1a\n\x12taproot_asset_root\x18\x04 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x05 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x06 \x01(\x0c\x12\x1a\n\x12num_passive_assets\x18\x07 \x01(\r\"\xf8\x02\n\x0eTransferOutput\x12,\n\x06\x61nchor\x18\x01 \x01(\x0b\x32\x1c.taprpc.TransferOutputAnchor\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\x1b\n\x13script_key_is_local\x18\x03 \x01(\x08\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x16\n\x0enew_proof_blob\x18\x05 \x01(\x0c\x12\x1e\n\x16split_commit_root_hash\x18\x06 \x01(\x0c\x12\'\n\x0boutput_type\x18\x07 \x01(\x0e\x32\x12.taprpc.OutputType\x12+\n\rasset_version\x18\x08 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12\x11\n\tlock_time\x18\t \x01(\x04\x12\x1a\n\x12relative_lock_time\x18\n \x01(\x04\x12:\n\x15proof_delivery_status\x18\x0b \x01(\x0e\x32\x1b.taprpc.ProofDeliveryStatus\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"5\n\x11\x44\x65\x62ugLevelRequest\x12\x0c\n\x04show\x18\x01 \x01(\x08\x12\x12\n\nlevel_spec\x18\x02 \x01(\t\")\n\x12\x44\x65\x62ugLevelResponse\x12\x13\n\x0bsub_systems\x18\x01 \x01(\t\"\xcb\x02\n\x04\x41\x64\x64r\x12\x0f\n\x07\x65ncoded\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12%\n\nasset_type\x18\x03 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x11\n\tgroup_key\x18\x05 \x01(\x0c\x12\x12\n\nscript_key\x18\x06 \x01(\x0c\x12\x14\n\x0cinternal_key\x18\x07 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x08 \x01(\x0c\x12\x1a\n\x12taproot_output_key\x18\t \x01(\x0c\x12\x1a\n\x12proof_courier_addr\x18\n \x01(\t\x12+\n\rasset_version\x18\x0b \x01(\x0e\x32\x14.taprpc.AssetVersion\x12,\n\x0f\x61\x64\x64ress_version\x18\x0c \x01(\x0e\x32\x13.taprpc.AddrVersion\"`\n\x10QueryAddrRequest\x12\x15\n\rcreated_after\x18\x01 \x01(\x03\x12\x16\n\x0e\x63reated_before\x18\x02 \x01(\x03\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\"0\n\x11QueryAddrResponse\x12\x1b\n\x05\x61\x64\x64rs\x18\x01 \x03(\x0b\x32\x0c.taprpc.Addr\"\x95\x02\n\x0eNewAddrRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x0b\n\x03\x61mt\x18\x02 \x01(\x04\x12%\n\nscript_key\x18\x03 \x01(\x0b\x32\x11.taprpc.ScriptKey\x12+\n\x0cinternal_key\x18\x04 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x19\n\x11tapscript_sibling\x18\x05 \x01(\x0c\x12\x1a\n\x12proof_courier_addr\x18\x06 \x01(\t\x12+\n\rasset_version\x18\x07 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12,\n\x0f\x61\x64\x64ress_version\x18\x08 \x01(\x0e\x32\x13.taprpc.AddrVersion\"X\n\tScriptKey\x12\x0f\n\x07pub_key\x18\x01 \x01(\x0c\x12\'\n\x08key_desc\x18\x02 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x11\n\ttap_tweak\x18\x03 \x01(\x0c\"3\n\nKeyLocator\x12\x12\n\nkey_family\x18\x01 \x01(\x05\x12\x11\n\tkey_index\x18\x02 \x01(\x05\"K\n\rKeyDescriptor\x12\x15\n\rraw_key_bytes\x18\x01 \x01(\x0c\x12#\n\x07key_loc\x18\x02 \x01(\x0b\x32\x12.taprpc.KeyLocator\"8\n\x11TapscriptFullTree\x12#\n\nall_leaves\x18\x01 \x03(\x0b\x32\x0f.taprpc.TapLeaf\"\x19\n\x07TapLeaf\x12\x0e\n\x06script\x18\x02 \x01(\x0c\"8\n\tTapBranch\x12\x14\n\x0cleft_taphash\x18\x01 \x01(\x0c\x12\x15\n\rright_taphash\x18\x02 \x01(\x0c\"!\n\x11\x44\x65\x63odeAddrRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\":\n\tProofFile\x12\x16\n\x0eraw_proof_file\x18\x01 \x01(\x0c\x12\x15\n\rgenesis_point\x18\x02 \x01(\t\"\x98\x03\n\x0c\x44\x65\x63odedProof\x12\x16\n\x0eproof_at_depth\x18\x01 \x01(\r\x12\x18\n\x10number_of_proofs\x18\x02 \x01(\r\x12\x1c\n\x05\x61sset\x18\x03 \x01(\x0b\x32\r.taprpc.Asset\x12&\n\x0bmeta_reveal\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x17\n\x0ftx_merkle_proof\x18\x05 \x01(\x0c\x12\x17\n\x0finclusion_proof\x18\x06 \x01(\x0c\x12\x18\n\x10\x65xclusion_proofs\x18\x07 \x03(\x0c\x12\x18\n\x10split_root_proof\x18\x08 \x01(\x0c\x12\x1d\n\x15num_additional_inputs\x18\t \x01(\r\x12\x19\n\x11\x63hallenge_witness\x18\n \x03(\x0c\x12\x0f\n\x07is_burn\x18\x0b \x01(\x08\x12-\n\x0egenesis_reveal\x18\x0c \x01(\x0b\x32\x15.taprpc.GenesisReveal\x12\x30\n\x10group_key_reveal\x18\r \x01(\x0b\x32\x16.taprpc.GroupKeyReveal\"Q\n\x13VerifyProofResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12+\n\rdecoded_proof\x18\x02 \x01(\x0b\x32\x14.taprpc.DecodedProof\"v\n\x12\x44\x65\x63odeProofRequest\x12\x11\n\traw_proof\x18\x01 \x01(\x0c\x12\x16\n\x0eproof_at_depth\x18\x02 \x01(\r\x12\x1b\n\x13with_prev_witnesses\x18\x03 \x01(\x08\x12\x18\n\x10with_meta_reveal\x18\x04 \x01(\x08\"B\n\x13\x44\x65\x63odeProofResponse\x12+\n\rdecoded_proof\x18\x01 \x01(\x0b\x32\x14.taprpc.DecodedProof\"^\n\x12\x45xportProofRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\"\n\x08outpoint\x18\x03 \x01(\x0b\x32\x10.taprpc.OutPoint\"\xe5\x01\n\tAddrEvent\x12\"\n\x1a\x63reation_time_unix_seconds\x18\x01 \x01(\x04\x12\x1a\n\x04\x61\x64\x64r\x18\x02 \x01(\x0b\x32\x0c.taprpc.Addr\x12\'\n\x06status\x18\x03 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\x12\x10\n\x08outpoint\x18\x04 \x01(\t\x12\x14\n\x0cutxo_amt_sat\x18\x05 \x01(\x04\x12\x17\n\x0ftaproot_sibling\x18\x06 \x01(\x0c\x12\x1b\n\x13\x63onfirmation_height\x18\x07 \x01(\r\x12\x11\n\thas_proof\x18\x08 \x01(\x08\"Z\n\x13\x41\x64\x64rReceivesRequest\x12\x13\n\x0b\x66ilter_addr\x18\x01 \x01(\t\x12.\n\rfilter_status\x18\x02 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\"9\n\x14\x41\x64\x64rReceivesResponse\x12!\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.taprpc.AddrEvent\"7\n\x10SendAssetRequest\x12\x11\n\ttap_addrs\x18\x01 \x03(\t\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\"\\\n\x0ePrevInputAsset\x12\x14\n\x0c\x61nchor_point\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\"<\n\x11SendAssetResponse\x12\'\n\x08transfer\x18\x01 \x01(\x0b\x32\x15.taprpc.AssetTransfer\"\x10\n\x0eGetInfoRequest\"\xba\x01\n\x0fGetInfoResponse\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x13\n\x0blnd_version\x18\x02 \x01(\t\x12\x0f\n\x07network\x18\x03 \x01(\t\x12\x1b\n\x13lnd_identity_pubkey\x18\x04 \x01(\t\x12\x12\n\nnode_alias\x18\x05 \x01(\t\x12\x14\n\x0c\x62lock_height\x18\x06 \x01(\r\x12\x12\n\nblock_hash\x18\x07 \x01(\t\x12\x15\n\rsync_to_chain\x18\x08 \x01(\x08\"z\n\x15\x46\x65tchAssetMetaRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x13\n\tmeta_hash\x18\x02 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x03 \x01(\tH\x00\x12\x17\n\rmeta_hash_str\x18\x04 \x01(\tH\x00\x42\x07\n\x05\x61sset\"z\n\x10\x42urnAssetRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x16\n\x0e\x61mount_to_burn\x18\x03 \x01(\x04\x12\x19\n\x11\x63onfirmation_text\x18\x04 \x01(\tB\x07\n\x05\x61sset\"k\n\x11\x42urnAssetResponse\x12,\n\rburn_transfer\x18\x01 \x01(\x0b\x32\x15.taprpc.AssetTransfer\x12(\n\nburn_proof\x18\x02 \x01(\x0b\x32\x14.taprpc.DecodedProof\".\n\x08OutPoint\x12\x0c\n\x04txid\x18\x01 \x01(\x0c\x12\x14\n\x0coutput_index\x18\x02 \x01(\r\"M\n\x1dSubscribeReceiveEventsRequest\x12\x13\n\x0b\x66ilter_addr\x18\x01 \x01(\t\x12\x17\n\x0fstart_timestamp\x18\x02 \x01(\x03\"\xa7\x01\n\x0cReceiveEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x1d\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x0c.taprpc.Addr\x12\x10\n\x08outpoint\x18\x03 \x01(\t\x12\'\n\x06status\x18\x04 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\x12\x1b\n\x13\x63onfirmation_height\x18\x05 \x01(\r\x12\r\n\x05\x65rror\x18\x06 \x01(\t\"7\n\x1aSubscribeSendEventsRequest\x12\x19\n\x11\x66ilter_script_key\x18\x01 \x01(\x0c\"\xa5\x02\n\tSendEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x12\n\nsend_state\x18\x02 \x01(\t\x12\'\n\x0bparcel_type\x18\x03 \x01(\x0e\x32\x12.taprpc.ParcelType\x12\x1f\n\taddresses\x18\x04 \x03(\x0b\x32\x0c.taprpc.Addr\x12\x17\n\x0fvirtual_packets\x18\x05 \x03(\x0c\x12\x1f\n\x17passive_virtual_packets\x18\x06 \x03(\x0c\x12\x35\n\x12\x61nchor_transaction\x18\x07 \x01(\x0b\x32\x19.taprpc.AnchorTransaction\x12\'\n\x08transfer\x18\x08 \x01(\x0b\x32\x15.taprpc.AssetTransfer\x12\r\n\x05\x65rror\x18\t \x01(\t\"\xbc\x01\n\x11\x41nchorTransaction\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x02 \x01(\x05\x12\x17\n\x0f\x63hain_fees_sats\x18\x03 \x01(\x03\x12\x1e\n\x16target_fee_rate_sat_kw\x18\x04 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x05 \x03(\x0b\x32\x10.taprpc.OutPoint\x12\x10\n\x08\x66inal_tx\x18\x06 \x01(\x0c*(\n\tAssetType\x12\n\n\x06NORMAL\x10\x00\x12\x0f\n\x0b\x43OLLECTIBLE\x10\x01*9\n\rAssetMetaType\x12\x14\n\x10META_TYPE_OPAQUE\x10\x00\x12\x12\n\x0eMETA_TYPE_JSON\x10\x01*:\n\x0c\x41ssetVersion\x12\x14\n\x10\x41SSET_VERSION_V0\x10\x00\x12\x14\n\x10\x41SSET_VERSION_V1\x10\x01*R\n\nOutputType\x12\x16\n\x12OUTPUT_TYPE_SIMPLE\x10\x00\x12\x1a\n\x16OUTPUT_TYPE_SPLIT_ROOT\x10\x01\"\x04\x08\x02\x10\x02\"\x04\x08\x03\x10\x03\"\x04\x08\x04\x10\x04*\x86\x01\n\x13ProofDeliveryStatus\x12(\n$PROOF_DELIVERY_STATUS_NOT_APPLICABLE\x10\x00\x12\"\n\x1ePROOF_DELIVERY_STATUS_COMPLETE\x10\x01\x12!\n\x1dPROOF_DELIVERY_STATUS_PENDING\x10\x02*U\n\x0b\x41\x64\x64rVersion\x12\x1c\n\x18\x41\x44\x44R_VERSION_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x41\x44\x44R_VERSION_V0\x10\x01\x12\x13\n\x0f\x41\x44\x44R_VERSION_V1\x10\x02*\xd0\x01\n\x0f\x41\x64\x64rEventStatus\x12\x1d\n\x19\x41\x44\x44R_EVENT_STATUS_UNKNOWN\x10\x00\x12*\n&ADDR_EVENT_STATUS_TRANSACTION_DETECTED\x10\x01\x12+\n\'ADDR_EVENT_STATUS_TRANSACTION_CONFIRMED\x10\x02\x12$\n ADDR_EVENT_STATUS_PROOF_RECEIVED\x10\x03\x12\x1f\n\x1b\x41\x44\x44R_EVENT_STATUS_COMPLETED\x10\x04*\x9b\x02\n\tSendState\x12#\n\x1fSEND_STATE_VIRTUAL_INPUT_SELECT\x10\x00\x12\x1b\n\x17SEND_STATE_VIRTUAL_SIGN\x10\x01\x12\x1a\n\x16SEND_STATE_ANCHOR_SIGN\x10\x02\x12\x1d\n\x19SEND_STATE_LOG_COMMITMENT\x10\x03\x12\x18\n\x14SEND_STATE_BROADCAST\x10\x04\x12 \n\x1cSEND_STATE_WAIT_CONFIRMATION\x10\x05\x12\x1b\n\x17SEND_STATE_STORE_PROOFS\x10\x06\x12\x1e\n\x1aSEND_STATE_TRANSFER_PROOFS\x10\x07\x12\x18\n\x14SEND_STATE_COMPLETED\x10\x08*x\n\nParcelType\x12\x17\n\x13PARCEL_TYPE_ADDRESS\x10\x00\x12\x1a\n\x16PARCEL_TYPE_PRE_SIGNED\x10\x01\x12\x17\n\x13PARCEL_TYPE_PENDING\x10\x02\x12\x1c\n\x18PARCEL_TYPE_PRE_ANCHORED\x10\x03\x32\xd8\n\n\rTaprootAssets\x12\x41\n\nListAssets\x12\x18.taprpc.ListAssetRequest\x1a\x19.taprpc.ListAssetResponse\x12@\n\tListUtxos\x12\x18.taprpc.ListUtxosRequest\x1a\x19.taprpc.ListUtxosResponse\x12\x43\n\nListGroups\x12\x19.taprpc.ListGroupsRequest\x1a\x1a.taprpc.ListGroupsResponse\x12I\n\x0cListBalances\x12\x1b.taprpc.ListBalancesRequest\x1a\x1c.taprpc.ListBalancesResponse\x12L\n\rListTransfers\x12\x1c.taprpc.ListTransfersRequest\x1a\x1d.taprpc.ListTransfersResponse\x12\x37\n\nStopDaemon\x12\x13.taprpc.StopRequest\x1a\x14.taprpc.StopResponse\x12\x43\n\nDebugLevel\x12\x19.taprpc.DebugLevelRequest\x1a\x1a.taprpc.DebugLevelResponse\x12\x41\n\nQueryAddrs\x12\x18.taprpc.QueryAddrRequest\x1a\x19.taprpc.QueryAddrResponse\x12/\n\x07NewAddr\x12\x16.taprpc.NewAddrRequest\x1a\x0c.taprpc.Addr\x12\x35\n\nDecodeAddr\x12\x19.taprpc.DecodeAddrRequest\x1a\x0c.taprpc.Addr\x12I\n\x0c\x41\x64\x64rReceives\x12\x1b.taprpc.AddrReceivesRequest\x1a\x1c.taprpc.AddrReceivesResponse\x12=\n\x0bVerifyProof\x12\x11.taprpc.ProofFile\x1a\x1b.taprpc.VerifyProofResponse\x12\x46\n\x0b\x44\x65\x63odeProof\x12\x1a.taprpc.DecodeProofRequest\x1a\x1b.taprpc.DecodeProofResponse\x12<\n\x0b\x45xportProof\x12\x1a.taprpc.ExportProofRequest\x1a\x11.taprpc.ProofFile\x12@\n\tSendAsset\x12\x18.taprpc.SendAssetRequest\x1a\x19.taprpc.SendAssetResponse\x12@\n\tBurnAsset\x12\x18.taprpc.BurnAssetRequest\x1a\x19.taprpc.BurnAssetResponse\x12:\n\x07GetInfo\x12\x16.taprpc.GetInfoRequest\x1a\x17.taprpc.GetInfoResponse\x12\x42\n\x0e\x46\x65tchAssetMeta\x12\x1d.taprpc.FetchAssetMetaRequest\x1a\x11.taprpc.AssetMeta\x12W\n\x16SubscribeReceiveEvents\x12%.taprpc.SubscribeReceiveEventsRequest\x1a\x14.taprpc.ReceiveEvent0\x01\x12N\n\x13SubscribeSendEvents\x12\".taprpc.SubscribeSendEventsRequest\x1a\x11.taprpc.SendEvent0\x01\x42\x30Z.github.com/lightninglabs/taproot-assets/taprpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$lndgrpc/compiled/taprootassets.proto\x12\x06taprpc\"Q\n\tAssetMeta\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12#\n\x04type\x18\x02 \x01(\x0e\x32\x15.taprpc.AssetMetaType\x12\x11\n\tmeta_hash\x18\x03 \x01(\x0c\"z\n\x10ListAssetRequest\x12\x14\n\x0cwith_witness\x18\x01 \x01(\x08\x12\x15\n\rinclude_spent\x18\x02 \x01(\x08\x12\x16\n\x0einclude_leased\x18\x03 \x01(\x08\x12!\n\x19include_unconfirmed_mints\x18\x04 \x01(\x08\"\xaf\x01\n\nAnchorInfo\x12\x11\n\tanchor_tx\x18\x01 \x01(\x0c\x12\x19\n\x11\x61nchor_block_hash\x18\x03 \x01(\t\x12\x17\n\x0f\x61nchor_outpoint\x18\x04 \x01(\t\x12\x14\n\x0cinternal_key\x18\x05 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x06 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x07 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x08 \x01(\r\"\x94\x01\n\x0bGenesisInfo\x12\x15\n\rgenesis_point\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tmeta_hash\x18\x03 \x01(\x0c\x12\x10\n\x08\x61sset_id\x18\x04 \x01(\x0c\x12%\n\nasset_type\x18\x05 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x14\n\x0coutput_index\x18\x06 \x01(\r\"P\n\x0b\x45xternalKey\x12\x0c\n\x04xpub\x18\x01 \x01(\t\x12\x1a\n\x12master_fingerprint\x18\x02 \x01(\x0c\x12\x17\n\x0f\x64\x65rivation_path\x18\x03 \x01(\t\"\xbc\x01\n\x0fGroupKeyRequest\x12&\n\x07raw_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12+\n\x0e\x61nchor_genesis\x18\x02 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x16\n\x0etapscript_root\x18\x03 \x01(\x0c\x12\x11\n\tnew_asset\x18\x04 \x01(\x0c\x12)\n\x0c\x65xternal_key\x18\x05 \x01(\x0b\x32\x13.taprpc.ExternalKey\")\n\x05TxOut\x12\r\n\x05value\x18\x01 \x01(\x03\x12\x11\n\tpk_script\x18\x02 \x01(\x0c\"o\n\x0eGroupVirtualTx\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\x12\x1f\n\x08prev_out\x18\x02 \x01(\x0b\x32\r.taprpc.TxOut\x12\x12\n\ngenesis_id\x18\x03 \x01(\x0c\x12\x13\n\x0btweaked_key\x18\x04 \x01(\x0c\"3\n\x0cGroupWitness\x12\x12\n\ngenesis_id\x18\x01 \x01(\x0c\x12\x0f\n\x07witness\x18\x02 \x03(\x0c\"m\n\nAssetGroup\x12\x15\n\rraw_group_key\x18\x01 \x01(\x0c\x12\x19\n\x11tweaked_group_key\x18\x02 \x01(\x0c\x12\x15\n\rasset_witness\x18\x03 \x01(\x0c\x12\x16\n\x0etapscript_root\x18\x04 \x01(\x0c\"?\n\x0eGroupKeyReveal\x12\x15\n\rraw_group_key\x18\x01 \x01(\x0c\x12\x16\n\x0etapscript_root\x18\x02 \x01(\x0c\"A\n\rGenesisReveal\x12\x30\n\x13genesis_base_reveal\x18\x01 \x01(\x0b\x32\x13.taprpc.GenesisInfo\")\n\x0e\x44\x65\x63imalDisplay\x12\x17\n\x0f\x64\x65\x63imal_display\x18\x01 \x01(\r\"\xa8\x04\n\x05\x41sset\x12%\n\x07version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12*\n\rasset_genesis\x18\x02 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x11\n\tlock_time\x18\x05 \x01(\x05\x12\x1a\n\x12relative_lock_time\x18\x06 \x01(\x05\x12\x16\n\x0escript_version\x18\x07 \x01(\x05\x12\x12\n\nscript_key\x18\t \x01(\x0c\x12\x1b\n\x13script_key_is_local\x18\n \x01(\x08\x12\'\n\x0b\x61sset_group\x18\x0b \x01(\x0b\x32\x12.taprpc.AssetGroup\x12(\n\x0c\x63hain_anchor\x18\x0c \x01(\x0b\x32\x12.taprpc.AnchorInfo\x12+\n\x0eprev_witnesses\x18\r \x03(\x0b\x32\x13.taprpc.PrevWitness\x12\x10\n\x08is_spent\x18\x0e \x01(\x08\x12\x13\n\x0blease_owner\x18\x0f \x01(\x0c\x12\x14\n\x0clease_expiry\x18\x10 \x01(\x03\x12\x0f\n\x07is_burn\x18\x11 \x01(\x08\x12!\n\x19script_key_declared_known\x18\x12 \x01(\x08\x12\"\n\x1ascript_key_has_script_path\x18\x13 \x01(\x08\x12/\n\x0f\x64\x65\x63imal_display\x18\x14 \x01(\x0b\x32\x16.taprpc.DecimalDisplay\"}\n\x0bPrevWitness\x12\'\n\x07prev_id\x18\x01 \x01(\x0b\x32\x16.taprpc.PrevInputAsset\x12\x12\n\ntx_witness\x18\x02 \x03(\x0c\x12\x31\n\x10split_commitment\x18\x03 \x01(\x0b\x32\x17.taprpc.SplitCommitment\"4\n\x0fSplitCommitment\x12!\n\nroot_asset\x18\x01 \x01(\x0b\x32\r.taprpc.Asset\"l\n\x11ListAssetResponse\x12\x1d\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\r.taprpc.Asset\x12\x1d\n\x15unconfirmed_transfers\x18\x02 \x01(\x04\x12\x19\n\x11unconfirmed_mints\x18\x03 \x01(\x04\"*\n\x10ListUtxosRequest\x12\x16\n\x0einclude_leased\x18\x01 \x01(\x08\"\xc7\x01\n\x0bManagedUtxo\x12\x11\n\tout_point\x18\x01 \x01(\t\x12\x0f\n\x07\x61mt_sat\x18\x02 \x01(\x03\x12\x14\n\x0cinternal_key\x18\x03 \x01(\x0c\x12\x1a\n\x12taproot_asset_root\x18\x04 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x05 \x01(\x0c\x12\x1d\n\x06\x61ssets\x18\x06 \x03(\x0b\x32\r.taprpc.Asset\x12\x13\n\x0blease_owner\x18\x07 \x01(\x0c\x12\x19\n\x11lease_expiry_unix\x18\x08 \x01(\x03\"\xa1\x01\n\x11ListUtxosResponse\x12\x42\n\rmanaged_utxos\x18\x01 \x03(\x0b\x32+.taprpc.ListUtxosResponse.ManagedUtxosEntry\x1aH\n\x11ManagedUtxosEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\"\n\x05value\x18\x02 \x01(\x0b\x32\x13.taprpc.ManagedUtxo:\x02\x38\x01\"\x13\n\x11ListGroupsRequest\"\xc7\x01\n\x12\x41ssetHumanReadable\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x04\x12\x11\n\tlock_time\x18\x03 \x01(\x05\x12\x1a\n\x12relative_lock_time\x18\x04 \x01(\x05\x12\x0b\n\x03tag\x18\x05 \x01(\t\x12\x11\n\tmeta_hash\x18\x06 \x01(\x0c\x12\x1f\n\x04type\x18\x07 \x01(\x0e\x32\x11.taprpc.AssetType\x12%\n\x07version\x18\x08 \x01(\x0e\x32\x14.taprpc.AssetVersion\";\n\rGroupedAssets\x12*\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x1a.taprpc.AssetHumanReadable\"\x92\x01\n\x12ListGroupsResponse\x12\x36\n\x06groups\x18\x01 \x03(\x0b\x32&.taprpc.ListGroupsResponse.GroupsEntry\x1a\x44\n\x0bGroupsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.taprpc.GroupedAssets:\x02\x38\x01\"\x92\x01\n\x13ListBalancesRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x08H\x00\x12\x13\n\tgroup_key\x18\x02 \x01(\x08H\x00\x12\x14\n\x0c\x61sset_filter\x18\x03 \x01(\x0c\x12\x18\n\x10group_key_filter\x18\x04 \x01(\x0c\x12\x16\n\x0einclude_leased\x18\x05 \x01(\x08\x42\n\n\x08group_by\"K\n\x0c\x41ssetBalance\x12*\n\rasset_genesis\x18\x01 \x01(\x0b\x32\x13.taprpc.GenesisInfo\x12\x0f\n\x07\x62\x61lance\x18\x03 \x01(\x04\"7\n\x11\x41ssetGroupBalance\x12\x11\n\tgroup_key\x18\x01 \x01(\x0c\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x04\"\xd5\x02\n\x14ListBalancesResponse\x12G\n\x0e\x61sset_balances\x18\x01 \x03(\x0b\x32/.taprpc.ListBalancesResponse.AssetBalancesEntry\x12R\n\x14\x61sset_group_balances\x18\x02 \x03(\x0b\x32\x34.taprpc.ListBalancesResponse.AssetGroupBalancesEntry\x1aJ\n\x12\x41ssetBalancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.taprpc.AssetBalance:\x02\x38\x01\x1aT\n\x17\x41ssetGroupBalancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12(\n\x05value\x18\x02 \x01(\x0b\x32\x19.taprpc.AssetGroupBalance:\x02\x38\x01\"+\n\x14ListTransfersRequest\x12\x13\n\x0b\x61nchor_txid\x18\x01 \x01(\t\"A\n\x15ListTransfersResponse\x12(\n\ttransfers\x18\x01 \x03(\x0b\x32\x15.taprpc.AssetTransfer\"+\n\tChainHash\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12\x10\n\x08hash_str\x18\x02 \x01(\t\"\x81\x02\n\rAssetTransfer\x12\x1a\n\x12transfer_timestamp\x18\x01 \x01(\x03\x12\x16\n\x0e\x61nchor_tx_hash\x18\x02 \x01(\x0c\x12\x1d\n\x15\x61nchor_tx_height_hint\x18\x03 \x01(\r\x12\x1c\n\x14\x61nchor_tx_chain_fees\x18\x04 \x01(\x03\x12%\n\x06inputs\x18\x05 \x03(\x0b\x32\x15.taprpc.TransferInput\x12\'\n\x07outputs\x18\x06 \x03(\x0b\x32\x16.taprpc.TransferOutput\x12/\n\x14\x61nchor_tx_block_hash\x18\x07 \x01(\x0b\x32\x11.taprpc.ChainHash\"[\n\rTransferInput\x12\x14\n\x0c\x61nchor_point\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\"\xb5\x01\n\x14TransferOutputAnchor\x12\x10\n\x08outpoint\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03\x12\x14\n\x0cinternal_key\x18\x03 \x01(\x0c\x12\x1a\n\x12taproot_asset_root\x18\x04 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x05 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x06 \x01(\x0c\x12\x1a\n\x12num_passive_assets\x18\x07 \x01(\r\"\xf8\x02\n\x0eTransferOutput\x12,\n\x06\x61nchor\x18\x01 \x01(\x0b\x32\x1c.taprpc.TransferOutputAnchor\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\x1b\n\x13script_key_is_local\x18\x03 \x01(\x08\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x16\n\x0enew_proof_blob\x18\x05 \x01(\x0c\x12\x1e\n\x16split_commit_root_hash\x18\x06 \x01(\x0c\x12\'\n\x0boutput_type\x18\x07 \x01(\x0e\x32\x12.taprpc.OutputType\x12+\n\rasset_version\x18\x08 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12\x11\n\tlock_time\x18\t \x01(\x04\x12\x1a\n\x12relative_lock_time\x18\n \x01(\x04\x12:\n\x15proof_delivery_status\x18\x0b \x01(\x0e\x32\x1b.taprpc.ProofDeliveryStatus\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"5\n\x11\x44\x65\x62ugLevelRequest\x12\x0c\n\x04show\x18\x01 \x01(\x08\x12\x12\n\nlevel_spec\x18\x02 \x01(\t\")\n\x12\x44\x65\x62ugLevelResponse\x12\x13\n\x0bsub_systems\x18\x01 \x01(\t\"\xcb\x02\n\x04\x41\x64\x64r\x12\x0f\n\x07\x65ncoded\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12%\n\nasset_type\x18\x03 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x11\n\tgroup_key\x18\x05 \x01(\x0c\x12\x12\n\nscript_key\x18\x06 \x01(\x0c\x12\x14\n\x0cinternal_key\x18\x07 \x01(\x0c\x12\x19\n\x11tapscript_sibling\x18\x08 \x01(\x0c\x12\x1a\n\x12taproot_output_key\x18\t \x01(\x0c\x12\x1a\n\x12proof_courier_addr\x18\n \x01(\t\x12+\n\rasset_version\x18\x0b \x01(\x0e\x32\x14.taprpc.AssetVersion\x12,\n\x0f\x61\x64\x64ress_version\x18\x0c \x01(\x0e\x32\x13.taprpc.AddrVersion\"`\n\x10QueryAddrRequest\x12\x15\n\rcreated_after\x18\x01 \x01(\x03\x12\x16\n\x0e\x63reated_before\x18\x02 \x01(\x03\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\"0\n\x11QueryAddrResponse\x12\x1b\n\x05\x61\x64\x64rs\x18\x01 \x03(\x0b\x32\x0c.taprpc.Addr\"\x95\x02\n\x0eNewAddrRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x0b\n\x03\x61mt\x18\x02 \x01(\x04\x12%\n\nscript_key\x18\x03 \x01(\x0b\x32\x11.taprpc.ScriptKey\x12+\n\x0cinternal_key\x18\x04 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x19\n\x11tapscript_sibling\x18\x05 \x01(\x0c\x12\x1a\n\x12proof_courier_addr\x18\x06 \x01(\t\x12+\n\rasset_version\x18\x07 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12,\n\x0f\x61\x64\x64ress_version\x18\x08 \x01(\x0e\x32\x13.taprpc.AddrVersion\"X\n\tScriptKey\x12\x0f\n\x07pub_key\x18\x01 \x01(\x0c\x12\'\n\x08key_desc\x18\x02 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x11\n\ttap_tweak\x18\x03 \x01(\x0c\"3\n\nKeyLocator\x12\x12\n\nkey_family\x18\x01 \x01(\x05\x12\x11\n\tkey_index\x18\x02 \x01(\x05\"K\n\rKeyDescriptor\x12\x15\n\rraw_key_bytes\x18\x01 \x01(\x0c\x12#\n\x07key_loc\x18\x02 \x01(\x0b\x32\x12.taprpc.KeyLocator\"8\n\x11TapscriptFullTree\x12#\n\nall_leaves\x18\x01 \x03(\x0b\x32\x0f.taprpc.TapLeaf\"\x19\n\x07TapLeaf\x12\x0e\n\x06script\x18\x02 \x01(\x0c\"8\n\tTapBranch\x12\x14\n\x0cleft_taphash\x18\x01 \x01(\x0c\x12\x15\n\rright_taphash\x18\x02 \x01(\x0c\"!\n\x11\x44\x65\x63odeAddrRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\":\n\tProofFile\x12\x16\n\x0eraw_proof_file\x18\x01 \x01(\x0c\x12\x15\n\rgenesis_point\x18\x02 \x01(\t\"\xac\x03\n\x0c\x44\x65\x63odedProof\x12\x16\n\x0eproof_at_depth\x18\x01 \x01(\r\x12\x18\n\x10number_of_proofs\x18\x02 \x01(\r\x12\x1c\n\x05\x61sset\x18\x03 \x01(\x0b\x32\r.taprpc.Asset\x12&\n\x0bmeta_reveal\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x17\n\x0ftx_merkle_proof\x18\x05 \x01(\x0c\x12\x17\n\x0finclusion_proof\x18\x06 \x01(\x0c\x12\x18\n\x10\x65xclusion_proofs\x18\x07 \x03(\x0c\x12\x18\n\x10split_root_proof\x18\x08 \x01(\x0c\x12\x1d\n\x15num_additional_inputs\x18\t \x01(\r\x12\x19\n\x11\x63hallenge_witness\x18\n \x03(\x0c\x12\x0f\n\x07is_burn\x18\x0b \x01(\x08\x12-\n\x0egenesis_reveal\x18\x0c \x01(\x0b\x32\x15.taprpc.GenesisReveal\x12\x30\n\x10group_key_reveal\x18\r \x01(\x0b\x32\x16.taprpc.GroupKeyReveal\x12\x12\n\nalt_leaves\x18\x0e \x01(\x0c\"Q\n\x13VerifyProofResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12+\n\rdecoded_proof\x18\x02 \x01(\x0b\x32\x14.taprpc.DecodedProof\"v\n\x12\x44\x65\x63odeProofRequest\x12\x11\n\traw_proof\x18\x01 \x01(\x0c\x12\x16\n\x0eproof_at_depth\x18\x02 \x01(\r\x12\x1b\n\x13with_prev_witnesses\x18\x03 \x01(\x08\x12\x18\n\x10with_meta_reveal\x18\x04 \x01(\x08\"B\n\x13\x44\x65\x63odeProofResponse\x12+\n\rdecoded_proof\x18\x01 \x01(\x0b\x32\x14.taprpc.DecodedProof\"^\n\x12\x45xportProofRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\"\n\x08outpoint\x18\x03 \x01(\x0b\x32\x10.taprpc.OutPoint\"\xe5\x01\n\tAddrEvent\x12\"\n\x1a\x63reation_time_unix_seconds\x18\x01 \x01(\x04\x12\x1a\n\x04\x61\x64\x64r\x18\x02 \x01(\x0b\x32\x0c.taprpc.Addr\x12\'\n\x06status\x18\x03 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\x12\x10\n\x08outpoint\x18\x04 \x01(\t\x12\x14\n\x0cutxo_amt_sat\x18\x05 \x01(\x04\x12\x17\n\x0ftaproot_sibling\x18\x06 \x01(\x0c\x12\x1b\n\x13\x63onfirmation_height\x18\x07 \x01(\r\x12\x11\n\thas_proof\x18\x08 \x01(\x08\"Z\n\x13\x41\x64\x64rReceivesRequest\x12\x13\n\x0b\x66ilter_addr\x18\x01 \x01(\t\x12.\n\rfilter_status\x18\x02 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\"9\n\x14\x41\x64\x64rReceivesResponse\x12!\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.taprpc.AddrEvent\"7\n\x10SendAssetRequest\x12\x11\n\ttap_addrs\x18\x01 \x03(\t\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\"\\\n\x0ePrevInputAsset\x12\x14\n\x0c\x61nchor_point\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\"<\n\x11SendAssetResponse\x12\'\n\x08transfer\x18\x01 \x01(\x0b\x32\x15.taprpc.AssetTransfer\"\x10\n\x0eGetInfoRequest\"\xba\x01\n\x0fGetInfoResponse\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x13\n\x0blnd_version\x18\x02 \x01(\t\x12\x0f\n\x07network\x18\x03 \x01(\t\x12\x1b\n\x13lnd_identity_pubkey\x18\x04 \x01(\t\x12\x12\n\nnode_alias\x18\x05 \x01(\t\x12\x14\n\x0c\x62lock_height\x18\x06 \x01(\r\x12\x12\n\nblock_hash\x18\x07 \x01(\t\x12\x15\n\rsync_to_chain\x18\x08 \x01(\x08\"z\n\x15\x46\x65tchAssetMetaRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x13\n\tmeta_hash\x18\x02 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x03 \x01(\tH\x00\x12\x17\n\rmeta_hash_str\x18\x04 \x01(\tH\x00\x42\x07\n\x05\x61sset\"\x88\x01\n\x10\x42urnAssetRequest\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x16\n\x0e\x61mount_to_burn\x18\x03 \x01(\x04\x12\x19\n\x11\x63onfirmation_text\x18\x04 \x01(\t\x12\x0c\n\x04note\x18\x05 \x01(\tB\x07\n\x05\x61sset\"k\n\x11\x42urnAssetResponse\x12,\n\rburn_transfer\x18\x01 \x01(\x0b\x32\x15.taprpc.AssetTransfer\x12(\n\nburn_proof\x18\x02 \x01(\x0b\x32\x14.taprpc.DecodedProof\"T\n\x10ListBurnsRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x19\n\x11tweaked_group_key\x18\x03 \x01(\x0c\x12\x13\n\x0b\x61nchor_txid\x18\x04 \x01(\x0c\"k\n\tAssetBurn\x12\x0c\n\x04note\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x19\n\x11tweaked_group_key\x18\x03 \x01(\x0c\x12\x0e\n\x06\x61mount\x18\x04 \x01(\x04\x12\x13\n\x0b\x61nchor_txid\x18\x05 \x01(\x0c\"5\n\x11ListBurnsResponse\x12 \n\x05\x62urns\x18\x01 \x03(\x0b\x32\x11.taprpc.AssetBurn\".\n\x08OutPoint\x12\x0c\n\x04txid\x18\x01 \x01(\x0c\x12\x14\n\x0coutput_index\x18\x02 \x01(\r\"M\n\x1dSubscribeReceiveEventsRequest\x12\x13\n\x0b\x66ilter_addr\x18\x01 \x01(\t\x12\x17\n\x0fstart_timestamp\x18\x02 \x01(\x03\"\xa7\x01\n\x0cReceiveEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x1d\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x0c.taprpc.Addr\x12\x10\n\x08outpoint\x18\x03 \x01(\t\x12\'\n\x06status\x18\x04 \x01(\x0e\x32\x17.taprpc.AddrEventStatus\x12\x1b\n\x13\x63onfirmation_height\x18\x05 \x01(\r\x12\r\n\x05\x65rror\x18\x06 \x01(\t\"7\n\x1aSubscribeSendEventsRequest\x12\x19\n\x11\x66ilter_script_key\x18\x01 \x01(\x0c\"\xa5\x02\n\tSendEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x12\n\nsend_state\x18\x02 \x01(\t\x12\'\n\x0bparcel_type\x18\x03 \x01(\x0e\x32\x12.taprpc.ParcelType\x12\x1f\n\taddresses\x18\x04 \x03(\x0b\x32\x0c.taprpc.Addr\x12\x17\n\x0fvirtual_packets\x18\x05 \x03(\x0c\x12\x1f\n\x17passive_virtual_packets\x18\x06 \x03(\x0c\x12\x35\n\x12\x61nchor_transaction\x18\x07 \x01(\x0b\x32\x19.taprpc.AnchorTransaction\x12\'\n\x08transfer\x18\x08 \x01(\x0b\x32\x15.taprpc.AssetTransfer\x12\r\n\x05\x65rror\x18\t \x01(\t\"\xbc\x01\n\x11\x41nchorTransaction\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x02 \x01(\x05\x12\x17\n\x0f\x63hain_fees_sats\x18\x03 \x01(\x03\x12\x1e\n\x16target_fee_rate_sat_kw\x18\x04 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x05 \x03(\x0b\x32\x10.taprpc.OutPoint\x12\x10\n\x08\x66inal_tx\x18\x06 \x01(\x0c*(\n\tAssetType\x12\n\n\x06NORMAL\x10\x00\x12\x0f\n\x0b\x43OLLECTIBLE\x10\x01*9\n\rAssetMetaType\x12\x14\n\x10META_TYPE_OPAQUE\x10\x00\x12\x12\n\x0eMETA_TYPE_JSON\x10\x01*:\n\x0c\x41ssetVersion\x12\x14\n\x10\x41SSET_VERSION_V0\x10\x00\x12\x14\n\x10\x41SSET_VERSION_V1\x10\x01*R\n\nOutputType\x12\x16\n\x12OUTPUT_TYPE_SIMPLE\x10\x00\x12\x1a\n\x16OUTPUT_TYPE_SPLIT_ROOT\x10\x01\"\x04\x08\x02\x10\x02\"\x04\x08\x03\x10\x03\"\x04\x08\x04\x10\x04*\x86\x01\n\x13ProofDeliveryStatus\x12(\n$PROOF_DELIVERY_STATUS_NOT_APPLICABLE\x10\x00\x12\"\n\x1ePROOF_DELIVERY_STATUS_COMPLETE\x10\x01\x12!\n\x1dPROOF_DELIVERY_STATUS_PENDING\x10\x02*U\n\x0b\x41\x64\x64rVersion\x12\x1c\n\x18\x41\x44\x44R_VERSION_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x41\x44\x44R_VERSION_V0\x10\x01\x12\x13\n\x0f\x41\x44\x44R_VERSION_V1\x10\x02*\xd0\x01\n\x0f\x41\x64\x64rEventStatus\x12\x1d\n\x19\x41\x44\x44R_EVENT_STATUS_UNKNOWN\x10\x00\x12*\n&ADDR_EVENT_STATUS_TRANSACTION_DETECTED\x10\x01\x12+\n\'ADDR_EVENT_STATUS_TRANSACTION_CONFIRMED\x10\x02\x12$\n ADDR_EVENT_STATUS_PROOF_RECEIVED\x10\x03\x12\x1f\n\x1b\x41\x44\x44R_EVENT_STATUS_COMPLETED\x10\x04*\x9b\x02\n\tSendState\x12#\n\x1fSEND_STATE_VIRTUAL_INPUT_SELECT\x10\x00\x12\x1b\n\x17SEND_STATE_VIRTUAL_SIGN\x10\x01\x12\x1a\n\x16SEND_STATE_ANCHOR_SIGN\x10\x02\x12\x1d\n\x19SEND_STATE_LOG_COMMITMENT\x10\x03\x12\x18\n\x14SEND_STATE_BROADCAST\x10\x04\x12 \n\x1cSEND_STATE_WAIT_CONFIRMATION\x10\x05\x12\x1b\n\x17SEND_STATE_STORE_PROOFS\x10\x06\x12\x1e\n\x1aSEND_STATE_TRANSFER_PROOFS\x10\x07\x12\x18\n\x14SEND_STATE_COMPLETED\x10\x08*x\n\nParcelType\x12\x17\n\x13PARCEL_TYPE_ADDRESS\x10\x00\x12\x1a\n\x16PARCEL_TYPE_PRE_SIGNED\x10\x01\x12\x17\n\x13PARCEL_TYPE_PENDING\x10\x02\x12\x1c\n\x18PARCEL_TYPE_PRE_ANCHORED\x10\x03\x32\x9a\x0b\n\rTaprootAssets\x12\x41\n\nListAssets\x12\x18.taprpc.ListAssetRequest\x1a\x19.taprpc.ListAssetResponse\x12@\n\tListUtxos\x12\x18.taprpc.ListUtxosRequest\x1a\x19.taprpc.ListUtxosResponse\x12\x43\n\nListGroups\x12\x19.taprpc.ListGroupsRequest\x1a\x1a.taprpc.ListGroupsResponse\x12I\n\x0cListBalances\x12\x1b.taprpc.ListBalancesRequest\x1a\x1c.taprpc.ListBalancesResponse\x12L\n\rListTransfers\x12\x1c.taprpc.ListTransfersRequest\x1a\x1d.taprpc.ListTransfersResponse\x12\x37\n\nStopDaemon\x12\x13.taprpc.StopRequest\x1a\x14.taprpc.StopResponse\x12\x43\n\nDebugLevel\x12\x19.taprpc.DebugLevelRequest\x1a\x1a.taprpc.DebugLevelResponse\x12\x41\n\nQueryAddrs\x12\x18.taprpc.QueryAddrRequest\x1a\x19.taprpc.QueryAddrResponse\x12/\n\x07NewAddr\x12\x16.taprpc.NewAddrRequest\x1a\x0c.taprpc.Addr\x12\x35\n\nDecodeAddr\x12\x19.taprpc.DecodeAddrRequest\x1a\x0c.taprpc.Addr\x12I\n\x0c\x41\x64\x64rReceives\x12\x1b.taprpc.AddrReceivesRequest\x1a\x1c.taprpc.AddrReceivesResponse\x12=\n\x0bVerifyProof\x12\x11.taprpc.ProofFile\x1a\x1b.taprpc.VerifyProofResponse\x12\x46\n\x0b\x44\x65\x63odeProof\x12\x1a.taprpc.DecodeProofRequest\x1a\x1b.taprpc.DecodeProofResponse\x12<\n\x0b\x45xportProof\x12\x1a.taprpc.ExportProofRequest\x1a\x11.taprpc.ProofFile\x12@\n\tSendAsset\x12\x18.taprpc.SendAssetRequest\x1a\x19.taprpc.SendAssetResponse\x12@\n\tBurnAsset\x12\x18.taprpc.BurnAssetRequest\x1a\x19.taprpc.BurnAssetResponse\x12@\n\tListBurns\x12\x18.taprpc.ListBurnsRequest\x1a\x19.taprpc.ListBurnsResponse\x12:\n\x07GetInfo\x12\x16.taprpc.GetInfoRequest\x1a\x17.taprpc.GetInfoResponse\x12\x42\n\x0e\x46\x65tchAssetMeta\x12\x1d.taprpc.FetchAssetMetaRequest\x1a\x11.taprpc.AssetMeta\x12W\n\x16SubscribeReceiveEvents\x12%.taprpc.SubscribeReceiveEventsRequest\x1a\x14.taprpc.ReceiveEvent0\x01\x12N\n\x13SubscribeSendEvents\x12\".taprpc.SubscribeSendEventsRequest\x1a\x11.taprpc.SendEvent0\x01\x42\x30Z.github.com/lightninglabs/taproot-assets/taprpcb\x06proto3')
 
 _ASSETTYPE = DESCRIPTOR.enum_types_by_name['AssetType']
 AssetType = enum_type_wrapper.EnumTypeWrapper(_ASSETTYPE)
@@ -73,6 +73,7 @@ _ASSETMETA = DESCRIPTOR.message_types_by_name['AssetMeta']
 _LISTASSETREQUEST = DESCRIPTOR.message_types_by_name['ListAssetRequest']
 _ANCHORINFO = DESCRIPTOR.message_types_by_name['AnchorInfo']
 _GENESISINFO = DESCRIPTOR.message_types_by_name['GenesisInfo']
+_EXTERNALKEY = DESCRIPTOR.message_types_by_name['ExternalKey']
 _GROUPKEYREQUEST = DESCRIPTOR.message_types_by_name['GroupKeyRequest']
 _TXOUT = DESCRIPTOR.message_types_by_name['TxOut']
 _GROUPVIRTUALTX = DESCRIPTOR.message_types_by_name['GroupVirtualTx']
@@ -139,6 +140,9 @@ _GETINFORESPONSE = DESCRIPTOR.message_types_by_name['GetInfoResponse']
 _FETCHASSETMETAREQUEST = DESCRIPTOR.message_types_by_name['FetchAssetMetaRequest']
 _BURNASSETREQUEST = DESCRIPTOR.message_types_by_name['BurnAssetRequest']
 _BURNASSETRESPONSE = DESCRIPTOR.message_types_by_name['BurnAssetResponse']
+_LISTBURNSREQUEST = DESCRIPTOR.message_types_by_name['ListBurnsRequest']
+_ASSETBURN = DESCRIPTOR.message_types_by_name['AssetBurn']
+_LISTBURNSRESPONSE = DESCRIPTOR.message_types_by_name['ListBurnsResponse']
 _OUTPOINT = DESCRIPTOR.message_types_by_name['OutPoint']
 _SUBSCRIBERECEIVEEVENTSREQUEST = DESCRIPTOR.message_types_by_name['SubscribeReceiveEventsRequest']
 _RECEIVEEVENT = DESCRIPTOR.message_types_by_name['ReceiveEvent']
@@ -172,6 +176,13 @@ GenesisInfo = _reflection.GeneratedProtocolMessageType('GenesisInfo', (_message.
   # @@protoc_insertion_point(class_scope:taprpc.GenesisInfo)
   })
 _sym_db.RegisterMessage(GenesisInfo)
+
+ExternalKey = _reflection.GeneratedProtocolMessageType('ExternalKey', (_message.Message,), {
+  'DESCRIPTOR' : _EXTERNALKEY,
+  '__module__' : 'lndgrpc.compiled.taprootassets_pb2'
+  # @@protoc_insertion_point(class_scope:taprpc.ExternalKey)
+  })
+_sym_db.RegisterMessage(ExternalKey)
 
 GroupKeyRequest = _reflection.GeneratedProtocolMessageType('GroupKeyRequest', (_message.Message,), {
   'DESCRIPTOR' : _GROUPKEYREQUEST,
@@ -639,6 +650,27 @@ BurnAssetResponse = _reflection.GeneratedProtocolMessageType('BurnAssetResponse'
   })
 _sym_db.RegisterMessage(BurnAssetResponse)
 
+ListBurnsRequest = _reflection.GeneratedProtocolMessageType('ListBurnsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTBURNSREQUEST,
+  '__module__' : 'lndgrpc.compiled.taprootassets_pb2'
+  # @@protoc_insertion_point(class_scope:taprpc.ListBurnsRequest)
+  })
+_sym_db.RegisterMessage(ListBurnsRequest)
+
+AssetBurn = _reflection.GeneratedProtocolMessageType('AssetBurn', (_message.Message,), {
+  'DESCRIPTOR' : _ASSETBURN,
+  '__module__' : 'lndgrpc.compiled.taprootassets_pb2'
+  # @@protoc_insertion_point(class_scope:taprpc.AssetBurn)
+  })
+_sym_db.RegisterMessage(AssetBurn)
+
+ListBurnsResponse = _reflection.GeneratedProtocolMessageType('ListBurnsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTBURNSRESPONSE,
+  '__module__' : 'lndgrpc.compiled.taprootassets_pb2'
+  # @@protoc_insertion_point(class_scope:taprpc.ListBurnsResponse)
+  })
+_sym_db.RegisterMessage(ListBurnsResponse)
+
 OutPoint = _reflection.GeneratedProtocolMessageType('OutPoint', (_message.Message,), {
   'DESCRIPTOR' : _OUTPOINT,
   '__module__' : 'lndgrpc.compiled.taprootassets_pb2'
@@ -694,24 +726,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTBALANCESRESPONSE_ASSETBALANCESENTRY._serialized_options = b'8\001'
   _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._options = None
   _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._serialized_options = b'8\001'
-  _ASSETTYPE._serialized_start=8744
-  _ASSETTYPE._serialized_end=8784
-  _ASSETMETATYPE._serialized_start=8786
-  _ASSETMETATYPE._serialized_end=8843
-  _ASSETVERSION._serialized_start=8845
-  _ASSETVERSION._serialized_end=8903
-  _OUTPUTTYPE._serialized_start=8905
-  _OUTPUTTYPE._serialized_end=8987
-  _PROOFDELIVERYSTATUS._serialized_start=8990
-  _PROOFDELIVERYSTATUS._serialized_end=9124
-  _ADDRVERSION._serialized_start=9126
-  _ADDRVERSION._serialized_end=9211
-  _ADDREVENTSTATUS._serialized_start=9214
-  _ADDREVENTSTATUS._serialized_end=9422
-  _SENDSTATE._serialized_start=9425
-  _SENDSTATE._serialized_end=9708
-  _PARCELTYPE._serialized_start=9710
-  _PARCELTYPE._serialized_end=9830
+  _ASSETTYPE._serialized_start=9154
+  _ASSETTYPE._serialized_end=9194
+  _ASSETMETATYPE._serialized_start=9196
+  _ASSETMETATYPE._serialized_end=9253
+  _ASSETVERSION._serialized_start=9255
+  _ASSETVERSION._serialized_end=9313
+  _OUTPUTTYPE._serialized_start=9315
+  _OUTPUTTYPE._serialized_end=9397
+  _PROOFDELIVERYSTATUS._serialized_start=9400
+  _PROOFDELIVERYSTATUS._serialized_end=9534
+  _ADDRVERSION._serialized_start=9536
+  _ADDRVERSION._serialized_end=9621
+  _ADDREVENTSTATUS._serialized_start=9624
+  _ADDREVENTSTATUS._serialized_end=9832
+  _SENDSTATE._serialized_start=9835
+  _SENDSTATE._serialized_end=10118
+  _PARCELTYPE._serialized_start=10120
+  _PARCELTYPE._serialized_end=10240
   _ASSETMETA._serialized_start=48
   _ASSETMETA._serialized_end=129
   _LISTASSETREQUEST._serialized_start=131
@@ -720,150 +752,158 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ANCHORINFO._serialized_end=431
   _GENESISINFO._serialized_start=434
   _GENESISINFO._serialized_end=582
-  _GROUPKEYREQUEST._serialized_start=585
-  _GROUPKEYREQUEST._serialized_end=730
-  _TXOUT._serialized_start=732
-  _TXOUT._serialized_end=773
-  _GROUPVIRTUALTX._serialized_start=775
-  _GROUPVIRTUALTX._serialized_end=886
-  _GROUPWITNESS._serialized_start=888
-  _GROUPWITNESS._serialized_end=939
-  _ASSETGROUP._serialized_start=941
-  _ASSETGROUP._serialized_end=1050
-  _GROUPKEYREVEAL._serialized_start=1052
-  _GROUPKEYREVEAL._serialized_end=1115
-  _GENESISREVEAL._serialized_start=1117
-  _GENESISREVEAL._serialized_end=1182
-  _DECIMALDISPLAY._serialized_start=1184
-  _DECIMALDISPLAY._serialized_end=1225
-  _ASSET._serialized_start=1228
-  _ASSET._serialized_end=1780
-  _PREVWITNESS._serialized_start=1782
-  _PREVWITNESS._serialized_end=1907
-  _SPLITCOMMITMENT._serialized_start=1909
-  _SPLITCOMMITMENT._serialized_end=1961
-  _LISTASSETRESPONSE._serialized_start=1963
-  _LISTASSETRESPONSE._serialized_end=2071
-  _LISTUTXOSREQUEST._serialized_start=2073
-  _LISTUTXOSREQUEST._serialized_end=2115
-  _MANAGEDUTXO._serialized_start=2118
-  _MANAGEDUTXO._serialized_end=2317
-  _LISTUTXOSRESPONSE._serialized_start=2320
-  _LISTUTXOSRESPONSE._serialized_end=2481
-  _LISTUTXOSRESPONSE_MANAGEDUTXOSENTRY._serialized_start=2409
-  _LISTUTXOSRESPONSE_MANAGEDUTXOSENTRY._serialized_end=2481
-  _LISTGROUPSREQUEST._serialized_start=2483
-  _LISTGROUPSREQUEST._serialized_end=2502
-  _ASSETHUMANREADABLE._serialized_start=2505
-  _ASSETHUMANREADABLE._serialized_end=2704
-  _GROUPEDASSETS._serialized_start=2706
-  _GROUPEDASSETS._serialized_end=2765
-  _LISTGROUPSRESPONSE._serialized_start=2768
-  _LISTGROUPSRESPONSE._serialized_end=2914
-  _LISTGROUPSRESPONSE_GROUPSENTRY._serialized_start=2846
-  _LISTGROUPSRESPONSE_GROUPSENTRY._serialized_end=2914
-  _LISTBALANCESREQUEST._serialized_start=2917
-  _LISTBALANCESREQUEST._serialized_end=3063
-  _ASSETBALANCE._serialized_start=3065
-  _ASSETBALANCE._serialized_end=3140
-  _ASSETGROUPBALANCE._serialized_start=3142
-  _ASSETGROUPBALANCE._serialized_end=3197
-  _LISTBALANCESRESPONSE._serialized_start=3200
-  _LISTBALANCESRESPONSE._serialized_end=3541
-  _LISTBALANCESRESPONSE_ASSETBALANCESENTRY._serialized_start=3381
-  _LISTBALANCESRESPONSE_ASSETBALANCESENTRY._serialized_end=3455
-  _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._serialized_start=3457
-  _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._serialized_end=3541
-  _LISTTRANSFERSREQUEST._serialized_start=3543
-  _LISTTRANSFERSREQUEST._serialized_end=3586
-  _LISTTRANSFERSRESPONSE._serialized_start=3588
-  _LISTTRANSFERSRESPONSE._serialized_end=3653
-  _CHAINHASH._serialized_start=3655
-  _CHAINHASH._serialized_end=3698
-  _ASSETTRANSFER._serialized_start=3701
-  _ASSETTRANSFER._serialized_end=3958
-  _TRANSFERINPUT._serialized_start=3960
-  _TRANSFERINPUT._serialized_end=4051
-  _TRANSFEROUTPUTANCHOR._serialized_start=4054
-  _TRANSFEROUTPUTANCHOR._serialized_end=4235
-  _TRANSFEROUTPUT._serialized_start=4238
-  _TRANSFEROUTPUT._serialized_end=4614
-  _STOPREQUEST._serialized_start=4616
-  _STOPREQUEST._serialized_end=4629
-  _STOPRESPONSE._serialized_start=4631
-  _STOPRESPONSE._serialized_end=4645
-  _DEBUGLEVELREQUEST._serialized_start=4647
-  _DEBUGLEVELREQUEST._serialized_end=4700
-  _DEBUGLEVELRESPONSE._serialized_start=4702
-  _DEBUGLEVELRESPONSE._serialized_end=4743
-  _ADDR._serialized_start=4746
-  _ADDR._serialized_end=5077
-  _QUERYADDRREQUEST._serialized_start=5079
-  _QUERYADDRREQUEST._serialized_end=5175
-  _QUERYADDRRESPONSE._serialized_start=5177
-  _QUERYADDRRESPONSE._serialized_end=5225
-  _NEWADDRREQUEST._serialized_start=5228
-  _NEWADDRREQUEST._serialized_end=5505
-  _SCRIPTKEY._serialized_start=5507
-  _SCRIPTKEY._serialized_end=5595
-  _KEYLOCATOR._serialized_start=5597
-  _KEYLOCATOR._serialized_end=5648
-  _KEYDESCRIPTOR._serialized_start=5650
-  _KEYDESCRIPTOR._serialized_end=5725
-  _TAPSCRIPTFULLTREE._serialized_start=5727
-  _TAPSCRIPTFULLTREE._serialized_end=5783
-  _TAPLEAF._serialized_start=5785
-  _TAPLEAF._serialized_end=5810
-  _TAPBRANCH._serialized_start=5812
-  _TAPBRANCH._serialized_end=5868
-  _DECODEADDRREQUEST._serialized_start=5870
-  _DECODEADDRREQUEST._serialized_end=5903
-  _PROOFFILE._serialized_start=5905
-  _PROOFFILE._serialized_end=5963
-  _DECODEDPROOF._serialized_start=5966
-  _DECODEDPROOF._serialized_end=6374
-  _VERIFYPROOFRESPONSE._serialized_start=6376
-  _VERIFYPROOFRESPONSE._serialized_end=6457
-  _DECODEPROOFREQUEST._serialized_start=6459
-  _DECODEPROOFREQUEST._serialized_end=6577
-  _DECODEPROOFRESPONSE._serialized_start=6579
-  _DECODEPROOFRESPONSE._serialized_end=6645
-  _EXPORTPROOFREQUEST._serialized_start=6647
-  _EXPORTPROOFREQUEST._serialized_end=6741
-  _ADDREVENT._serialized_start=6744
-  _ADDREVENT._serialized_end=6973
-  _ADDRRECEIVESREQUEST._serialized_start=6975
-  _ADDRRECEIVESREQUEST._serialized_end=7065
-  _ADDRRECEIVESRESPONSE._serialized_start=7067
-  _ADDRRECEIVESRESPONSE._serialized_end=7124
-  _SENDASSETREQUEST._serialized_start=7126
-  _SENDASSETREQUEST._serialized_end=7181
-  _PREVINPUTASSET._serialized_start=7183
-  _PREVINPUTASSET._serialized_end=7275
-  _SENDASSETRESPONSE._serialized_start=7277
-  _SENDASSETRESPONSE._serialized_end=7337
-  _GETINFOREQUEST._serialized_start=7339
-  _GETINFOREQUEST._serialized_end=7355
-  _GETINFORESPONSE._serialized_start=7358
-  _GETINFORESPONSE._serialized_end=7544
-  _FETCHASSETMETAREQUEST._serialized_start=7546
-  _FETCHASSETMETAREQUEST._serialized_end=7668
-  _BURNASSETREQUEST._serialized_start=7670
-  _BURNASSETREQUEST._serialized_end=7792
-  _BURNASSETRESPONSE._serialized_start=7794
-  _BURNASSETRESPONSE._serialized_end=7901
-  _OUTPOINT._serialized_start=7903
-  _OUTPOINT._serialized_end=7949
-  _SUBSCRIBERECEIVEEVENTSREQUEST._serialized_start=7951
-  _SUBSCRIBERECEIVEEVENTSREQUEST._serialized_end=8028
-  _RECEIVEEVENT._serialized_start=8031
-  _RECEIVEEVENT._serialized_end=8198
-  _SUBSCRIBESENDEVENTSREQUEST._serialized_start=8200
-  _SUBSCRIBESENDEVENTSREQUEST._serialized_end=8255
-  _SENDEVENT._serialized_start=8258
-  _SENDEVENT._serialized_end=8551
-  _ANCHORTRANSACTION._serialized_start=8554
-  _ANCHORTRANSACTION._serialized_end=8742
-  _TAPROOTASSETS._serialized_start=9833
-  _TAPROOTASSETS._serialized_end=11201
+  _EXTERNALKEY._serialized_start=584
+  _EXTERNALKEY._serialized_end=664
+  _GROUPKEYREQUEST._serialized_start=667
+  _GROUPKEYREQUEST._serialized_end=855
+  _TXOUT._serialized_start=857
+  _TXOUT._serialized_end=898
+  _GROUPVIRTUALTX._serialized_start=900
+  _GROUPVIRTUALTX._serialized_end=1011
+  _GROUPWITNESS._serialized_start=1013
+  _GROUPWITNESS._serialized_end=1064
+  _ASSETGROUP._serialized_start=1066
+  _ASSETGROUP._serialized_end=1175
+  _GROUPKEYREVEAL._serialized_start=1177
+  _GROUPKEYREVEAL._serialized_end=1240
+  _GENESISREVEAL._serialized_start=1242
+  _GENESISREVEAL._serialized_end=1307
+  _DECIMALDISPLAY._serialized_start=1309
+  _DECIMALDISPLAY._serialized_end=1350
+  _ASSET._serialized_start=1353
+  _ASSET._serialized_end=1905
+  _PREVWITNESS._serialized_start=1907
+  _PREVWITNESS._serialized_end=2032
+  _SPLITCOMMITMENT._serialized_start=2034
+  _SPLITCOMMITMENT._serialized_end=2086
+  _LISTASSETRESPONSE._serialized_start=2088
+  _LISTASSETRESPONSE._serialized_end=2196
+  _LISTUTXOSREQUEST._serialized_start=2198
+  _LISTUTXOSREQUEST._serialized_end=2240
+  _MANAGEDUTXO._serialized_start=2243
+  _MANAGEDUTXO._serialized_end=2442
+  _LISTUTXOSRESPONSE._serialized_start=2445
+  _LISTUTXOSRESPONSE._serialized_end=2606
+  _LISTUTXOSRESPONSE_MANAGEDUTXOSENTRY._serialized_start=2534
+  _LISTUTXOSRESPONSE_MANAGEDUTXOSENTRY._serialized_end=2606
+  _LISTGROUPSREQUEST._serialized_start=2608
+  _LISTGROUPSREQUEST._serialized_end=2627
+  _ASSETHUMANREADABLE._serialized_start=2630
+  _ASSETHUMANREADABLE._serialized_end=2829
+  _GROUPEDASSETS._serialized_start=2831
+  _GROUPEDASSETS._serialized_end=2890
+  _LISTGROUPSRESPONSE._serialized_start=2893
+  _LISTGROUPSRESPONSE._serialized_end=3039
+  _LISTGROUPSRESPONSE_GROUPSENTRY._serialized_start=2971
+  _LISTGROUPSRESPONSE_GROUPSENTRY._serialized_end=3039
+  _LISTBALANCESREQUEST._serialized_start=3042
+  _LISTBALANCESREQUEST._serialized_end=3188
+  _ASSETBALANCE._serialized_start=3190
+  _ASSETBALANCE._serialized_end=3265
+  _ASSETGROUPBALANCE._serialized_start=3267
+  _ASSETGROUPBALANCE._serialized_end=3322
+  _LISTBALANCESRESPONSE._serialized_start=3325
+  _LISTBALANCESRESPONSE._serialized_end=3666
+  _LISTBALANCESRESPONSE_ASSETBALANCESENTRY._serialized_start=3506
+  _LISTBALANCESRESPONSE_ASSETBALANCESENTRY._serialized_end=3580
+  _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._serialized_start=3582
+  _LISTBALANCESRESPONSE_ASSETGROUPBALANCESENTRY._serialized_end=3666
+  _LISTTRANSFERSREQUEST._serialized_start=3668
+  _LISTTRANSFERSREQUEST._serialized_end=3711
+  _LISTTRANSFERSRESPONSE._serialized_start=3713
+  _LISTTRANSFERSRESPONSE._serialized_end=3778
+  _CHAINHASH._serialized_start=3780
+  _CHAINHASH._serialized_end=3823
+  _ASSETTRANSFER._serialized_start=3826
+  _ASSETTRANSFER._serialized_end=4083
+  _TRANSFERINPUT._serialized_start=4085
+  _TRANSFERINPUT._serialized_end=4176
+  _TRANSFEROUTPUTANCHOR._serialized_start=4179
+  _TRANSFEROUTPUTANCHOR._serialized_end=4360
+  _TRANSFEROUTPUT._serialized_start=4363
+  _TRANSFEROUTPUT._serialized_end=4739
+  _STOPREQUEST._serialized_start=4741
+  _STOPREQUEST._serialized_end=4754
+  _STOPRESPONSE._serialized_start=4756
+  _STOPRESPONSE._serialized_end=4770
+  _DEBUGLEVELREQUEST._serialized_start=4772
+  _DEBUGLEVELREQUEST._serialized_end=4825
+  _DEBUGLEVELRESPONSE._serialized_start=4827
+  _DEBUGLEVELRESPONSE._serialized_end=4868
+  _ADDR._serialized_start=4871
+  _ADDR._serialized_end=5202
+  _QUERYADDRREQUEST._serialized_start=5204
+  _QUERYADDRREQUEST._serialized_end=5300
+  _QUERYADDRRESPONSE._serialized_start=5302
+  _QUERYADDRRESPONSE._serialized_end=5350
+  _NEWADDRREQUEST._serialized_start=5353
+  _NEWADDRREQUEST._serialized_end=5630
+  _SCRIPTKEY._serialized_start=5632
+  _SCRIPTKEY._serialized_end=5720
+  _KEYLOCATOR._serialized_start=5722
+  _KEYLOCATOR._serialized_end=5773
+  _KEYDESCRIPTOR._serialized_start=5775
+  _KEYDESCRIPTOR._serialized_end=5850
+  _TAPSCRIPTFULLTREE._serialized_start=5852
+  _TAPSCRIPTFULLTREE._serialized_end=5908
+  _TAPLEAF._serialized_start=5910
+  _TAPLEAF._serialized_end=5935
+  _TAPBRANCH._serialized_start=5937
+  _TAPBRANCH._serialized_end=5993
+  _DECODEADDRREQUEST._serialized_start=5995
+  _DECODEADDRREQUEST._serialized_end=6028
+  _PROOFFILE._serialized_start=6030
+  _PROOFFILE._serialized_end=6088
+  _DECODEDPROOF._serialized_start=6091
+  _DECODEDPROOF._serialized_end=6519
+  _VERIFYPROOFRESPONSE._serialized_start=6521
+  _VERIFYPROOFRESPONSE._serialized_end=6602
+  _DECODEPROOFREQUEST._serialized_start=6604
+  _DECODEPROOFREQUEST._serialized_end=6722
+  _DECODEPROOFRESPONSE._serialized_start=6724
+  _DECODEPROOFRESPONSE._serialized_end=6790
+  _EXPORTPROOFREQUEST._serialized_start=6792
+  _EXPORTPROOFREQUEST._serialized_end=6886
+  _ADDREVENT._serialized_start=6889
+  _ADDREVENT._serialized_end=7118
+  _ADDRRECEIVESREQUEST._serialized_start=7120
+  _ADDRRECEIVESREQUEST._serialized_end=7210
+  _ADDRRECEIVESRESPONSE._serialized_start=7212
+  _ADDRRECEIVESRESPONSE._serialized_end=7269
+  _SENDASSETREQUEST._serialized_start=7271
+  _SENDASSETREQUEST._serialized_end=7326
+  _PREVINPUTASSET._serialized_start=7328
+  _PREVINPUTASSET._serialized_end=7420
+  _SENDASSETRESPONSE._serialized_start=7422
+  _SENDASSETRESPONSE._serialized_end=7482
+  _GETINFOREQUEST._serialized_start=7484
+  _GETINFOREQUEST._serialized_end=7500
+  _GETINFORESPONSE._serialized_start=7503
+  _GETINFORESPONSE._serialized_end=7689
+  _FETCHASSETMETAREQUEST._serialized_start=7691
+  _FETCHASSETMETAREQUEST._serialized_end=7813
+  _BURNASSETREQUEST._serialized_start=7816
+  _BURNASSETREQUEST._serialized_end=7952
+  _BURNASSETRESPONSE._serialized_start=7954
+  _BURNASSETRESPONSE._serialized_end=8061
+  _LISTBURNSREQUEST._serialized_start=8063
+  _LISTBURNSREQUEST._serialized_end=8147
+  _ASSETBURN._serialized_start=8149
+  _ASSETBURN._serialized_end=8256
+  _LISTBURNSRESPONSE._serialized_start=8258
+  _LISTBURNSRESPONSE._serialized_end=8311
+  _OUTPOINT._serialized_start=8313
+  _OUTPOINT._serialized_end=8359
+  _SUBSCRIBERECEIVEEVENTSREQUEST._serialized_start=8361
+  _SUBSCRIBERECEIVEEVENTSREQUEST._serialized_end=8438
+  _RECEIVEEVENT._serialized_start=8441
+  _RECEIVEEVENT._serialized_end=8608
+  _SUBSCRIBESENDEVENTSREQUEST._serialized_start=8610
+  _SUBSCRIBESENDEVENTSREQUEST._serialized_end=8665
+  _SENDEVENT._serialized_start=8668
+  _SENDEVENT._serialized_end=8961
+  _ANCHORTRANSACTION._serialized_start=8964
+  _ANCHORTRANSACTION._serialized_end=9152
+  _TAPROOTASSETS._serialized_start=10243
+  _TAPROOTASSETS._serialized_end=11677
 # @@protoc_insertion_point(module_scope)

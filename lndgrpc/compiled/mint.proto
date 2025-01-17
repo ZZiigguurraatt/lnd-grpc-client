@@ -175,6 +175,8 @@ message MintAsset {
     /*
     The optional key that will be used as the internal key for an asset group
     created with this asset.
+
+    If this field is set then external_group_key must be unset, and vice versa.
     */
     taprpc.KeyDescriptor group_internal_key = 10;
 
@@ -217,6 +219,8 @@ message MintAsset {
     external signing key for the group virtual transaction during minting.
     This key enables signing operations to be performed externally, outside
     the daemon.
+
+    If this field is set then group_internal_key must be unset, and vice versa.
     */
     taprpc.ExternalKey external_group_key = 14;
 }
@@ -334,6 +338,9 @@ message SealBatchRequest {
 
     // The assetID, witness pairs that authorize asset membership in a group.
     repeated taprpc.GroupWitness group_witnesses = 2;
+
+    // The base64 encoded signed group virtual PSBTs.
+    repeated string signed_group_virtual_psbts = 3;
 }
 
 message SealBatchResponse {

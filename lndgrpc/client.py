@@ -21,6 +21,7 @@ from .taprootassets import TaprootAssetsRPC
 from .tapchannel import TaprootAssetChannelsRPC
 from .mint import MintRPC
 from .universe import UniverseRPC
+from .rfq import RfqRPC
 
 from threading import Thread
 import logging
@@ -120,6 +121,7 @@ class LNDClient(
 			TaprootAssetChannelsRPC,
 			MintRPC,
 			UniverseRPC,
+			RfqRPC,
 
 		):
 	"""merge all classes into a main class that connects to an lnd instance and provides all available function calls to that node"""

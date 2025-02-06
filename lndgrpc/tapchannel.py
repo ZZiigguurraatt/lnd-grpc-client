@@ -26,9 +26,9 @@ class TaprootAssetChannelsRPC(BaseClient):
         return response
 
     @handle_rpc_errors
-    def send_taprootasset_payment(self, asset_id, asset_amount=0, peer_pubkey=None, **kwargs):
-        request = tapchannel.SendPaymentRequest(asset_id=asset_id, asset_amount=asset_amount, peer_pubkey=peer_pubkey, payment_request=router.SendPaymentRequest(**kwargs))
-        response = self.get_tapchannel_stub().SendPayment(request)
+    def decode_asset_pay_req(self, **kwargs):
+        request = tapchannel.AssetPayReq(**kwargs)
+        response = self.get_tapchannel_stub().DecodeAssetPayReq(request)
         return response
 
     @handle_rpc_errors
@@ -37,13 +37,10 @@ class TaprootAssetChannelsRPC(BaseClient):
         response = self.get_tapchannel_stub().FundChannel(request)
         return response
 
-
-
-
-
-
-
-
-
+    @handle_rpc_errors
+    def send_taprootasset_payment(self, asset_id, asset_amount=0, peer_pubkey=None, **kwargs):
+        request = tapchannel.SendPaymentRequest(asset_id=asset_id, asset_amount=asset_amount, peer_pubkey=peer_pubkey, payment_request=router.SendPaymentRequest(**kwargs))
+        response = self.get_tapchannel_stub().SendPayment(request)
+        return response
 
 

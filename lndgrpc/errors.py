@@ -2,6 +2,13 @@ import grpc
 from functools import wraps
 
 
+HideErrors=False
+
+def printMessage(str):
+    if not HideErrors:
+        print(str)
+
+
 class WalletEncryptedError(Exception):
 
     def __init__(self, message=None):
@@ -28,33 +35,33 @@ def handle_rpc_errors(fnc):
             exc.details()
             if exc.code() == grpc.StatusCode.UNIMPLEMENTED:
                 # raise WalletEncryptedError from None
-                print("unimplemented")
+                printMessage("unimplemented")
                 raise exc
             elif exc.code() == grpc.StatusCode.UNAVAILABLE:
-                print("UNAVAILABLE")
-                print(f"ERROR MESSAGE: {exc.details()}")
+                printMessage("UNAVAILABLE")
+                printMessage(f"ERROR MESSAGE: {exc.details()}")
                 raise exc
             elif exc.code() == grpc.StatusCode.UNKNOWN and exc.details() == "wallet locked, unlock it to enable full RPC access":
-                print("WALLET IS LOCKED!")
+                printMessage("WALLET IS LOCKED!")
                 raise exc
             elif exc.code() == grpc.StatusCode.UNKNOWN:
-                print("unknown")
-                print(f"ERROR MESSAGE: {exc.details()}")
+                printMessage("unknown")
+                printMessage(f"ERROR MESSAGE: {exc.details()}")
                 raise exc
             elif exc.code() == grpc.StatusCode.NOT_FOUND:
-                print("NOT FOUND")
-                print(f"ERROR MESSAGE: {exc.details()}")
+                printMessage("NOT FOUND")
+                printMessage(f"ERROR MESSAGE: {exc.details()}")
                 raise exc
             elif exc.code() == grpc.StatusCode.PERMISSION_DENIED:
-                print("PERMISSION_DENIED")
-                print(f"ERROR MESSAGE: {exc.details()}")
+                printMessage("PERMISSION_DENIED")
+                printMessage(f"ERROR MESSAGE: {exc.details()}")
                 raise exc
             else:
                 raise exc
                 return exc
         except Exception as exc:
-            print("unknown exception")
-            print(exc)
+            printMessage("unknown exception")
+            printMessage(exc)
             raise exc
 
     return wrapper

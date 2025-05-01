@@ -45,7 +45,7 @@ class TaprootAssetChannelsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def FundChannel(self, request, context):
-        """
+        """litcli: `ln fundchannel`
         FundChannel initiates the channel funding negotiation with a peer for the
         creation of a channel that contains a specified amount of a given asset.
         """
@@ -66,7 +66,7 @@ class TaprootAssetChannelsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SendPayment(self, request, context):
-        """
+        """litcli: `ln sendpayment`
         SendPayment is a wrapper around lnd's routerrpc.SendPaymentV2 RPC method
         with asset specific parameters. It allows RPC users to send asset keysend
         payments (direct payments) or payments to an invoice with a specified asset
@@ -77,7 +77,7 @@ class TaprootAssetChannelsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AddInvoice(self, request, context):
-        """
+        """litcli: `ln addinvoice`
         AddInvoice is a wrapper around lnd's lnrpc.AddInvoice method with asset
         specific parameters. It allows RPC users to create invoices that correspond
         to the specified asset amount.
@@ -87,7 +87,7 @@ class TaprootAssetChannelsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DecodeAssetPayReq(self, request, context):
-        """
+        """litcli: `ln decodeassetinvoice`
         DecodeAssetPayReq is similar to lnd's lnrpc.DecodePayReq, but it accepts an
         asset ID and returns the invoice amount expressed in asset units along side
         the normal information.

@@ -729,10 +729,10 @@ class LightningServicer(object):
 
     def SendPaymentSync(self, request, context):
         """
-        SendPaymentSync is the synchronous non-streaming version of SendPayment.
-        This RPC is intended to be consumed by clients of the REST proxy.
-        Additionally, this RPC expects the destination's public key and the payment
-        hash (if any) to be encoded as hex strings.
+        Deprecated, use routerrpc.SendPaymentV2. SendPaymentSync is the synchronous
+        non-streaming version of SendPayment. This RPC is intended to be consumed by
+        clients of the REST proxy. Additionally, this RPC expects the destination's
+        public key and the payment hash (if any) to be encoded as hex strings.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -752,8 +752,9 @@ class LightningServicer(object):
 
     def SendToRouteSync(self, request, context):
         """
-        SendToRouteSync is a synchronous version of SendToRoute. It Will block
-        until the payment either fails or succeeds.
+        Deprecated, use routerrpc.SendToRouteV2. SendToRouteSync is a synchronous
+        version of SendToRoute. It Will block until the payment either fails or
+        succeeds.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

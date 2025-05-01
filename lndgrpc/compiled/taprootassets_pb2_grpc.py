@@ -84,6 +84,11 @@ class TaprootAssetsStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ExportProofRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ProofFile.FromString,
                 )
+        self.UnpackProofFile = channel.unary_unary(
+                '/taprpc.TaprootAssets/UnpackProofFile',
+                request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileResponse.FromString,
+                )
         self.SendAsset = channel.unary_unary(
                 '/taprpc.TaprootAssets/SendAsset',
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SendAssetRequest.SerializeToString,
@@ -118,6 +123,11 @@ class TaprootAssetsStub(object):
                 '/taprpc.TaprootAssets/SubscribeSendEvents',
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SubscribeSendEventsRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SendEvent.FromString,
+                )
+        self.RegisterTransfer = channel.unary_unary(
+                '/taprpc.TaprootAssets/RegisterTransfer',
+                request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferResponse.FromString,
                 )
 
 
@@ -248,6 +258,15 @@ class TaprootAssetsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UnpackProofFile(self, request, context):
+        """tapcli: `proofs unpack`
+        UnpackProofFile unpacks a proof file into a list of the individual raw
+        proofs in the proof chain.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SendAsset(self, request, context):
         """tapcli: `assets send`
         SendAsset uses one or multiple passed Taproot Asset address(es) to attempt
@@ -311,6 +330,21 @@ class TaprootAssetsServicer(object):
         """tapcli: `events send`
         SubscribeSendEvents allows a caller to subscribe to send events for outgoing
         asset transfers.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RegisterTransfer(self, request, context):
+        """
+        RegisterTransfer informs the daemon about a new inbound transfer that has
+        happened. This is used for interactive transfers where no TAP address is
+        involved and the recipient is aware of the transfer through an out-of-band
+        protocol but the daemon hasn't been informed about the completion of the
+        transfer. For this to work, the proof must already be in the recipient's
+        local universe (e.g. through the use of the universerpc.ImportProof RPC or
+        the universe proof courier and universe sync mechanisms) and this call
+        simply instructs the daemon to detect the transfer as an asset it owns.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -389,6 +423,11 @@ def add_TaprootAssetsServicer_to_server(servicer, server):
                     request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ExportProofRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.ProofFile.SerializeToString,
             ),
+            'UnpackProofFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnpackProofFile,
+                    request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileResponse.SerializeToString,
+            ),
             'SendAsset': grpc.unary_unary_rpc_method_handler(
                     servicer.SendAsset,
                     request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SendAssetRequest.FromString,
@@ -423,6 +462,11 @@ def add_TaprootAssetsServicer_to_server(servicer, server):
                     servicer.SubscribeSendEvents,
                     request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SubscribeSendEventsRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.SendEvent.SerializeToString,
+            ),
+            'RegisterTransfer': grpc.unary_unary_rpc_method_handler(
+                    servicer.RegisterTransfer,
+                    request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -673,6 +717,23 @@ class TaprootAssets(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UnpackProofFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/taprpc.TaprootAssets/UnpackProofFile',
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.UnpackProofFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def SendAsset(request,
             target,
             options=(),
@@ -788,5 +849,22 @@ class TaprootAssets(object):
         return grpc.experimental.unary_stream(request, target, '/taprpc.TaprootAssets/SubscribeSendEvents',
             lndgrpc_dot_compiled_dot_taprootassets__pb2.SubscribeSendEventsRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_taprootassets__pb2.SendEvent.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RegisterTransfer(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/taprpc.TaprootAssets/RegisterTransfer',
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.RegisterTransferResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

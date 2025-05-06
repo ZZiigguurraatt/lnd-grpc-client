@@ -27,6 +27,12 @@ class TaprootAssetsRPC(BaseClient):
         return response
 
     @handle_rpc_errors
+    def list_groups(self, **kwargs):
+        request = taprootassets.ListGroupsRequest(**kwargs)
+        response = self.get_taprootassets_stub().ListGroups(request)
+        return response
+
+    @handle_rpc_errors
     def send_asset(self, **kwargs):
         request = taprootassets.SendAssetRequest(**kwargs)
         response = self.get_taprootassets_stub().SendAsset(request)

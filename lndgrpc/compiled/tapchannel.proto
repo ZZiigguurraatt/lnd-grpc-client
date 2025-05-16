@@ -43,8 +43,8 @@ service TaprootAssetChannels {
 
     /* litcli: `ln decodeassetinvoice`
     DecodeAssetPayReq is similar to lnd's lnrpc.DecodePayReq, but it accepts an
-    asset ID and returns the invoice amount expressed in asset units along side
-    the normal information.
+    asset ID or group key and returns the invoice amount expressed in asset
+    units along side the normal information.
     */
     rpc DecodeAssetPayReq (AssetPayReq) returns (AssetPayReqResponse);
 }
@@ -243,7 +243,9 @@ message AssetPayReqResponse {
     taprpc.AssetGroup asset_group = 3;
 
     // Genesis information for the asset ID which includes the meta hash, and
-    // asset ID.
+    // asset ID. This is only set if the payment request was decoded with an
+    // asset ID and not with a group key (since a group can contain assets from
+    // different minting events or genesis infos).
     taprpc.GenesisInfo genesis_info = 4;
 
     // The normal decoded payment request.

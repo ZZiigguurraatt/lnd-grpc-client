@@ -89,8 +89,8 @@ class TaprootAssetChannelsServicer(object):
     def DecodeAssetPayReq(self, request, context):
         """litcli: `ln decodeassetinvoice`
         DecodeAssetPayReq is similar to lnd's lnrpc.DecodePayReq, but it accepts an
-        asset ID and returns the invoice amount expressed in asset units along side
-        the normal information.
+        asset ID or group key and returns the invoice amount expressed in asset
+        units along side the normal information.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

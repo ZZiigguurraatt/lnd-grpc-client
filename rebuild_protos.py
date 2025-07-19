@@ -43,6 +43,7 @@ for proto in list(grpc_client_dir.joinpath("lndgrpc/compiled/").rglob("*.proto")
         text = re.sub('routerrpc/router.proto', 'lndgrpc/compiled/router.proto', text)
         text = re.sub('rfqrpc/rfq.proto', 'lndgrpc/compiled/rfq.proto', text)
         text = re.sub('taprootassets.proto', 'lndgrpc/compiled/taprootassets.proto', text)
+        text = re.sub('tapcommon.proto', 'lndgrpc/compiled/tapcommon.proto', text)
 
         f.seek(0)
         f.write(text)

@@ -112,7 +112,7 @@ class TaprootAssetsStub(object):
         self.FetchAssetMeta = channel.unary_unary(
                 '/taprpc.TaprootAssets/FetchAssetMeta',
                 request_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaRequest.SerializeToString,
-                response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.AssetMeta.FromString,
+                response_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaResponse.FromString,
                 )
         self.SubscribeReceiveEvents = channel.unary_stream(
                 '/taprpc.TaprootAssets/SubscribeReceiveEvents',
@@ -451,7 +451,7 @@ def add_TaprootAssetsServicer_to_server(servicer, server):
             'FetchAssetMeta': grpc.unary_unary_rpc_method_handler(
                     servicer.FetchAssetMeta,
                     request_deserializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaRequest.FromString,
-                    response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.AssetMeta.SerializeToString,
+                    response_serializer=lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaResponse.SerializeToString,
             ),
             'SubscribeReceiveEvents': grpc.unary_stream_rpc_method_handler(
                     servicer.SubscribeReceiveEvents,
@@ -814,7 +814,7 @@ class TaprootAssets(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/taprpc.TaprootAssets/FetchAssetMeta',
             lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaRequest.SerializeToString,
-            lndgrpc_dot_compiled_dot_taprootassets__pb2.AssetMeta.FromString,
+            lndgrpc_dot_compiled_dot_taprootassets__pb2.FetchAssetMetaResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

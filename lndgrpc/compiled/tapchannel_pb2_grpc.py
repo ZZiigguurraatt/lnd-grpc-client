@@ -55,6 +55,7 @@ class TaprootAssetChannelsServicer(object):
 
     def EncodeCustomRecords(self, request, context):
         """
+        Deprecated.
         EncodeCustomRecords allows RPC users to encode Taproot Asset channel related
         data into the TLV format that is used in the custom records of the lnd
         payment or other channel related RPCs. This RPC is completely stateless and
@@ -80,7 +81,9 @@ class TaprootAssetChannelsServicer(object):
         """litcli: `ln addinvoice`
         AddInvoice is a wrapper around lnd's lnrpc.AddInvoice method with asset
         specific parameters. It allows RPC users to create invoices that correspond
-        to the specified asset amount.
+        to the specified asset amount. If a peer pubkey is specified, then only that
+        peer will be used for RFQ negotiations. If none is specified then RFQ quotes
+        for all peers with suitable asset channels will be created.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

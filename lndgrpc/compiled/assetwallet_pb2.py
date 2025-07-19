@@ -13,10 +13,11 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from lndgrpc.compiled import tapcommon_pb2 as lndgrpc_dot_compiled_dot_tapcommon__pb2
 from lndgrpc.compiled import taprootassets_pb2 as lndgrpc_dot_compiled_dot_taprootassets__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"lndgrpc/compiled/assetwallet.proto\x12\x0e\x61ssetwalletrpc\x1a$lndgrpc/compiled/taprootassets.proto\"\x99\x01\n\x16\x46undVirtualPsbtRequest\x12\x0e\n\x04psbt\x18\x01 \x01(\x0cH\x00\x12)\n\x03raw\x18\x02 \x01(\x0b\x32\x1a.assetwalletrpc.TxTemplateH\x00\x12\x38\n\x10\x63oin_select_type\x18\x03 \x01(\x0e\x32\x1e.assetwalletrpc.CoinSelectTypeB\n\n\x08template\"h\n\x17\x46undVirtualPsbtResponse\x12\x13\n\x0b\x66unded_psbt\x18\x01 \x01(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x02 \x01(\x05\x12\x1b\n\x13passive_asset_psbts\x18\x03 \x03(\x0c\"\xa7\x01\n\nTxTemplate\x12&\n\x06inputs\x18\x01 \x03(\x0b\x32\x16.assetwalletrpc.PrevId\x12>\n\nrecipients\x18\x02 \x03(\x0b\x32*.assetwalletrpc.TxTemplate.RecipientsEntry\x1a\x31\n\x0fRecipientsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x04:\x02\x38\x01\"L\n\x06PrevId\x12\"\n\x08outpoint\x18\x01 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\n\n\x02id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\"-\n\x16SignVirtualPsbtRequest\x12\x13\n\x0b\x66unded_psbt\x18\x01 \x01(\x0c\"E\n\x17SignVirtualPsbtResponse\x12\x13\n\x0bsigned_psbt\x18\x01 \x01(\x0c\x12\x15\n\rsigned_inputs\x18\x02 \x03(\r\"2\n\x19\x41nchorVirtualPsbtsRequest\x12\x15\n\rvirtual_psbts\x18\x01 \x03(\x0c\"\x9d\x02\n\x19\x43ommitVirtualPsbtsRequest\x12\x15\n\rvirtual_psbts\x18\x01 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x02 \x03(\x0c\x12\x13\n\x0b\x61nchor_psbt\x18\x03 \x01(\x0c\x12\x1f\n\x15\x65xisting_output_index\x18\x04 \x01(\x05H\x00\x12\r\n\x03\x61\x64\x64\x18\x05 \x01(\x08H\x00\x12\x15\n\x0btarget_conf\x18\x06 \x01(\rH\x01\x12\x17\n\rsat_per_vbyte\x18\x07 \x01(\x04H\x01\x12\x16\n\x0e\x63ustom_lock_id\x18\x08 \x01(\x0c\x12\x1f\n\x17lock_expiration_seconds\x18\t \x01(\x04\x42\x16\n\x14\x61nchor_change_outputB\x06\n\x04\x66\x65\x65s\"\xae\x01\n\x1a\x43ommitVirtualPsbtsResponse\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x15\n\rvirtual_psbts\x18\x02 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x04 \x03(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x05 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x06 \x03(\x0b\x32\x10.taprpc.OutPoint\"\xa8\x01\n\x14PublishAndLogRequest\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x15\n\rvirtual_psbts\x18\x02 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x03 \x03(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x04 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x05 \x03(\x0b\x32\x10.taprpc.OutPoint\",\n\x16NextInternalKeyRequest\x12\x12\n\nkey_family\x18\x01 \x01(\r\"F\n\x17NextInternalKeyResponse\x12+\n\x0cinternal_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\"*\n\x14NextScriptKeyRequest\x12\x12\n\nkey_family\x18\x01 \x01(\r\">\n\x15NextScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"/\n\x17QueryInternalKeyRequest\x12\x14\n\x0cinternal_key\x18\x01 \x01(\x0c\"G\n\x18QueryInternalKeyResponse\x12+\n\x0cinternal_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\"3\n\x15QueryScriptKeyRequest\x12\x1a\n\x12tweaked_script_key\x18\x01 \x01(\x0c\"?\n\x16QueryScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"y\n\x1aProveAssetOwnershipRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\"\n\x08outpoint\x18\x03 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x11\n\tchallenge\x18\x04 \x01(\x0c\"9\n\x1bProveAssetOwnershipResponse\x12\x1a\n\x12proof_with_witness\x18\x01 \x01(\x0c\"L\n\x1bVerifyAssetOwnershipRequest\x12\x1a\n\x12proof_with_witness\x18\x01 \x01(\x0c\x12\x11\n\tchallenge\x18\x02 \x01(\x0c\"\xaf\x01\n\x1cVerifyAssetOwnershipResponse\x12\x13\n\x0bvalid_proof\x18\x01 \x01(\x08\x12\"\n\x08outpoint\x18\x02 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x14\n\x0coutpoint_str\x18\x03 \x01(\t\x12\x12\n\nblock_hash\x18\x04 \x01(\x0c\x12\x16\n\x0e\x62lock_hash_str\x18\x05 \x01(\t\x12\x14\n\x0c\x62lock_height\x18\x06 \x01(\r\"<\n\x16RemoveUTXOLeaseRequest\x12\"\n\x08outpoint\x18\x01 \x01(\x0b\x32\x10.taprpc.OutPoint\"\x19\n\x17RemoveUTXOLeaseResponse\"@\n\x17\x44\x65\x63lareScriptKeyRequest\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"A\n\x18\x44\x65\x63lareScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey*k\n\x0e\x43oinSelectType\x12\x17\n\x13\x43OIN_SELECT_DEFAULT\x10\x00\x12\x1a\n\x16\x43OIN_SELECT_BIP86_ONLY\x10\x01\x12$\n COIN_SELECT_SCRIPT_TREES_ALLOWED\x10\x02\x32\xb0\n\n\x0b\x41ssetWallet\x12\x62\n\x0f\x46undVirtualPsbt\x12&.assetwalletrpc.FundVirtualPsbtRequest\x1a\'.assetwalletrpc.FundVirtualPsbtResponse\x12\x62\n\x0fSignVirtualPsbt\x12&.assetwalletrpc.SignVirtualPsbtRequest\x1a\'.assetwalletrpc.SignVirtualPsbtResponse\x12Z\n\x12\x41nchorVirtualPsbts\x12).assetwalletrpc.AnchorVirtualPsbtsRequest\x1a\x19.taprpc.SendAssetResponse\x12k\n\x12\x43ommitVirtualPsbts\x12).assetwalletrpc.CommitVirtualPsbtsRequest\x1a*.assetwalletrpc.CommitVirtualPsbtsResponse\x12X\n\x15PublishAndLogTransfer\x12$.assetwalletrpc.PublishAndLogRequest\x1a\x19.taprpc.SendAssetResponse\x12\x62\n\x0fNextInternalKey\x12&.assetwalletrpc.NextInternalKeyRequest\x1a\'.assetwalletrpc.NextInternalKeyResponse\x12\\\n\rNextScriptKey\x12$.assetwalletrpc.NextScriptKeyRequest\x1a%.assetwalletrpc.NextScriptKeyResponse\x12\x65\n\x10QueryInternalKey\x12\'.assetwalletrpc.QueryInternalKeyRequest\x1a(.assetwalletrpc.QueryInternalKeyResponse\x12_\n\x0eQueryScriptKey\x12%.assetwalletrpc.QueryScriptKeyRequest\x1a&.assetwalletrpc.QueryScriptKeyResponse\x12n\n\x13ProveAssetOwnership\x12*.assetwalletrpc.ProveAssetOwnershipRequest\x1a+.assetwalletrpc.ProveAssetOwnershipResponse\x12q\n\x14VerifyAssetOwnership\x12+.assetwalletrpc.VerifyAssetOwnershipRequest\x1a,.assetwalletrpc.VerifyAssetOwnershipResponse\x12\x62\n\x0fRemoveUTXOLease\x12&.assetwalletrpc.RemoveUTXOLeaseRequest\x1a\'.assetwalletrpc.RemoveUTXOLeaseResponse\x12\x65\n\x10\x44\x65\x63lareScriptKey\x12\'.assetwalletrpc.DeclareScriptKeyRequest\x1a(.assetwalletrpc.DeclareScriptKeyResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/assetwalletrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"lndgrpc/compiled/assetwallet.proto\x12\x0e\x61ssetwalletrpc\x1a lndgrpc/compiled/tapcommon.proto\x1a$lndgrpc/compiled/taprootassets.proto\"\x99\x01\n\x16\x46undVirtualPsbtRequest\x12\x0e\n\x04psbt\x18\x01 \x01(\x0cH\x00\x12)\n\x03raw\x18\x02 \x01(\x0b\x32\x1a.assetwalletrpc.TxTemplateH\x00\x12\x38\n\x10\x63oin_select_type\x18\x03 \x01(\x0e\x32\x1e.assetwalletrpc.CoinSelectTypeB\n\n\x08template\"h\n\x17\x46undVirtualPsbtResponse\x12\x13\n\x0b\x66unded_psbt\x18\x01 \x01(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x02 \x01(\x05\x12\x1b\n\x13passive_asset_psbts\x18\x03 \x03(\x0c\"\xe2\x01\n\nTxTemplate\x12&\n\x06inputs\x18\x01 \x03(\x0b\x32\x16.assetwalletrpc.PrevId\x12>\n\nrecipients\x18\x02 \x03(\x0b\x32*.assetwalletrpc.TxTemplate.RecipientsEntry\x12\x39\n\x16\x61\x64\x64resses_with_amounts\x18\x03 \x03(\x0b\x32\x19.taprpc.AddressWithAmount\x1a\x31\n\x0fRecipientsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x04:\x02\x38\x01\"L\n\x06PrevId\x12\"\n\x08outpoint\x18\x01 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\n\n\x02id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\"-\n\x16SignVirtualPsbtRequest\x12\x13\n\x0b\x66unded_psbt\x18\x01 \x01(\x0c\"E\n\x17SignVirtualPsbtResponse\x12\x13\n\x0bsigned_psbt\x18\x01 \x01(\x0c\x12\x15\n\rsigned_inputs\x18\x02 \x03(\r\"2\n\x19\x41nchorVirtualPsbtsRequest\x12\x15\n\rvirtual_psbts\x18\x01 \x03(\x0c\"\xb3\x02\n\x19\x43ommitVirtualPsbtsRequest\x12\x15\n\rvirtual_psbts\x18\x01 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x02 \x03(\x0c\x12\x13\n\x0b\x61nchor_psbt\x18\x03 \x01(\x0c\x12\x1f\n\x15\x65xisting_output_index\x18\x04 \x01(\x05H\x00\x12\r\n\x03\x61\x64\x64\x18\x05 \x01(\x08H\x00\x12\x15\n\x0btarget_conf\x18\x06 \x01(\rH\x01\x12\x17\n\rsat_per_vbyte\x18\x07 \x01(\x04H\x01\x12\x16\n\x0e\x63ustom_lock_id\x18\x08 \x01(\x0c\x12\x1f\n\x17lock_expiration_seconds\x18\t \x01(\x04\x12\x14\n\x0cskip_funding\x18\n \x01(\x08\x42\x16\n\x14\x61nchor_change_outputB\x06\n\x04\x66\x65\x65s\"\xae\x01\n\x1a\x43ommitVirtualPsbtsResponse\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x15\n\rvirtual_psbts\x18\x02 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x04 \x03(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x05 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x06 \x03(\x0b\x32\x10.taprpc.OutPoint\"\xd9\x01\n\x14PublishAndLogRequest\x12\x13\n\x0b\x61nchor_psbt\x18\x01 \x01(\x0c\x12\x15\n\rvirtual_psbts\x18\x02 \x03(\x0c\x12\x1b\n\x13passive_asset_psbts\x18\x03 \x03(\x0c\x12\x1b\n\x13\x63hange_output_index\x18\x04 \x01(\x05\x12*\n\x10lnd_locked_utxos\x18\x05 \x03(\x0b\x32\x10.taprpc.OutPoint\x12 \n\x18skip_anchor_tx_broadcast\x18\x06 \x01(\x08\x12\r\n\x05label\x18\x07 \x01(\t\",\n\x16NextInternalKeyRequest\x12\x12\n\nkey_family\x18\x01 \x01(\r\"F\n\x17NextInternalKeyResponse\x12+\n\x0cinternal_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\"*\n\x14NextScriptKeyRequest\x12\x12\n\nkey_family\x18\x01 \x01(\r\">\n\x15NextScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"/\n\x17QueryInternalKeyRequest\x12\x14\n\x0cinternal_key\x18\x01 \x01(\x0c\"G\n\x18QueryInternalKeyResponse\x12+\n\x0cinternal_key\x18\x01 \x01(\x0b\x32\x15.taprpc.KeyDescriptor\"3\n\x15QueryScriptKeyRequest\x12\x1a\n\x12tweaked_script_key\x18\x01 \x01(\x0c\"?\n\x16QueryScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"y\n\x1aProveAssetOwnershipRequest\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\"\n\x08outpoint\x18\x03 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x11\n\tchallenge\x18\x04 \x01(\x0c\"9\n\x1bProveAssetOwnershipResponse\x12\x1a\n\x12proof_with_witness\x18\x01 \x01(\x0c\"L\n\x1bVerifyAssetOwnershipRequest\x12\x1a\n\x12proof_with_witness\x18\x01 \x01(\x0c\x12\x11\n\tchallenge\x18\x02 \x01(\x0c\"\xaf\x01\n\x1cVerifyAssetOwnershipResponse\x12\x13\n\x0bvalid_proof\x18\x01 \x01(\x08\x12\"\n\x08outpoint\x18\x02 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x14\n\x0coutpoint_str\x18\x03 \x01(\t\x12\x12\n\nblock_hash\x18\x04 \x01(\x0c\x12\x16\n\x0e\x62lock_hash_str\x18\x05 \x01(\t\x12\x14\n\x0c\x62lock_height\x18\x06 \x01(\r\"<\n\x16RemoveUTXOLeaseRequest\x12\"\n\x08outpoint\x18\x01 \x01(\x0b\x32\x10.taprpc.OutPoint\"\x19\n\x17RemoveUTXOLeaseResponse\"@\n\x17\x44\x65\x63lareScriptKeyRequest\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey\"A\n\x18\x44\x65\x63lareScriptKeyResponse\x12%\n\nscript_key\x18\x01 \x01(\x0b\x32\x11.taprpc.ScriptKey*k\n\x0e\x43oinSelectType\x12\x17\n\x13\x43OIN_SELECT_DEFAULT\x10\x00\x12\x1a\n\x16\x43OIN_SELECT_BIP86_ONLY\x10\x01\x12$\n COIN_SELECT_SCRIPT_TREES_ALLOWED\x10\x02\x32\xb0\n\n\x0b\x41ssetWallet\x12\x62\n\x0f\x46undVirtualPsbt\x12&.assetwalletrpc.FundVirtualPsbtRequest\x1a\'.assetwalletrpc.FundVirtualPsbtResponse\x12\x62\n\x0fSignVirtualPsbt\x12&.assetwalletrpc.SignVirtualPsbtRequest\x1a\'.assetwalletrpc.SignVirtualPsbtResponse\x12Z\n\x12\x41nchorVirtualPsbts\x12).assetwalletrpc.AnchorVirtualPsbtsRequest\x1a\x19.taprpc.SendAssetResponse\x12k\n\x12\x43ommitVirtualPsbts\x12).assetwalletrpc.CommitVirtualPsbtsRequest\x1a*.assetwalletrpc.CommitVirtualPsbtsResponse\x12X\n\x15PublishAndLogTransfer\x12$.assetwalletrpc.PublishAndLogRequest\x1a\x19.taprpc.SendAssetResponse\x12\x62\n\x0fNextInternalKey\x12&.assetwalletrpc.NextInternalKeyRequest\x1a\'.assetwalletrpc.NextInternalKeyResponse\x12\\\n\rNextScriptKey\x12$.assetwalletrpc.NextScriptKeyRequest\x1a%.assetwalletrpc.NextScriptKeyResponse\x12\x65\n\x10QueryInternalKey\x12\'.assetwalletrpc.QueryInternalKeyRequest\x1a(.assetwalletrpc.QueryInternalKeyResponse\x12_\n\x0eQueryScriptKey\x12%.assetwalletrpc.QueryScriptKeyRequest\x1a&.assetwalletrpc.QueryScriptKeyResponse\x12n\n\x13ProveAssetOwnership\x12*.assetwalletrpc.ProveAssetOwnershipRequest\x1a+.assetwalletrpc.ProveAssetOwnershipResponse\x12q\n\x14VerifyAssetOwnership\x12+.assetwalletrpc.VerifyAssetOwnershipRequest\x1a,.assetwalletrpc.VerifyAssetOwnershipResponse\x12\x62\n\x0fRemoveUTXOLease\x12&.assetwalletrpc.RemoveUTXOLeaseRequest\x1a\'.assetwalletrpc.RemoveUTXOLeaseResponse\x12\x65\n\x10\x44\x65\x63lareScriptKey\x12\'.assetwalletrpc.DeclareScriptKeyRequest\x1a(.assetwalletrpc.DeclareScriptKeyResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/assetwalletrpcb\x06proto3')
 
 _COINSELECTTYPE = DESCRIPTOR.enum_types_by_name['CoinSelectType']
 CoinSelectType = enum_type_wrapper.EnumTypeWrapper(_COINSELECTTYPE)
@@ -249,62 +250,62 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'Z=github.com/lightninglabs/taproot-assets/taprpc/assetwalletrpc'
   _TXTEMPLATE_RECIPIENTSENTRY._options = None
   _TXTEMPLATE_RECIPIENTSENTRY._serialized_options = b'8\001'
-  _COINSELECTTYPE._serialized_start=2534
-  _COINSELECTTYPE._serialized_end=2641
-  _FUNDVIRTUALPSBTREQUEST._serialized_start=93
-  _FUNDVIRTUALPSBTREQUEST._serialized_end=246
-  _FUNDVIRTUALPSBTRESPONSE._serialized_start=248
-  _FUNDVIRTUALPSBTRESPONSE._serialized_end=352
-  _TXTEMPLATE._serialized_start=355
-  _TXTEMPLATE._serialized_end=522
-  _TXTEMPLATE_RECIPIENTSENTRY._serialized_start=473
-  _TXTEMPLATE_RECIPIENTSENTRY._serialized_end=522
-  _PREVID._serialized_start=524
-  _PREVID._serialized_end=600
-  _SIGNVIRTUALPSBTREQUEST._serialized_start=602
-  _SIGNVIRTUALPSBTREQUEST._serialized_end=647
-  _SIGNVIRTUALPSBTRESPONSE._serialized_start=649
-  _SIGNVIRTUALPSBTRESPONSE._serialized_end=718
-  _ANCHORVIRTUALPSBTSREQUEST._serialized_start=720
-  _ANCHORVIRTUALPSBTSREQUEST._serialized_end=770
-  _COMMITVIRTUALPSBTSREQUEST._serialized_start=773
-  _COMMITVIRTUALPSBTSREQUEST._serialized_end=1058
-  _COMMITVIRTUALPSBTSRESPONSE._serialized_start=1061
-  _COMMITVIRTUALPSBTSRESPONSE._serialized_end=1235
-  _PUBLISHANDLOGREQUEST._serialized_start=1238
-  _PUBLISHANDLOGREQUEST._serialized_end=1406
-  _NEXTINTERNALKEYREQUEST._serialized_start=1408
-  _NEXTINTERNALKEYREQUEST._serialized_end=1452
-  _NEXTINTERNALKEYRESPONSE._serialized_start=1454
-  _NEXTINTERNALKEYRESPONSE._serialized_end=1524
-  _NEXTSCRIPTKEYREQUEST._serialized_start=1526
-  _NEXTSCRIPTKEYREQUEST._serialized_end=1568
-  _NEXTSCRIPTKEYRESPONSE._serialized_start=1570
-  _NEXTSCRIPTKEYRESPONSE._serialized_end=1632
-  _QUERYINTERNALKEYREQUEST._serialized_start=1634
-  _QUERYINTERNALKEYREQUEST._serialized_end=1681
-  _QUERYINTERNALKEYRESPONSE._serialized_start=1683
-  _QUERYINTERNALKEYRESPONSE._serialized_end=1754
-  _QUERYSCRIPTKEYREQUEST._serialized_start=1756
-  _QUERYSCRIPTKEYREQUEST._serialized_end=1807
-  _QUERYSCRIPTKEYRESPONSE._serialized_start=1809
-  _QUERYSCRIPTKEYRESPONSE._serialized_end=1872
-  _PROVEASSETOWNERSHIPREQUEST._serialized_start=1874
-  _PROVEASSETOWNERSHIPREQUEST._serialized_end=1995
-  _PROVEASSETOWNERSHIPRESPONSE._serialized_start=1997
-  _PROVEASSETOWNERSHIPRESPONSE._serialized_end=2054
-  _VERIFYASSETOWNERSHIPREQUEST._serialized_start=2056
-  _VERIFYASSETOWNERSHIPREQUEST._serialized_end=2132
-  _VERIFYASSETOWNERSHIPRESPONSE._serialized_start=2135
-  _VERIFYASSETOWNERSHIPRESPONSE._serialized_end=2310
-  _REMOVEUTXOLEASEREQUEST._serialized_start=2312
-  _REMOVEUTXOLEASEREQUEST._serialized_end=2372
-  _REMOVEUTXOLEASERESPONSE._serialized_start=2374
-  _REMOVEUTXOLEASERESPONSE._serialized_end=2399
-  _DECLARESCRIPTKEYREQUEST._serialized_start=2401
-  _DECLARESCRIPTKEYREQUEST._serialized_end=2465
-  _DECLARESCRIPTKEYRESPONSE._serialized_start=2467
-  _DECLARESCRIPTKEYRESPONSE._serialized_end=2532
-  _ASSETWALLET._serialized_start=2644
-  _ASSETWALLET._serialized_end=3972
+  _COINSELECTTYPE._serialized_start=2698
+  _COINSELECTTYPE._serialized_end=2805
+  _FUNDVIRTUALPSBTREQUEST._serialized_start=127
+  _FUNDVIRTUALPSBTREQUEST._serialized_end=280
+  _FUNDVIRTUALPSBTRESPONSE._serialized_start=282
+  _FUNDVIRTUALPSBTRESPONSE._serialized_end=386
+  _TXTEMPLATE._serialized_start=389
+  _TXTEMPLATE._serialized_end=615
+  _TXTEMPLATE_RECIPIENTSENTRY._serialized_start=566
+  _TXTEMPLATE_RECIPIENTSENTRY._serialized_end=615
+  _PREVID._serialized_start=617
+  _PREVID._serialized_end=693
+  _SIGNVIRTUALPSBTREQUEST._serialized_start=695
+  _SIGNVIRTUALPSBTREQUEST._serialized_end=740
+  _SIGNVIRTUALPSBTRESPONSE._serialized_start=742
+  _SIGNVIRTUALPSBTRESPONSE._serialized_end=811
+  _ANCHORVIRTUALPSBTSREQUEST._serialized_start=813
+  _ANCHORVIRTUALPSBTSREQUEST._serialized_end=863
+  _COMMITVIRTUALPSBTSREQUEST._serialized_start=866
+  _COMMITVIRTUALPSBTSREQUEST._serialized_end=1173
+  _COMMITVIRTUALPSBTSRESPONSE._serialized_start=1176
+  _COMMITVIRTUALPSBTSRESPONSE._serialized_end=1350
+  _PUBLISHANDLOGREQUEST._serialized_start=1353
+  _PUBLISHANDLOGREQUEST._serialized_end=1570
+  _NEXTINTERNALKEYREQUEST._serialized_start=1572
+  _NEXTINTERNALKEYREQUEST._serialized_end=1616
+  _NEXTINTERNALKEYRESPONSE._serialized_start=1618
+  _NEXTINTERNALKEYRESPONSE._serialized_end=1688
+  _NEXTSCRIPTKEYREQUEST._serialized_start=1690
+  _NEXTSCRIPTKEYREQUEST._serialized_end=1732
+  _NEXTSCRIPTKEYRESPONSE._serialized_start=1734
+  _NEXTSCRIPTKEYRESPONSE._serialized_end=1796
+  _QUERYINTERNALKEYREQUEST._serialized_start=1798
+  _QUERYINTERNALKEYREQUEST._serialized_end=1845
+  _QUERYINTERNALKEYRESPONSE._serialized_start=1847
+  _QUERYINTERNALKEYRESPONSE._serialized_end=1918
+  _QUERYSCRIPTKEYREQUEST._serialized_start=1920
+  _QUERYSCRIPTKEYREQUEST._serialized_end=1971
+  _QUERYSCRIPTKEYRESPONSE._serialized_start=1973
+  _QUERYSCRIPTKEYRESPONSE._serialized_end=2036
+  _PROVEASSETOWNERSHIPREQUEST._serialized_start=2038
+  _PROVEASSETOWNERSHIPREQUEST._serialized_end=2159
+  _PROVEASSETOWNERSHIPRESPONSE._serialized_start=2161
+  _PROVEASSETOWNERSHIPRESPONSE._serialized_end=2218
+  _VERIFYASSETOWNERSHIPREQUEST._serialized_start=2220
+  _VERIFYASSETOWNERSHIPREQUEST._serialized_end=2296
+  _VERIFYASSETOWNERSHIPRESPONSE._serialized_start=2299
+  _VERIFYASSETOWNERSHIPRESPONSE._serialized_end=2474
+  _REMOVEUTXOLEASEREQUEST._serialized_start=2476
+  _REMOVEUTXOLEASEREQUEST._serialized_end=2536
+  _REMOVEUTXOLEASERESPONSE._serialized_start=2538
+  _REMOVEUTXOLEASERESPONSE._serialized_end=2563
+  _DECLARESCRIPTKEYREQUEST._serialized_start=2565
+  _DECLARESCRIPTKEYREQUEST._serialized_end=2629
+  _DECLARESCRIPTKEYRESPONSE._serialized_start=2631
+  _DECLARESCRIPTKEYRESPONSE._serialized_end=2696
+  _ASSETWALLET._serialized_start=2808
+  _ASSETWALLET._serialized_end=4136
 # @@protoc_insertion_point(module_scope)

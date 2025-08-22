@@ -200,7 +200,7 @@ class AssetWalletServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RemoveUTXOLease(self, request, context):
-        """
+        """`tapcli: assets removelease`
         RemoveUTXOLease removes the lease/lock/reservation of the given managed
         UTXO.
         """

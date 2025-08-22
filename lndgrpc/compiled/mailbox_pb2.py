@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from lndgrpc.compiled import tapcommon_pb2 as lndgrpc_dot_compiled_dot_tapcommon__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1elndgrpc/compiled/mailbox.proto\x12\x0e\x61uthmailboxrpc\x1a lndgrpc/compiled/tapcommon.proto\"3\n\x0bMerkleProof\x12\x16\n\x0esibling_hashes\x18\x01 \x03(\x0c\x12\x0c\n\x04\x62its\x18\x02 \x03(\x08\"\xf1\x01\n\x1b\x42itcoinMerkleInclusionProof\x12\x13\n\x0braw_tx_data\x18\x01 \x01(\x0c\x12\x1d\n\x15raw_block_header_data\x18\x02 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x03 \x01(\r\x12\x31\n\x0cmerkle_proof\x18\x04 \x01(\x0b\x32\x1b.authmailboxrpc.MerkleProof\x12*\n\x10\x63laimed_outpoint\x18\x05 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x14\n\x0cinternal_key\x18\x06 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x07 \x01(\x0c\"w\n\x0eMailboxMessage\x12\x12\n\nmessage_id\x18\x01 \x01(\x04\x12\x19\n\x11\x65ncrypted_payload\x18\x02 \x01(\x0c\x12\x19\n\x11\x61rrival_timestamp\x18\x03 \x01(\x03\x12\x1b\n\x13\x65xpiry_block_height\x18\x04 \x01(\r\"C\n\x0fMailboxMessages\x12\x30\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.authmailboxrpc.MailboxMessage\"\xab\x01\n\x12SendMessageRequest\x12\x13\n\x0breceiver_id\x18\x01 \x01(\x0c\x12\x19\n\x11\x65ncrypted_payload\x18\x02 \x01(\x0c\x12?\n\x08tx_proof\x18\x04 \x01(\x0b\x32+.authmailboxrpc.BitcoinMerkleInclusionProofH\x00\x12\x1b\n\x13\x65xpiry_block_height\x18\x05 \x01(\rB\x07\n\x05proof\")\n\x13SendMessageResponse\x12\x12\n\nmessage_id\x18\x01 \x01(\x04\"\x88\x01\n\x16ReceiveMessagesRequest\x12+\n\x04init\x18\x01 \x01(\x0b\x32\x1b.authmailboxrpc.InitReceiveH\x00\x12\x31\n\x08\x61uth_sig\x18\x02 \x01(\x0b\x32\x1d.authmailboxrpc.AuthSignatureH\x00\x42\x0e\n\x0crequest_type\"\x8f\x01\n\x0bInitReceive\x12\x13\n\x0breceiver_id\x18\x01 \x01(\x0c\x12\"\n\x1astart_message_id_exclusive\x18\x02 \x01(\x04\x12$\n\x1cstart_block_height_inclusive\x18\x03 \x01(\r\x12!\n\x19start_timestamp_exclusive\x18\x04 \x01(\x03\"\"\n\rAuthSignature\x12\x11\n\tsignature\x18\x01 \x01(\x0c\"\xd3\x01\n\x17ReceiveMessagesResponse\x12.\n\tchallenge\x18\x01 \x01(\x0b\x32\x19.authmailboxrpc.ChallengeH\x00\x12\x16\n\x0c\x61uth_success\x18\x02 \x01(\x08H\x00\x12\x33\n\x08messages\x18\x03 \x01(\x0b\x32\x1f.authmailboxrpc.MailboxMessagesH\x00\x12*\n\x03\x65os\x18\x04 \x01(\x0b\x32\x1b.authmailboxrpc.EndOfStreamH\x00\x42\x0f\n\rresponse_type\"#\n\tChallenge\x12\x16\n\x0e\x63hallenge_hash\x18\x01 \x01(\x0c\"\r\n\x0b\x45ndOfStream\"\x14\n\x12MailboxInfoRequest\"A\n\x13MailboxInfoResponse\x12\x13\n\x0bserver_time\x18\x01 \x01(\x03\x12\x15\n\rmessage_count\x18\x02 \x01(\x04\x32\xa1\x02\n\x07Mailbox\x12V\n\x0bSendMessage\x12\".authmailboxrpc.SendMessageRequest\x1a#.authmailboxrpc.SendMessageResponse\x12\x66\n\x0fReceiveMessages\x12&.authmailboxrpc.ReceiveMessagesRequest\x1a\'.authmailboxrpc.ReceiveMessagesResponse(\x01\x30\x01\x12V\n\x0bMailboxInfo\x12\".authmailboxrpc.MailboxInfoRequest\x1a#.authmailboxrpc.MailboxInfoResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/authmailboxrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1elndgrpc/compiled/mailbox.proto\x12\x0e\x61uthmailboxrpc\x1a lndgrpc/compiled/tapcommon.proto\"3\n\x0bMerkleProof\x12\x16\n\x0esibling_hashes\x18\x01 \x03(\x0c\x12\x0c\n\x04\x62its\x18\x02 \x03(\x08\"\xf1\x01\n\x1b\x42itcoinMerkleInclusionProof\x12\x13\n\x0braw_tx_data\x18\x01 \x01(\x0c\x12\x1d\n\x15raw_block_header_data\x18\x02 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x03 \x01(\r\x12\x31\n\x0cmerkle_proof\x18\x04 \x01(\x0b\x32\x1b.authmailboxrpc.MerkleProof\x12*\n\x10\x63laimed_outpoint\x18\x05 \x01(\x0b\x32\x10.taprpc.OutPoint\x12\x14\n\x0cinternal_key\x18\x06 \x01(\x0c\x12\x13\n\x0bmerkle_root\x18\x07 \x01(\x0c\"Z\n\x0eMailboxMessage\x12\x12\n\nmessage_id\x18\x01 \x01(\x04\x12\x19\n\x11\x65ncrypted_payload\x18\x02 \x01(\x0c\x12\x19\n\x11\x61rrival_timestamp\x18\x03 \x01(\x03\"C\n\x0fMailboxMessages\x12\x30\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.authmailboxrpc.MailboxMessage\"\x8e\x01\n\x12SendMessageRequest\x12\x13\n\x0breceiver_id\x18\x01 \x01(\x0c\x12\x19\n\x11\x65ncrypted_payload\x18\x02 \x01(\x0c\x12?\n\x08tx_proof\x18\x04 \x01(\x0b\x32+.authmailboxrpc.BitcoinMerkleInclusionProofH\x00\x42\x07\n\x05proof\")\n\x13SendMessageResponse\x12\x12\n\nmessage_id\x18\x01 \x01(\x04\"\x88\x01\n\x16ReceiveMessagesRequest\x12+\n\x04init\x18\x01 \x01(\x0b\x32\x1b.authmailboxrpc.InitReceiveH\x00\x12\x31\n\x08\x61uth_sig\x18\x02 \x01(\x0b\x32\x1d.authmailboxrpc.AuthSignatureH\x00\x42\x0e\n\x0crequest_type\"\x8f\x01\n\x0bInitReceive\x12\x13\n\x0breceiver_id\x18\x01 \x01(\x0c\x12\"\n\x1astart_message_id_exclusive\x18\x02 \x01(\x04\x12$\n\x1cstart_block_height_inclusive\x18\x03 \x01(\r\x12!\n\x19start_timestamp_exclusive\x18\x04 \x01(\x03\"\"\n\rAuthSignature\x12\x11\n\tsignature\x18\x01 \x01(\x0c\"\xd3\x01\n\x17ReceiveMessagesResponse\x12.\n\tchallenge\x18\x01 \x01(\x0b\x32\x19.authmailboxrpc.ChallengeH\x00\x12\x16\n\x0c\x61uth_success\x18\x02 \x01(\x08H\x00\x12\x33\n\x08messages\x18\x03 \x01(\x0b\x32\x1f.authmailboxrpc.MailboxMessagesH\x00\x12*\n\x03\x65os\x18\x04 \x01(\x0b\x32\x1b.authmailboxrpc.EndOfStreamH\x00\x42\x0f\n\rresponse_type\"#\n\tChallenge\x12\x16\n\x0e\x63hallenge_hash\x18\x01 \x01(\x0c\"\r\n\x0b\x45ndOfStream\"\x14\n\x12MailboxInfoRequest\"A\n\x13MailboxInfoResponse\x12\x13\n\x0bserver_time\x18\x01 \x01(\x03\x12\x15\n\rmessage_count\x18\x02 \x01(\x04\x32\xa1\x02\n\x07Mailbox\x12V\n\x0bSendMessage\x12\".authmailboxrpc.SendMessageRequest\x1a#.authmailboxrpc.SendMessageResponse\x12\x66\n\x0fReceiveMessages\x12&.authmailboxrpc.ReceiveMessagesRequest\x1a\'.authmailboxrpc.ReceiveMessagesResponse(\x01\x30\x01\x12V\n\x0bMailboxInfo\x12\".authmailboxrpc.MailboxInfoRequest\x1a#.authmailboxrpc.MailboxInfoResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/authmailboxrpcb\x06proto3')
 
 
 
@@ -141,29 +141,29 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BITCOINMERKLEINCLUSIONPROOF._serialized_start=138
   _BITCOINMERKLEINCLUSIONPROOF._serialized_end=379
   _MAILBOXMESSAGE._serialized_start=381
-  _MAILBOXMESSAGE._serialized_end=500
-  _MAILBOXMESSAGES._serialized_start=502
-  _MAILBOXMESSAGES._serialized_end=569
-  _SENDMESSAGEREQUEST._serialized_start=572
-  _SENDMESSAGEREQUEST._serialized_end=743
-  _SENDMESSAGERESPONSE._serialized_start=745
-  _SENDMESSAGERESPONSE._serialized_end=786
-  _RECEIVEMESSAGESREQUEST._serialized_start=789
-  _RECEIVEMESSAGESREQUEST._serialized_end=925
-  _INITRECEIVE._serialized_start=928
-  _INITRECEIVE._serialized_end=1071
-  _AUTHSIGNATURE._serialized_start=1073
-  _AUTHSIGNATURE._serialized_end=1107
-  _RECEIVEMESSAGESRESPONSE._serialized_start=1110
-  _RECEIVEMESSAGESRESPONSE._serialized_end=1321
-  _CHALLENGE._serialized_start=1323
-  _CHALLENGE._serialized_end=1358
-  _ENDOFSTREAM._serialized_start=1360
-  _ENDOFSTREAM._serialized_end=1373
-  _MAILBOXINFOREQUEST._serialized_start=1375
-  _MAILBOXINFOREQUEST._serialized_end=1395
-  _MAILBOXINFORESPONSE._serialized_start=1397
-  _MAILBOXINFORESPONSE._serialized_end=1462
-  _MAILBOX._serialized_start=1465
-  _MAILBOX._serialized_end=1754
+  _MAILBOXMESSAGE._serialized_end=471
+  _MAILBOXMESSAGES._serialized_start=473
+  _MAILBOXMESSAGES._serialized_end=540
+  _SENDMESSAGEREQUEST._serialized_start=543
+  _SENDMESSAGEREQUEST._serialized_end=685
+  _SENDMESSAGERESPONSE._serialized_start=687
+  _SENDMESSAGERESPONSE._serialized_end=728
+  _RECEIVEMESSAGESREQUEST._serialized_start=731
+  _RECEIVEMESSAGESREQUEST._serialized_end=867
+  _INITRECEIVE._serialized_start=870
+  _INITRECEIVE._serialized_end=1013
+  _AUTHSIGNATURE._serialized_start=1015
+  _AUTHSIGNATURE._serialized_end=1049
+  _RECEIVEMESSAGESRESPONSE._serialized_start=1052
+  _RECEIVEMESSAGESRESPONSE._serialized_end=1263
+  _CHALLENGE._serialized_start=1265
+  _CHALLENGE._serialized_end=1300
+  _ENDOFSTREAM._serialized_start=1302
+  _ENDOFSTREAM._serialized_end=1315
+  _MAILBOXINFOREQUEST._serialized_start=1317
+  _MAILBOXINFOREQUEST._serialized_end=1337
+  _MAILBOXINFORESPONSE._serialized_start=1339
+  _MAILBOXINFORESPONSE._serialized_end=1404
+  _MAILBOX._serialized_start=1407
+  _MAILBOX._serialized_end=1696
 # @@protoc_insertion_point(module_scope)

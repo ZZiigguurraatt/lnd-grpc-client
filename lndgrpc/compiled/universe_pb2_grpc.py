@@ -109,6 +109,26 @@ class UniverseStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigRequest.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigResponse.FromString,
                 )
+        self.IgnoreAssetOutPoint = channel.unary_unary(
+                '/universerpc.Universe/IgnoreAssetOutPoint',
+                request_serializer=lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointResponse.FromString,
+                )
+        self.UpdateSupplyCommit = channel.unary_unary(
+                '/universerpc.Universe/UpdateSupplyCommit',
+                request_serializer=lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitResponse.FromString,
+                )
+        self.FetchSupplyCommit = channel.unary_unary(
+                '/universerpc.Universe/FetchSupplyCommit',
+                request_serializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitResponse.FromString,
+                )
+        self.FetchSupplyLeaves = channel.unary_unary(
+                '/universerpc.Universe/FetchSupplyLeaves',
+                request_serializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesRequest.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesResponse.FromString,
+                )
 
 
 class UniverseServicer(object):
@@ -217,7 +237,9 @@ class UniverseServicer(object):
         """TODO(roasbeef): rename resp to UniverseStateUpdate? ^
 
         tapcli: `universe info`
-        Info returns a set of information about the current state of the Universe.
+        Info returns a set of information about the current state of the Universe
+        and allows a caller to check that a universe server is reachable and
+        configured correctly to allow proof courier access without macaroons.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -309,6 +331,44 @@ class UniverseServicer(object):
         """tapcli: `universe federation config info`
         QueryFederationSyncConfig queries the universe federation sync configuration
         settings.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def IgnoreAssetOutPoint(self, request, context):
+        """tapcli: `universe ignoreoutpoint`
+        IgnoreAssetOutPoint allows an asset issuer to mark a specific asset outpoint
+        as ignored. An ignored outpoint will be included in the next universe supply
+        commitment transaction that is published.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSupplyCommit(self, request, context):
+        """tapcli: `universe updatesupplycommit`
+        UpdateSupplyCommit updates the on-chain supply commitment for a specific
+        asset group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FetchSupplyCommit(self, request, context):
+        """tapcli: `universe fetchsupplycommit`
+        FetchSupplyCommit fetches the on-chain supply commitment for a specific
+        asset group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FetchSupplyLeaves(self, request, context):
+        """tapcli: `universe supplyleaves`
+        FetchSupplyLeaves fetches the supply leaves for a specific asset group
+        within a specified block height range. The leaves include issuance, burn,
+        and ignore leaves, which represent the supply changes for the asset group.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -411,6 +471,26 @@ def add_UniverseServicer_to_server(servicer, server):
                     servicer.QueryFederationSyncConfig,
                     request_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigRequest.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigResponse.SerializeToString,
+            ),
+            'IgnoreAssetOutPoint': grpc.unary_unary_rpc_method_handler(
+                    servicer.IgnoreAssetOutPoint,
+                    request_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointResponse.SerializeToString,
+            ),
+            'UpdateSupplyCommit': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSupplyCommit,
+                    request_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitResponse.SerializeToString,
+            ),
+            'FetchSupplyCommit': grpc.unary_unary_rpc_method_handler(
+                    servicer.FetchSupplyCommit,
+                    request_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitResponse.SerializeToString,
+            ),
+            'FetchSupplyLeaves': grpc.unary_unary_rpc_method_handler(
+                    servicer.FetchSupplyLeaves,
+                    request_deserializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesRequest.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -742,5 +822,73 @@ class Universe(object):
         return grpc.experimental.unary_unary(request, target, '/universerpc.Universe/QueryFederationSyncConfig',
             lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigRequest.SerializeToString,
             lndgrpc_dot_compiled_dot_universe__pb2.QueryFederationSyncConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def IgnoreAssetOutPoint(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/universerpc.Universe/IgnoreAssetOutPoint',
+            lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_universe__pb2.IgnoreAssetOutPointResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSupplyCommit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/universerpc.Universe/UpdateSupplyCommit',
+            lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_universe__pb2.UpdateSupplyCommitResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FetchSupplyCommit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/universerpc.Universe/FetchSupplyCommit',
+            lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyCommitResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FetchSupplyLeaves(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/universerpc.Universe/FetchSupplyLeaves',
+            lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesRequest.SerializeToString,
+            lndgrpc_dot_compiled_dot_universe__pb2.FetchSupplyLeavesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

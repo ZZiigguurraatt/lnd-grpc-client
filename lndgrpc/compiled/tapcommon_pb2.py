@@ -14,11 +14,12 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n lndgrpc/compiled/tapcommon.proto\x12\x06taprpc\".\n\x08OutPoint\x12\x0c\n\x04txid\x18\x01 \x01(\x0c\x12\x14\n\x0coutput_index\x18\x02 \x01(\rB0Z.github.com/lightninglabs/taproot-assets/taprpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n lndgrpc/compiled/tapcommon.proto\x12\x06taprpc\".\n\x08OutPoint\x12\x0c\n\x04txid\x18\x01 \x01(\x0c\x12\x14\n\x0coutput_index\x18\x02 \x01(\r\"O\n\rAssetOutPoint\x12\x18\n\x10\x61nchor_out_point\x18\x01 \x01(\t\x12\x10\n\x08\x61sset_id\x18\x02 \x01(\x0c\x12\x12\n\nscript_key\x18\x03 \x01(\x0c\x42\x30Z.github.com/lightninglabs/taproot-assets/taprpcb\x06proto3')
 
 
 
 _OUTPOINT = DESCRIPTOR.message_types_by_name['OutPoint']
+_ASSETOUTPOINT = DESCRIPTOR.message_types_by_name['AssetOutPoint']
 OutPoint = _reflection.GeneratedProtocolMessageType('OutPoint', (_message.Message,), {
   'DESCRIPTOR' : _OUTPOINT,
   '__module__' : 'lndgrpc.compiled.tapcommon_pb2'
@@ -26,10 +27,19 @@ OutPoint = _reflection.GeneratedProtocolMessageType('OutPoint', (_message.Messag
   })
 _sym_db.RegisterMessage(OutPoint)
 
+AssetOutPoint = _reflection.GeneratedProtocolMessageType('AssetOutPoint', (_message.Message,), {
+  'DESCRIPTOR' : _ASSETOUTPOINT,
+  '__module__' : 'lndgrpc.compiled.tapcommon_pb2'
+  # @@protoc_insertion_point(class_scope:taprpc.AssetOutPoint)
+  })
+_sym_db.RegisterMessage(AssetOutPoint)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z.github.com/lightninglabs/taproot-assets/taprpc'
   _OUTPOINT._serialized_start=44
   _OUTPOINT._serialized_end=90
+  _ASSETOUTPOINT._serialized_start=92
+  _ASSETOUTPOINT._serialized_end=171
 # @@protoc_insertion_point(module_scope)

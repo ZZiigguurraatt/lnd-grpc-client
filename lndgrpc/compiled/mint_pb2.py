@@ -16,7 +16,7 @@ _sym_db = _symbol_database.Default()
 from lndgrpc.compiled import taprootassets_pb2 as lndgrpc_dot_compiled_dot_taprootassets__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1blndgrpc/compiled/mint.proto\x12\x07mintrpc\x1a$lndgrpc/compiled/taprootassets.proto\"\xe3\x02\n\x0cPendingAsset\x12+\n\rasset_version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12%\n\nasset_type\x18\x02 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\nasset_meta\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x0e\n\x06\x61mount\x18\x05 \x01(\x04\x12\x19\n\x11new_grouped_asset\x18\x06 \x01(\x08\x12\x11\n\tgroup_key\x18\x07 \x01(\x0c\x12\x14\n\x0cgroup_anchor\x18\x08 \x01(\t\x12\x31\n\x12group_internal_key\x18\t \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x1c\n\x14group_tapscript_root\x18\n \x01(\x0c\x12%\n\nscript_key\x18\x0b \x01(\x0b\x32\x11.taprpc.ScriptKey\"\xb7\x01\n\rUnsealedAsset\x12$\n\x05\x61sset\x18\x01 \x01(\x0b\x32\x15.mintrpc.PendingAsset\x12\x32\n\x11group_key_request\x18\x02 \x01(\x0b\x32\x17.taprpc.GroupKeyRequest\x12\x30\n\x10group_virtual_tx\x18\x03 \x01(\x0b\x32\x16.taprpc.GroupVirtualTx\x12\x1a\n\x12group_virtual_psbt\x18\x04 \x01(\t\"\xdf\x03\n\tMintAsset\x12+\n\rasset_version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12%\n\nasset_type\x18\x02 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\nasset_meta\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x0e\n\x06\x61mount\x18\x05 \x01(\x04\x12\x19\n\x11new_grouped_asset\x18\x06 \x01(\x08\x12\x15\n\rgrouped_asset\x18\x07 \x01(\x08\x12\x11\n\tgroup_key\x18\x08 \x01(\x0c\x12\x14\n\x0cgroup_anchor\x18\t \x01(\t\x12\x31\n\x12group_internal_key\x18\n \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x1c\n\x14group_tapscript_root\x18\x0b \x01(\x0c\x12%\n\nscript_key\x18\x0c \x01(\x0b\x32\x11.taprpc.ScriptKey\x12\x17\n\x0f\x64\x65\x63imal_display\x18\r \x01(\r\x12/\n\x12\x65xternal_group_key\x18\x0e \x01(\x0b\x32\x13.taprpc.ExternalKey\x12\x1c\n\x14universe_commitments\x18\x0f \x01(\x08\"M\n\x10MintAssetRequest\x12!\n\x05\x61sset\x18\x01 \x01(\x0b\x32\x12.mintrpc.MintAsset\x12\x16\n\x0eshort_response\x18\x02 \x01(\x08\"A\n\x11MintAssetResponse\x12,\n\rpending_batch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\xbd\x01\n\x0cMintingBatch\x12\x11\n\tbatch_key\x18\x01 \x01(\x0c\x12\x12\n\nbatch_txid\x18\x02 \x01(\t\x12\"\n\x05state\x18\x03 \x01(\x0e\x32\x13.mintrpc.BatchState\x12%\n\x06\x61ssets\x18\x04 \x03(\x0b\x32\x15.mintrpc.PendingAsset\x12\x12\n\ncreated_at\x18\x05 \x01(\x03\x12\x13\n\x0bheight_hint\x18\x06 \x01(\r\x12\x12\n\nbatch_psbt\x18\x07 \x01(\x0c\"e\n\x0cVerboseBatch\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\x12/\n\x0funsealed_assets\x18\x02 \x03(\x0b\x32\x16.mintrpc.UnsealedAsset\"\xa2\x01\n\x10\x46undBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\x12.\n\tfull_tree\x18\x03 \x01(\x0b\x32\x19.taprpc.TapscriptFullTreeH\x00\x12#\n\x06\x62ranch\x18\x04 \x01(\x0b\x32\x11.taprpc.TapBranchH\x00\x42\x0f\n\rbatch_sibling\"9\n\x11\x46undBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.VerboseBatch\"}\n\x10SealBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12-\n\x0fgroup_witnesses\x18\x02 \x03(\x0b\x32\x14.taprpc.GroupWitness\x12\"\n\x1asigned_group_virtual_psbts\x18\x03 \x03(\t\"9\n\x11SealBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\xa6\x01\n\x14\x46inalizeBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\x12.\n\tfull_tree\x18\x03 \x01(\x0b\x32\x19.taprpc.TapscriptFullTreeH\x00\x12#\n\x06\x62ranch\x18\x04 \x01(\x0b\x32\x11.taprpc.TapBranchH\x00\x42\x0f\n\rbatch_sibling\"=\n\x15\x46inalizeBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\x14\n\x12\x43\x61ncelBatchRequest\"(\n\x13\x43\x61ncelBatchResponse\x12\x11\n\tbatch_key\x18\x01 \x01(\x0c\"[\n\x10ListBatchRequest\x12\x13\n\tbatch_key\x18\x01 \x01(\x0cH\x00\x12\x17\n\rbatch_key_str\x18\x02 \x01(\tH\x00\x12\x0f\n\x07verbose\x18\x03 \x01(\x08\x42\x08\n\x06\x66ilter\";\n\x11ListBatchResponse\x12&\n\x07\x62\x61tches\x18\x01 \x03(\x0b\x32\x15.mintrpc.VerboseBatch\"4\n\x1aSubscribeMintEventsRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\"}\n\tMintEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12(\n\x0b\x62\x61tch_state\x18\x02 \x01(\x0e\x32\x13.mintrpc.BatchState\x12$\n\x05\x62\x61tch\x18\x03 \x01(\x0b\x32\x15.mintrpc.MintingBatch\x12\r\n\x05\x65rror\x18\x04 \x01(\t*\x88\x02\n\nBatchState\x12\x17\n\x13\x42\x41TCH_STATE_UNKNOWN\x10\x00\x12\x17\n\x13\x42\x41TCH_STATE_PENDING\x10\x01\x12\x16\n\x12\x42\x41TCH_STATE_FROZEN\x10\x02\x12\x19\n\x15\x42\x41TCH_STATE_COMMITTED\x10\x03\x12\x19\n\x15\x42\x41TCH_STATE_BROADCAST\x10\x04\x12\x19\n\x15\x42\x41TCH_STATE_CONFIRMED\x10\x05\x12\x19\n\x15\x42\x41TCH_STATE_FINALIZED\x10\x06\x12\"\n\x1e\x42\x41TCH_STATE_SEEDLING_CANCELLED\x10\x07\x12 \n\x1c\x42\x41TCH_STATE_SPROUT_CANCELLED\x10\x08\x32\x84\x04\n\x04Mint\x12\x42\n\tMintAsset\x12\x19.mintrpc.MintAssetRequest\x1a\x1a.mintrpc.MintAssetResponse\x12\x42\n\tFundBatch\x12\x19.mintrpc.FundBatchRequest\x1a\x1a.mintrpc.FundBatchResponse\x12\x42\n\tSealBatch\x12\x19.mintrpc.SealBatchRequest\x1a\x1a.mintrpc.SealBatchResponse\x12N\n\rFinalizeBatch\x12\x1d.mintrpc.FinalizeBatchRequest\x1a\x1e.mintrpc.FinalizeBatchResponse\x12H\n\x0b\x43\x61ncelBatch\x12\x1b.mintrpc.CancelBatchRequest\x1a\x1c.mintrpc.CancelBatchResponse\x12\x44\n\x0bListBatches\x12\x19.mintrpc.ListBatchRequest\x1a\x1a.mintrpc.ListBatchResponse\x12P\n\x13SubscribeMintEvents\x12#.mintrpc.SubscribeMintEventsRequest\x1a\x12.mintrpc.MintEvent0\x01\x42\x38Z6github.com/lightninglabs/taproot-assets/taprpc/mintrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1blndgrpc/compiled/mint.proto\x12\x07mintrpc\x1a$lndgrpc/compiled/taprootassets.proto\"\xe3\x02\n\x0cPendingAsset\x12+\n\rasset_version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12%\n\nasset_type\x18\x02 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\nasset_meta\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x0e\n\x06\x61mount\x18\x05 \x01(\x04\x12\x19\n\x11new_grouped_asset\x18\x06 \x01(\x08\x12\x11\n\tgroup_key\x18\x07 \x01(\x0c\x12\x14\n\x0cgroup_anchor\x18\x08 \x01(\t\x12\x31\n\x12group_internal_key\x18\t \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x1c\n\x14group_tapscript_root\x18\n \x01(\x0c\x12%\n\nscript_key\x18\x0b \x01(\x0b\x32\x11.taprpc.ScriptKey\"\xb7\x01\n\rUnsealedAsset\x12$\n\x05\x61sset\x18\x01 \x01(\x0b\x32\x15.mintrpc.PendingAsset\x12\x32\n\x11group_key_request\x18\x02 \x01(\x0b\x32\x17.taprpc.GroupKeyRequest\x12\x30\n\x10group_virtual_tx\x18\x03 \x01(\x0b\x32\x16.taprpc.GroupVirtualTx\x12\x1a\n\x12group_virtual_psbt\x18\x04 \x01(\t\"\xe4\x03\n\tMintAsset\x12+\n\rasset_version\x18\x01 \x01(\x0e\x32\x14.taprpc.AssetVersion\x12%\n\nasset_type\x18\x02 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\nasset_meta\x18\x04 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12\x0e\n\x06\x61mount\x18\x05 \x01(\x04\x12\x19\n\x11new_grouped_asset\x18\x06 \x01(\x08\x12\x15\n\rgrouped_asset\x18\x07 \x01(\x08\x12\x11\n\tgroup_key\x18\x08 \x01(\x0c\x12\x14\n\x0cgroup_anchor\x18\t \x01(\t\x12\x31\n\x12group_internal_key\x18\n \x01(\x0b\x32\x15.taprpc.KeyDescriptor\x12\x1c\n\x14group_tapscript_root\x18\x0b \x01(\x0c\x12%\n\nscript_key\x18\x0c \x01(\x0b\x32\x11.taprpc.ScriptKey\x12\x17\n\x0f\x64\x65\x63imal_display\x18\r \x01(\r\x12/\n\x12\x65xternal_group_key\x18\x0e \x01(\x0b\x32\x13.taprpc.ExternalKey\x12!\n\x19\x65nable_supply_commitments\x18\x0f \x01(\x08\"M\n\x10MintAssetRequest\x12!\n\x05\x61sset\x18\x01 \x01(\x0b\x32\x12.mintrpc.MintAsset\x12\x16\n\x0eshort_response\x18\x02 \x01(\x08\"A\n\x11MintAssetResponse\x12,\n\rpending_batch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\xbd\x01\n\x0cMintingBatch\x12\x11\n\tbatch_key\x18\x01 \x01(\x0c\x12\x12\n\nbatch_txid\x18\x02 \x01(\t\x12\"\n\x05state\x18\x03 \x01(\x0e\x32\x13.mintrpc.BatchState\x12%\n\x06\x61ssets\x18\x04 \x03(\x0b\x32\x15.mintrpc.PendingAsset\x12\x12\n\ncreated_at\x18\x05 \x01(\x03\x12\x13\n\x0bheight_hint\x18\x06 \x01(\r\x12\x12\n\nbatch_psbt\x18\x07 \x01(\x0c\"e\n\x0cVerboseBatch\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\x12/\n\x0funsealed_assets\x18\x02 \x03(\x0b\x32\x16.mintrpc.UnsealedAsset\"\xa2\x01\n\x10\x46undBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\x12.\n\tfull_tree\x18\x03 \x01(\x0b\x32\x19.taprpc.TapscriptFullTreeH\x00\x12#\n\x06\x62ranch\x18\x04 \x01(\x0b\x32\x11.taprpc.TapBranchH\x00\x42\x0f\n\rbatch_sibling\"9\n\x11\x46undBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.VerboseBatch\"}\n\x10SealBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12-\n\x0fgroup_witnesses\x18\x02 \x03(\x0b\x32\x14.taprpc.GroupWitness\x12\"\n\x1asigned_group_virtual_psbts\x18\x03 \x03(\t\"9\n\x11SealBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\xa6\x01\n\x14\x46inalizeBatchRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\x12\x10\n\x08\x66\x65\x65_rate\x18\x02 \x01(\r\x12.\n\tfull_tree\x18\x03 \x01(\x0b\x32\x19.taprpc.TapscriptFullTreeH\x00\x12#\n\x06\x62ranch\x18\x04 \x01(\x0b\x32\x11.taprpc.TapBranchH\x00\x42\x0f\n\rbatch_sibling\"=\n\x15\x46inalizeBatchResponse\x12$\n\x05\x62\x61tch\x18\x01 \x01(\x0b\x32\x15.mintrpc.MintingBatch\"\x14\n\x12\x43\x61ncelBatchRequest\"(\n\x13\x43\x61ncelBatchResponse\x12\x11\n\tbatch_key\x18\x01 \x01(\x0c\"[\n\x10ListBatchRequest\x12\x13\n\tbatch_key\x18\x01 \x01(\x0cH\x00\x12\x17\n\rbatch_key_str\x18\x02 \x01(\tH\x00\x12\x0f\n\x07verbose\x18\x03 \x01(\x08\x42\x08\n\x06\x66ilter\";\n\x11ListBatchResponse\x12&\n\x07\x62\x61tches\x18\x01 \x03(\x0b\x32\x15.mintrpc.VerboseBatch\"4\n\x1aSubscribeMintEventsRequest\x12\x16\n\x0eshort_response\x18\x01 \x01(\x08\"}\n\tMintEvent\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12(\n\x0b\x62\x61tch_state\x18\x02 \x01(\x0e\x32\x13.mintrpc.BatchState\x12$\n\x05\x62\x61tch\x18\x03 \x01(\x0b\x32\x15.mintrpc.MintingBatch\x12\r\n\x05\x65rror\x18\x04 \x01(\t*\x88\x02\n\nBatchState\x12\x17\n\x13\x42\x41TCH_STATE_UNKNOWN\x10\x00\x12\x17\n\x13\x42\x41TCH_STATE_PENDING\x10\x01\x12\x16\n\x12\x42\x41TCH_STATE_FROZEN\x10\x02\x12\x19\n\x15\x42\x41TCH_STATE_COMMITTED\x10\x03\x12\x19\n\x15\x42\x41TCH_STATE_BROADCAST\x10\x04\x12\x19\n\x15\x42\x41TCH_STATE_CONFIRMED\x10\x05\x12\x19\n\x15\x42\x41TCH_STATE_FINALIZED\x10\x06\x12\"\n\x1e\x42\x41TCH_STATE_SEEDLING_CANCELLED\x10\x07\x12 \n\x1c\x42\x41TCH_STATE_SPROUT_CANCELLED\x10\x08\x32\x84\x04\n\x04Mint\x12\x42\n\tMintAsset\x12\x19.mintrpc.MintAssetRequest\x1a\x1a.mintrpc.MintAssetResponse\x12\x42\n\tFundBatch\x12\x19.mintrpc.FundBatchRequest\x1a\x1a.mintrpc.FundBatchResponse\x12\x42\n\tSealBatch\x12\x19.mintrpc.SealBatchRequest\x1a\x1a.mintrpc.SealBatchResponse\x12N\n\rFinalizeBatch\x12\x1d.mintrpc.FinalizeBatchRequest\x1a\x1e.mintrpc.FinalizeBatchResponse\x12H\n\x0b\x43\x61ncelBatch\x12\x1b.mintrpc.CancelBatchRequest\x1a\x1c.mintrpc.CancelBatchResponse\x12\x44\n\x0bListBatches\x12\x19.mintrpc.ListBatchRequest\x1a\x1a.mintrpc.ListBatchResponse\x12P\n\x13SubscribeMintEvents\x12#.mintrpc.SubscribeMintEventsRequest\x1a\x12.mintrpc.MintEvent0\x01\x42\x38Z6github.com/lightninglabs/taproot-assets/taprpc/mintrpcb\x06proto3')
 
 _BATCHSTATE = DESCRIPTOR.enum_types_by_name['BatchState']
 BatchState = enum_type_wrapper.EnumTypeWrapper(_BATCHSTATE)
@@ -188,46 +188,46 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z6github.com/lightninglabs/taproot-assets/taprpc/mintrpc'
-  _BATCHSTATE._serialized_start=2587
-  _BATCHSTATE._serialized_end=2851
+  _BATCHSTATE._serialized_start=2592
+  _BATCHSTATE._serialized_end=2856
   _PENDINGASSET._serialized_start=79
   _PENDINGASSET._serialized_end=434
   _UNSEALEDASSET._serialized_start=437
   _UNSEALEDASSET._serialized_end=620
   _MINTASSET._serialized_start=623
-  _MINTASSET._serialized_end=1102
-  _MINTASSETREQUEST._serialized_start=1104
-  _MINTASSETREQUEST._serialized_end=1181
-  _MINTASSETRESPONSE._serialized_start=1183
-  _MINTASSETRESPONSE._serialized_end=1248
-  _MINTINGBATCH._serialized_start=1251
-  _MINTINGBATCH._serialized_end=1440
-  _VERBOSEBATCH._serialized_start=1442
-  _VERBOSEBATCH._serialized_end=1543
-  _FUNDBATCHREQUEST._serialized_start=1546
-  _FUNDBATCHREQUEST._serialized_end=1708
-  _FUNDBATCHRESPONSE._serialized_start=1710
-  _FUNDBATCHRESPONSE._serialized_end=1767
-  _SEALBATCHREQUEST._serialized_start=1769
-  _SEALBATCHREQUEST._serialized_end=1894
-  _SEALBATCHRESPONSE._serialized_start=1896
-  _SEALBATCHRESPONSE._serialized_end=1953
-  _FINALIZEBATCHREQUEST._serialized_start=1956
-  _FINALIZEBATCHREQUEST._serialized_end=2122
-  _FINALIZEBATCHRESPONSE._serialized_start=2124
-  _FINALIZEBATCHRESPONSE._serialized_end=2185
-  _CANCELBATCHREQUEST._serialized_start=2187
-  _CANCELBATCHREQUEST._serialized_end=2207
-  _CANCELBATCHRESPONSE._serialized_start=2209
-  _CANCELBATCHRESPONSE._serialized_end=2249
-  _LISTBATCHREQUEST._serialized_start=2251
-  _LISTBATCHREQUEST._serialized_end=2342
-  _LISTBATCHRESPONSE._serialized_start=2344
-  _LISTBATCHRESPONSE._serialized_end=2403
-  _SUBSCRIBEMINTEVENTSREQUEST._serialized_start=2405
-  _SUBSCRIBEMINTEVENTSREQUEST._serialized_end=2457
-  _MINTEVENT._serialized_start=2459
-  _MINTEVENT._serialized_end=2584
-  _MINT._serialized_start=2854
-  _MINT._serialized_end=3370
+  _MINTASSET._serialized_end=1107
+  _MINTASSETREQUEST._serialized_start=1109
+  _MINTASSETREQUEST._serialized_end=1186
+  _MINTASSETRESPONSE._serialized_start=1188
+  _MINTASSETRESPONSE._serialized_end=1253
+  _MINTINGBATCH._serialized_start=1256
+  _MINTINGBATCH._serialized_end=1445
+  _VERBOSEBATCH._serialized_start=1447
+  _VERBOSEBATCH._serialized_end=1548
+  _FUNDBATCHREQUEST._serialized_start=1551
+  _FUNDBATCHREQUEST._serialized_end=1713
+  _FUNDBATCHRESPONSE._serialized_start=1715
+  _FUNDBATCHRESPONSE._serialized_end=1772
+  _SEALBATCHREQUEST._serialized_start=1774
+  _SEALBATCHREQUEST._serialized_end=1899
+  _SEALBATCHRESPONSE._serialized_start=1901
+  _SEALBATCHRESPONSE._serialized_end=1958
+  _FINALIZEBATCHREQUEST._serialized_start=1961
+  _FINALIZEBATCHREQUEST._serialized_end=2127
+  _FINALIZEBATCHRESPONSE._serialized_start=2129
+  _FINALIZEBATCHRESPONSE._serialized_end=2190
+  _CANCELBATCHREQUEST._serialized_start=2192
+  _CANCELBATCHREQUEST._serialized_end=2212
+  _CANCELBATCHRESPONSE._serialized_start=2214
+  _CANCELBATCHRESPONSE._serialized_end=2254
+  _LISTBATCHREQUEST._serialized_start=2256
+  _LISTBATCHREQUEST._serialized_end=2347
+  _LISTBATCHRESPONSE._serialized_start=2349
+  _LISTBATCHRESPONSE._serialized_end=2408
+  _SUBSCRIBEMINTEVENTSREQUEST._serialized_start=2410
+  _SUBSCRIBEMINTEVENTSREQUEST._serialized_end=2462
+  _MINTEVENT._serialized_start=2464
+  _MINTEVENT._serialized_end=2589
+  _MINT._serialized_start=2859
+  _MINT._serialized_end=3375
 # @@protoc_insertion_point(module_scope)

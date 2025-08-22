@@ -106,10 +106,6 @@ message MailboxMessage {
 
     // Timestamp (Unix epoch seconds) when the message arrived at the server.
     int64 arrival_timestamp = 3;
-
-    // Block height after which this message may be considered expired by the
-    // system.
-    uint32 expiry_block_height = 4;
 }
 
 // Represents a list of messages.
@@ -143,9 +139,6 @@ message SendMessageRequest {
         //    used_proofs table).
         BitcoinMerkleInclusionProof tx_proof = 4;
     }
-
-    // The block height after which this message may be considered expired.
-    uint32 expiry_block_height = 5;
 }
 
 // Response message for the SendMessage RPC.
@@ -158,13 +151,20 @@ message SendMessageResponse {
 // ReceiveMessages stream.
 message ReceiveMessagesRequest {
     oneof request_type {
+        // The initial parameters sent by the client to start receiving
+        // messages.
         InitReceive init = 1;
+
+        // The client's signature in response to the server's challenge.
         AuthSignature auth_sig = 2;
     }
 }
 
 // Carries the initial parameters from the client to start receiving messages.
 message InitReceive {
+    // The public key identifier of the receiver of the messages that should be
+    // received through a message receive stream, encoded as the raw bytes of
+    // the compressed public key.
     bytes receiver_id = 1;
 
     // The exclusive start message ID, meaning messages with this ID or higher
@@ -194,6 +194,8 @@ message InitReceive {
 
 // Carries the client's signature in response to the server's challenge.
 message AuthSignature {
+    // The client's Schnorr signature over the challenge hash provided by
+    // the server.
     bytes signature = 1;
 }
 
@@ -201,15 +203,30 @@ message AuthSignature {
 // during the ReceiveMessages stream.
 message ReceiveMessagesResponse {
     oneof response_type {
+        // The challenge sent by the server to the client, which the client
+        // must sign to prove ownership of the receiver's public key.
         Challenge challenge = 1;
+
+        // A successful authentication response, indicating the client has
+        // successfully signed the challenge and is now authenticated to receive
+        // messages.
         bool auth_success = 2;
+
+        // A list of mailbox messages sent to the client. This will be
+        // sent after the client has successfully authenticated by signing the
+        // challenge. The client should expect a stream of these messages
+        // until the server sends an EndOfStream message.
         MailboxMessages messages = 3;
+
+        // An EndOfStream message indicating that the server is shutting down.
         EndOfStream eos = 4;
     }
 }
 
 // Carries the challenge hash sent by the server to the client.
 message Challenge {
+    // The challenge hash that the client must sign to prove ownership of the
+    // receiver's public key.
     bytes challenge_hash = 1;
 }
 

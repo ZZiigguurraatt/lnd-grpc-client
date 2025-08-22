@@ -13,10 +13,11 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from lndgrpc.compiled import tapcommon_pb2 as lndgrpc_dot_compiled_dot_tapcommon__pb2
 from lndgrpc.compiled import taprootassets_pb2 as lndgrpc_dot_compiled_dot_taprootassets__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/universe.proto\x12\x0buniverserpc\x1a$lndgrpc/compiled/taprootassets.proto\"j\n\x15MultiverseRootRequest\x12*\n\nproof_type\x18\x01 \x01(\x0e\x32\x16.universerpc.ProofType\x12%\n\x0cspecific_ids\x18\x02 \x03(\x0b\x32\x0f.universerpc.ID\"M\n\x16MultiverseRootResponse\x12\x33\n\x0fmultiverse_root\x18\x01 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\"|\n\x10\x41ssetRootRequest\x12\x1a\n\x12with_amounts_by_id\x18\x01 \x01(\x08\x12\x0e\n\x06offset\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12-\n\tdirection\x18\x04 \x01(\x0e\x32\x1a.universerpc.SortDirection\"4\n\rMerkleSumNode\x12\x11\n\troot_hash\x18\x01 \x01(\x0c\x12\x10\n\x08root_sum\x18\x02 \x01(\x03\"\x90\x01\n\x02ID\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x13\n\tgroup_key\x18\x03 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x04 \x01(\tH\x00\x12*\n\nproof_type\x18\x05 \x01(\x0e\x32\x16.universerpc.ProofTypeB\x04\n\x02id\"\xf6\x01\n\x0cUniverseRoot\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12.\n\nmssmt_root\x18\x03 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\x12\n\nasset_name\x18\x04 \x01(\t\x12L\n\x13\x61mounts_by_asset_id\x18\x05 \x03(\x0b\x32/.universerpc.UniverseRoot.AmountsByAssetIdEntry\x1a\x37\n\x15\x41mountsByAssetIdEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x04:\x02\x38\x01\"\xaf\x01\n\x11\x41ssetRootResponse\x12I\n\x0euniverse_roots\x18\x01 \x03(\x0b\x32\x31.universerpc.AssetRootResponse.UniverseRootsEntry\x1aO\n\x12UniverseRootsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12(\n\x05value\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot:\x02\x38\x01\"-\n\x0e\x41ssetRootQuery\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"w\n\x11QueryRootResponse\x12\x30\n\rissuance_root\x18\x01 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x30\n\rtransfer_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\".\n\x0f\x44\x65leteRootQuery\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"\x14\n\x12\x44\x65leteRootResponse\"+\n\x08Outpoint\x12\x10\n\x08hash_str\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\x05\"\x91\x01\n\x08\x41ssetKey\x12\x10\n\x06op_str\x18\x01 \x01(\tH\x00\x12#\n\x02op\x18\x02 \x01(\x0b\x32\x15.universerpc.OutpointH\x00\x12\x1a\n\x10script_key_bytes\x18\x03 \x01(\x0cH\x01\x12\x18\n\x0escript_key_str\x18\x04 \x01(\tH\x01\x42\n\n\x08outpointB\x0c\n\nscript_key\"\x81\x01\n\x14\x41ssetLeafKeysRequest\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\x0e\n\x06offset\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12-\n\tdirection\x18\x04 \x01(\x0e\x32\x1a.universerpc.SortDirection\"A\n\x14\x41ssetLeafKeyResponse\x12)\n\nasset_keys\x18\x01 \x03(\x0b\x32\x15.universerpc.AssetKey\"8\n\tAssetLeaf\x12\x1c\n\x05\x61sset\x18\x01 \x01(\x0b\x32\r.taprpc.Asset\x12\r\n\x05proof\x18\x02 \x01(\x0c\";\n\x11\x41ssetLeafResponse\x12&\n\x06leaves\x18\x01 \x03(\x0b\x32\x16.universerpc.AssetLeaf\"S\n\x0bUniverseKey\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\'\n\x08leaf_key\x18\x02 \x01(\x0b\x32\x15.universerpc.AssetKey\"\xc6\x02\n\x12\x41ssetProofResponse\x12%\n\x03req\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12\x30\n\runiverse_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12 \n\x18universe_inclusion_proof\x18\x03 \x01(\x0c\x12*\n\nasset_leaf\x18\x04 \x01(\x0b\x32\x16.universerpc.AssetLeaf\x12\x33\n\x0fmultiverse_root\x18\x05 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\"\n\x1amultiverse_inclusion_proof\x18\x06 \x01(\x0c\x12\x30\n\rissuance_data\x18\x07 \x01(\x0b\x32\x19.universerpc.IssuanceData\"\x97\x01\n\x0cIssuanceData\x12&\n\x0bmeta_reveal\x18\x01 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12-\n\x0egenesis_reveal\x18\x02 \x01(\x0b\x32\x15.taprpc.GenesisReveal\x12\x30\n\x10group_key_reveal\x18\x03 \x01(\x0b\x32\x16.taprpc.GroupKeyReveal\"_\n\nAssetProof\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12*\n\nasset_leaf\x18\x04 \x01(\x0b\x32\x16.universerpc.AssetLeaf\"p\n\x10PushProofRequest\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12\x35\n\x06server\x18\x02 \x01(\x0b\x32%.universerpc.UniverseFederationServer\":\n\x11PushProofResponse\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\"\r\n\x0bInfoRequest\"\"\n\x0cInfoResponse\x12\x12\n\nruntime_id\x18\x01 \x01(\x03\")\n\nSyncTarget\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"\x85\x01\n\x0bSyncRequest\x12\x15\n\runiverse_host\x18\x01 \x01(\t\x12\x30\n\tsync_mode\x18\x02 \x01(\x0e\x32\x1d.universerpc.UniverseSyncMode\x12-\n\x0csync_targets\x18\x03 \x03(\x0b\x32\x17.universerpc.SyncTarget\"\xa8\x01\n\x0eSyncedUniverse\x12\x31\n\x0eold_asset_root\x18\x01 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x31\n\x0enew_asset_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x30\n\x10new_asset_leaves\x18\x03 \x03(\x0b\x32\x16.universerpc.AssetLeaf\"\x0e\n\x0cStatsRequest\"E\n\x0cSyncResponse\x12\x35\n\x10synced_universes\x18\x01 \x03(\x0b\x32\x1b.universerpc.SyncedUniverse\"4\n\x18UniverseFederationServer\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\"\x1e\n\x1cListFederationServersRequest\"W\n\x1dListFederationServersResponse\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\"T\n\x1a\x41\x64\x64\x46\x65\x64\x65rationServerRequest\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\"\x1d\n\x1b\x41\x64\x64\x46\x65\x64\x65rationServerResponse\"W\n\x1d\x44\x65leteFederationServerRequest\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\" \n\x1e\x44\x65leteFederationServerResponse\"v\n\rStatsResponse\x12\x18\n\x10num_total_assets\x18\x01 \x01(\x03\x12\x18\n\x10num_total_groups\x18\x02 \x01(\x03\x12\x17\n\x0fnum_total_syncs\x18\x03 \x01(\x03\x12\x18\n\x10num_total_proofs\x18\x04 \x01(\x03\"\xfa\x01\n\x0f\x41ssetStatsQuery\x12\x19\n\x11\x61sset_name_filter\x18\x01 \x01(\t\x12\x17\n\x0f\x61sset_id_filter\x18\x02 \x01(\x0c\x12\x37\n\x11\x61sset_type_filter\x18\x03 \x01(\x0e\x32\x1c.universerpc.AssetTypeFilter\x12,\n\x07sort_by\x18\x04 \x01(\x0e\x32\x1b.universerpc.AssetQuerySort\x12\x0e\n\x06offset\x18\x05 \x01(\x05\x12\r\n\x05limit\x18\x06 \x01(\x05\x12-\n\tdirection\x18\x07 \x01(\x0e\x32\x1a.universerpc.SortDirection\"\xc9\x01\n\x12\x41ssetStatsSnapshot\x12\x11\n\tgroup_key\x18\x01 \x01(\x0c\x12\x14\n\x0cgroup_supply\x18\x02 \x01(\x03\x12\x32\n\x0cgroup_anchor\x18\x03 \x01(\x0b\x32\x1c.universerpc.AssetStatsAsset\x12+\n\x05\x61sset\x18\x04 \x01(\x0b\x32\x1c.universerpc.AssetStatsAsset\x12\x13\n\x0btotal_syncs\x18\x05 \x01(\x03\x12\x14\n\x0ctotal_proofs\x18\x06 \x01(\x03\"\xed\x01\n\x0f\x41ssetStatsAsset\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x15\n\rgenesis_point\x18\x02 \x01(\t\x12\x14\n\x0ctotal_supply\x18\x03 \x01(\x03\x12\x12\n\nasset_name\x18\x04 \x01(\t\x12%\n\nasset_type\x18\x05 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x16\n\x0egenesis_height\x18\x06 \x01(\x05\x12\x19\n\x11genesis_timestamp\x18\x07 \x01(\x03\x12\x14\n\x0c\x61nchor_point\x18\x08 \x01(\t\x12\x17\n\x0f\x64\x65\x63imal_display\x18\t \x01(\r\"J\n\x12UniverseAssetStats\x12\x34\n\x0b\x61sset_stats\x18\x01 \x03(\x0b\x32\x1f.universerpc.AssetStatsSnapshot\"D\n\x12QueryEventsRequest\x12\x17\n\x0fstart_timestamp\x18\x01 \x01(\x03\x12\x15\n\rend_timestamp\x18\x02 \x01(\x03\"I\n\x13QueryEventsResponse\x12\x32\n\x06\x65vents\x18\x01 \x03(\x0b\x32\".universerpc.GroupedUniverseEvents\"T\n\x15GroupedUniverseEvents\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x13\n\x0bsync_events\x18\x02 \x01(\x04\x12\x18\n\x10new_proof_events\x18\x03 \x01(\x04\"\xaa\x01\n\x1eSetFederationSyncConfigRequest\x12\x44\n\x13global_sync_configs\x18\x01 \x03(\x0b\x32\'.universerpc.GlobalFederationSyncConfig\x12\x42\n\x12\x61sset_sync_configs\x18\x02 \x03(\x0b\x32&.universerpc.AssetFederationSyncConfig\"!\n\x1fSetFederationSyncConfigResponse\"~\n\x1aGlobalFederationSyncConfig\x12*\n\nproof_type\x18\x01 \x01(\x0e\x32\x16.universerpc.ProofType\x12\x19\n\x11\x61llow_sync_insert\x18\x02 \x01(\x08\x12\x19\n\x11\x61llow_sync_export\x18\x03 \x01(\x08\"n\n\x19\x41ssetFederationSyncConfig\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\x19\n\x11\x61llow_sync_insert\x18\x02 \x01(\x08\x12\x19\n\x11\x61llow_sync_export\x18\x03 \x01(\x08\"?\n QueryFederationSyncConfigRequest\x12\x1b\n\x02id\x18\x01 \x03(\x0b\x32\x0f.universerpc.ID\"\xad\x01\n!QueryFederationSyncConfigResponse\x12\x44\n\x13global_sync_configs\x18\x01 \x03(\x0b\x32\'.universerpc.GlobalFederationSyncConfig\x12\x42\n\x12\x61sset_sync_configs\x18\x02 \x03(\x0b\x32&.universerpc.AssetFederationSyncConfig*Y\n\tProofType\x12\x1a\n\x16PROOF_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13PROOF_TYPE_ISSUANCE\x10\x01\x12\x17\n\x13PROOF_TYPE_TRANSFER\x10\x02*9\n\x10UniverseSyncMode\x12\x16\n\x12SYNC_ISSUANCE_ONLY\x10\x00\x12\r\n\tSYNC_FULL\x10\x01*\xd1\x01\n\x0e\x41ssetQuerySort\x12\x10\n\x0cSORT_BY_NONE\x10\x00\x12\x16\n\x12SORT_BY_ASSET_NAME\x10\x01\x12\x14\n\x10SORT_BY_ASSET_ID\x10\x02\x12\x16\n\x12SORT_BY_ASSET_TYPE\x10\x03\x12\x17\n\x13SORT_BY_TOTAL_SYNCS\x10\x04\x12\x18\n\x14SORT_BY_TOTAL_PROOFS\x10\x05\x12\x1a\n\x16SORT_BY_GENESIS_HEIGHT\x10\x06\x12\x18\n\x14SORT_BY_TOTAL_SUPPLY\x10\x07*@\n\rSortDirection\x12\x16\n\x12SORT_DIRECTION_ASC\x10\x00\x12\x17\n\x13SORT_DIRECTION_DESC\x10\x01*_\n\x0f\x41ssetTypeFilter\x12\x15\n\x11\x46ILTER_ASSET_NONE\x10\x00\x12\x17\n\x13\x46ILTER_ASSET_NORMAL\x10\x01\x12\x1c\n\x18\x46ILTER_ASSET_COLLECTIBLE\x10\x02\x32\xf6\x0c\n\x08Universe\x12Y\n\x0eMultiverseRoot\x12\".universerpc.MultiverseRootRequest\x1a#.universerpc.MultiverseRootResponse\x12K\n\nAssetRoots\x12\x1d.universerpc.AssetRootRequest\x1a\x1e.universerpc.AssetRootResponse\x12N\n\x0fQueryAssetRoots\x12\x1b.universerpc.AssetRootQuery\x1a\x1e.universerpc.QueryRootResponse\x12P\n\x0f\x44\x65leteAssetRoot\x12\x1c.universerpc.DeleteRootQuery\x1a\x1f.universerpc.DeleteRootResponse\x12U\n\rAssetLeafKeys\x12!.universerpc.AssetLeafKeysRequest\x1a!.universerpc.AssetLeafKeyResponse\x12>\n\x0b\x41ssetLeaves\x12\x0f.universerpc.ID\x1a\x1e.universerpc.AssetLeafResponse\x12G\n\nQueryProof\x12\x18.universerpc.UniverseKey\x1a\x1f.universerpc.AssetProofResponse\x12G\n\x0bInsertProof\x12\x17.universerpc.AssetProof\x1a\x1f.universerpc.AssetProofResponse\x12J\n\tPushProof\x12\x1d.universerpc.PushProofRequest\x1a\x1e.universerpc.PushProofResponse\x12;\n\x04Info\x12\x18.universerpc.InfoRequest\x1a\x19.universerpc.InfoResponse\x12\x43\n\x0cSyncUniverse\x12\x18.universerpc.SyncRequest\x1a\x19.universerpc.SyncResponse\x12n\n\x15ListFederationServers\x12).universerpc.ListFederationServersRequest\x1a*.universerpc.ListFederationServersResponse\x12h\n\x13\x41\x64\x64\x46\x65\x64\x65rationServer\x12\'.universerpc.AddFederationServerRequest\x1a(.universerpc.AddFederationServerResponse\x12q\n\x16\x44\x65leteFederationServer\x12*.universerpc.DeleteFederationServerRequest\x1a+.universerpc.DeleteFederationServerResponse\x12\x46\n\rUniverseStats\x12\x19.universerpc.StatsRequest\x1a\x1a.universerpc.StatsResponse\x12P\n\x0fQueryAssetStats\x12\x1c.universerpc.AssetStatsQuery\x1a\x1f.universerpc.UniverseAssetStats\x12P\n\x0bQueryEvents\x12\x1f.universerpc.QueryEventsRequest\x1a .universerpc.QueryEventsResponse\x12t\n\x17SetFederationSyncConfig\x12+.universerpc.SetFederationSyncConfigRequest\x1a,.universerpc.SetFederationSyncConfigResponse\x12z\n\x19QueryFederationSyncConfig\x12-.universerpc.QueryFederationSyncConfigRequest\x1a..universerpc.QueryFederationSyncConfigResponseB<Z:github.com/lightninglabs/taproot-assets/taprpc/universerpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1flndgrpc/compiled/universe.proto\x12\x0buniverserpc\x1a lndgrpc/compiled/tapcommon.proto\x1a$lndgrpc/compiled/taprootassets.proto\"j\n\x15MultiverseRootRequest\x12*\n\nproof_type\x18\x01 \x01(\x0e\x32\x16.universerpc.ProofType\x12%\n\x0cspecific_ids\x18\x02 \x03(\x0b\x32\x0f.universerpc.ID\"M\n\x16MultiverseRootResponse\x12\x33\n\x0fmultiverse_root\x18\x01 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\"|\n\x10\x41ssetRootRequest\x12\x1a\n\x12with_amounts_by_id\x18\x01 \x01(\x08\x12\x0e\n\x06offset\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12-\n\tdirection\x18\x04 \x01(\x0e\x32\x1a.universerpc.SortDirection\"4\n\rMerkleSumNode\x12\x11\n\troot_hash\x18\x01 \x01(\x0c\x12\x10\n\x08root_sum\x18\x02 \x01(\x03\"\x90\x01\n\x02ID\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x13\n\tgroup_key\x18\x03 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x04 \x01(\tH\x00\x12*\n\nproof_type\x18\x05 \x01(\x0e\x32\x16.universerpc.ProofTypeB\x04\n\x02id\"\xf6\x01\n\x0cUniverseRoot\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12.\n\nmssmt_root\x18\x03 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\x12\n\nasset_name\x18\x04 \x01(\t\x12L\n\x13\x61mounts_by_asset_id\x18\x05 \x03(\x0b\x32/.universerpc.UniverseRoot.AmountsByAssetIdEntry\x1a\x37\n\x15\x41mountsByAssetIdEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x04:\x02\x38\x01\"\xaf\x01\n\x11\x41ssetRootResponse\x12I\n\x0euniverse_roots\x18\x01 \x03(\x0b\x32\x31.universerpc.AssetRootResponse.UniverseRootsEntry\x1aO\n\x12UniverseRootsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12(\n\x05value\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot:\x02\x38\x01\"-\n\x0e\x41ssetRootQuery\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"w\n\x11QueryRootResponse\x12\x30\n\rissuance_root\x18\x01 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x30\n\rtransfer_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\".\n\x0f\x44\x65leteRootQuery\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"\x14\n\x12\x44\x65leteRootResponse\"+\n\x08Outpoint\x12\x10\n\x08hash_str\x18\x01 \x01(\t\x12\r\n\x05index\x18\x02 \x01(\x05\"\x91\x01\n\x08\x41ssetKey\x12\x10\n\x06op_str\x18\x01 \x01(\tH\x00\x12#\n\x02op\x18\x02 \x01(\x0b\x32\x15.universerpc.OutpointH\x00\x12\x1a\n\x10script_key_bytes\x18\x03 \x01(\x0cH\x01\x12\x18\n\x0escript_key_str\x18\x04 \x01(\tH\x01\x42\n\n\x08outpointB\x0c\n\nscript_key\"\x81\x01\n\x14\x41ssetLeafKeysRequest\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\x0e\n\x06offset\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12-\n\tdirection\x18\x04 \x01(\x0e\x32\x1a.universerpc.SortDirection\"A\n\x14\x41ssetLeafKeyResponse\x12)\n\nasset_keys\x18\x01 \x03(\x0b\x32\x15.universerpc.AssetKey\"8\n\tAssetLeaf\x12\x1c\n\x05\x61sset\x18\x01 \x01(\x0b\x32\r.taprpc.Asset\x12\r\n\x05proof\x18\x02 \x01(\x0c\";\n\x11\x41ssetLeafResponse\x12&\n\x06leaves\x18\x01 \x03(\x0b\x32\x16.universerpc.AssetLeaf\"S\n\x0bUniverseKey\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\'\n\x08leaf_key\x18\x02 \x01(\x0b\x32\x15.universerpc.AssetKey\"\xc6\x02\n\x12\x41ssetProofResponse\x12%\n\x03req\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12\x30\n\runiverse_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12 \n\x18universe_inclusion_proof\x18\x03 \x01(\x0c\x12*\n\nasset_leaf\x18\x04 \x01(\x0b\x32\x16.universerpc.AssetLeaf\x12\x33\n\x0fmultiverse_root\x18\x05 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\"\n\x1amultiverse_inclusion_proof\x18\x06 \x01(\x0c\x12\x30\n\rissuance_data\x18\x07 \x01(\x0b\x32\x19.universerpc.IssuanceData\"\x97\x01\n\x0cIssuanceData\x12&\n\x0bmeta_reveal\x18\x01 \x01(\x0b\x32\x11.taprpc.AssetMeta\x12-\n\x0egenesis_reveal\x18\x02 \x01(\x0b\x32\x15.taprpc.GenesisReveal\x12\x30\n\x10group_key_reveal\x18\x03 \x01(\x0b\x32\x16.taprpc.GroupKeyReveal\"_\n\nAssetProof\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12*\n\nasset_leaf\x18\x04 \x01(\x0b\x32\x16.universerpc.AssetLeaf\"p\n\x10PushProofRequest\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\x12\x35\n\x06server\x18\x02 \x01(\x0b\x32%.universerpc.UniverseFederationServer\":\n\x11PushProofResponse\x12%\n\x03key\x18\x01 \x01(\x0b\x32\x18.universerpc.UniverseKey\"\r\n\x0bInfoRequest\"\"\n\x0cInfoResponse\x12\x12\n\nruntime_id\x18\x01 \x01(\x03\")\n\nSyncTarget\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\"\x85\x01\n\x0bSyncRequest\x12\x15\n\runiverse_host\x18\x01 \x01(\t\x12\x30\n\tsync_mode\x18\x02 \x01(\x0e\x32\x1d.universerpc.UniverseSyncMode\x12-\n\x0csync_targets\x18\x03 \x03(\x0b\x32\x17.universerpc.SyncTarget\"\xa8\x01\n\x0eSyncedUniverse\x12\x31\n\x0eold_asset_root\x18\x01 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x31\n\x0enew_asset_root\x18\x02 \x01(\x0b\x32\x19.universerpc.UniverseRoot\x12\x30\n\x10new_asset_leaves\x18\x03 \x03(\x0b\x32\x16.universerpc.AssetLeaf\"\x0e\n\x0cStatsRequest\"E\n\x0cSyncResponse\x12\x35\n\x10synced_universes\x18\x01 \x03(\x0b\x32\x1b.universerpc.SyncedUniverse\"4\n\x18UniverseFederationServer\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\"\x1e\n\x1cListFederationServersRequest\"W\n\x1dListFederationServersResponse\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\"T\n\x1a\x41\x64\x64\x46\x65\x64\x65rationServerRequest\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\"\x1d\n\x1b\x41\x64\x64\x46\x65\x64\x65rationServerResponse\"W\n\x1d\x44\x65leteFederationServerRequest\x12\x36\n\x07servers\x18\x01 \x03(\x0b\x32%.universerpc.UniverseFederationServer\" \n\x1e\x44\x65leteFederationServerResponse\"v\n\rStatsResponse\x12\x18\n\x10num_total_assets\x18\x01 \x01(\x03\x12\x18\n\x10num_total_groups\x18\x02 \x01(\x03\x12\x17\n\x0fnum_total_syncs\x18\x03 \x01(\x03\x12\x18\n\x10num_total_proofs\x18\x04 \x01(\x03\"\xfa\x01\n\x0f\x41ssetStatsQuery\x12\x19\n\x11\x61sset_name_filter\x18\x01 \x01(\t\x12\x17\n\x0f\x61sset_id_filter\x18\x02 \x01(\x0c\x12\x37\n\x11\x61sset_type_filter\x18\x03 \x01(\x0e\x32\x1c.universerpc.AssetTypeFilter\x12,\n\x07sort_by\x18\x04 \x01(\x0e\x32\x1b.universerpc.AssetQuerySort\x12\x0e\n\x06offset\x18\x05 \x01(\x05\x12\r\n\x05limit\x18\x06 \x01(\x05\x12-\n\tdirection\x18\x07 \x01(\x0e\x32\x1a.universerpc.SortDirection\"\xc9\x01\n\x12\x41ssetStatsSnapshot\x12\x11\n\tgroup_key\x18\x01 \x01(\x0c\x12\x14\n\x0cgroup_supply\x18\x02 \x01(\x03\x12\x32\n\x0cgroup_anchor\x18\x03 \x01(\x0b\x32\x1c.universerpc.AssetStatsAsset\x12+\n\x05\x61sset\x18\x04 \x01(\x0b\x32\x1c.universerpc.AssetStatsAsset\x12\x13\n\x0btotal_syncs\x18\x05 \x01(\x03\x12\x14\n\x0ctotal_proofs\x18\x06 \x01(\x03\"\xed\x01\n\x0f\x41ssetStatsAsset\x12\x10\n\x08\x61sset_id\x18\x01 \x01(\x0c\x12\x15\n\rgenesis_point\x18\x02 \x01(\t\x12\x14\n\x0ctotal_supply\x18\x03 \x01(\x03\x12\x12\n\nasset_name\x18\x04 \x01(\t\x12%\n\nasset_type\x18\x05 \x01(\x0e\x32\x11.taprpc.AssetType\x12\x16\n\x0egenesis_height\x18\x06 \x01(\x05\x12\x19\n\x11genesis_timestamp\x18\x07 \x01(\x03\x12\x14\n\x0c\x61nchor_point\x18\x08 \x01(\t\x12\x17\n\x0f\x64\x65\x63imal_display\x18\t \x01(\r\"J\n\x12UniverseAssetStats\x12\x34\n\x0b\x61sset_stats\x18\x01 \x03(\x0b\x32\x1f.universerpc.AssetStatsSnapshot\"D\n\x12QueryEventsRequest\x12\x17\n\x0fstart_timestamp\x18\x01 \x01(\x03\x12\x15\n\rend_timestamp\x18\x02 \x01(\x03\"I\n\x13QueryEventsResponse\x12\x32\n\x06\x65vents\x18\x01 \x03(\x0b\x32\".universerpc.GroupedUniverseEvents\"T\n\x15GroupedUniverseEvents\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x13\n\x0bsync_events\x18\x02 \x01(\x04\x12\x18\n\x10new_proof_events\x18\x03 \x01(\x04\"\xaa\x01\n\x1eSetFederationSyncConfigRequest\x12\x44\n\x13global_sync_configs\x18\x01 \x03(\x0b\x32\'.universerpc.GlobalFederationSyncConfig\x12\x42\n\x12\x61sset_sync_configs\x18\x02 \x03(\x0b\x32&.universerpc.AssetFederationSyncConfig\"!\n\x1fSetFederationSyncConfigResponse\"~\n\x1aGlobalFederationSyncConfig\x12*\n\nproof_type\x18\x01 \x01(\x0e\x32\x16.universerpc.ProofType\x12\x19\n\x11\x61llow_sync_insert\x18\x02 \x01(\x08\x12\x19\n\x11\x61llow_sync_export\x18\x03 \x01(\x08\"n\n\x19\x41ssetFederationSyncConfig\x12\x1b\n\x02id\x18\x01 \x01(\x0b\x32\x0f.universerpc.ID\x12\x19\n\x11\x61llow_sync_insert\x18\x02 \x01(\x08\x12\x19\n\x11\x61llow_sync_export\x18\x03 \x01(\x08\"?\n QueryFederationSyncConfigRequest\x12\x1b\n\x02id\x18\x01 \x03(\x0b\x32\x0f.universerpc.ID\"\xad\x01\n!QueryFederationSyncConfigResponse\x12\x44\n\x13global_sync_configs\x18\x01 \x03(\x0b\x32\'.universerpc.GlobalFederationSyncConfig\x12\x42\n\x12\x61sset_sync_configs\x18\x02 \x03(\x0b\x32&.universerpc.AssetFederationSyncConfig\"\\\n\x1aIgnoreAssetOutPointRequest\x12.\n\x0f\x61sset_out_point\x18\x01 \x01(\x0b\x32\x15.taprpc.AssetOutPoint\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x04\"Y\n\x1bIgnoreAssetOutPointResponse\x12\x10\n\x08leaf_key\x18\x01 \x01(\x0c\x12(\n\x04leaf\x18\x02 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\"\\\n\x19UpdateSupplyCommitRequest\x12\x19\n\x0fgroup_key_bytes\x18\x01 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x02 \x01(\tH\x00\x42\x0b\n\tgroup_key\"\x1c\n\x1aUpdateSupplyCommitResponse\"\xa9\x01\n\x18\x46\x65tchSupplyCommitRequest\x12\x19\n\x0fgroup_key_bytes\x18\x01 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x02 \x01(\tH\x00\x12\x1a\n\x12issuance_leaf_keys\x18\x03 \x03(\x0c\x12\x16\n\x0e\x62urn_leaf_keys\x18\x04 \x03(\x0c\x12\x18\n\x10ignore_leaf_keys\x18\x05 \x03(\x0c\x42\x0b\n\tgroup_key\"\x99\x01\n\x17SupplyCommitSubtreeRoot\x12\x0c\n\x04type\x18\x01 \x01(\t\x12-\n\troot_node\x18\x02 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\x1c\n\x14supply_tree_leaf_key\x18\x03 \x01(\x0c\x12#\n\x1bsupply_tree_inclusion_proof\x18\x04 \x01(\x0c\"\xc4\x04\n\x19\x46\x65tchSupplyCommitResponse\x12:\n\x16supply_commitment_root\x18\x01 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\x13\n\x0b\x61nchor_txid\x18\x02 \x01(\t\x12\x19\n\x11\x61nchor_tx_out_idx\x18\x03 \x01(\r\x12\"\n\x1a\x61nchor_tx_out_internal_key\x18\x04 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x05 \x01(\r\x12\x12\n\nblock_hash\x18\x06 \x01(\x0c\x12\x16\n\x0e\x62lock_tx_index\x18\x07 \x01(\r\x12\x1a\n\x12tx_chain_fees_sats\x18\x08 \x01(\x03\x12\x43\n\x15issuance_subtree_root\x18\t \x01(\x0b\x32$.universerpc.SupplyCommitSubtreeRoot\x12?\n\x11\x62urn_subtree_root\x18\n \x01(\x0b\x32$.universerpc.SupplyCommitSubtreeRoot\x12\x41\n\x13ignore_subtree_root\x18\x0b \x01(\x0b\x32$.universerpc.SupplyCommitSubtreeRoot\x12&\n\x1eissuance_leaf_inclusion_proofs\x18\x0c \x03(\x0c\x12\"\n\x1a\x62urn_leaf_inclusion_proofs\x18\r \x03(\x0c\x12$\n\x1cignore_leaf_inclusion_proofs\x18\x0e \x03(\x0c\"\x91\x01\n\x18\x46\x65tchSupplyLeavesRequest\x12\x19\n\x0fgroup_key_bytes\x18\x01 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x02 \x01(\tH\x00\x12\x1a\n\x12\x62lock_height_start\x18\x03 \x01(\r\x12\x18\n\x10\x62lock_height_end\x18\x04 \x01(\rB\x0b\n\tgroup_key\"^\n\rSupplyLeafKey\x12\'\n\x08outpoint\x18\x01 \x01(\x0b\x32\x15.universerpc.Outpoint\x12\x12\n\nscript_key\x18\x02 \x01(\x0c\x12\x10\n\x08\x61sset_id\x18\x03 \x01(\x0c\"\x96\x01\n\x0fSupplyLeafEntry\x12,\n\x08leaf_key\x18\x01 \x01(\x0b\x32\x1a.universerpc.SupplyLeafKey\x12-\n\tleaf_node\x18\x02 \x01(\x0b\x32\x1a.universerpc.MerkleSumNode\x12\x14\n\x0c\x62lock_height\x18\x03 \x01(\r\x12\x10\n\x08raw_leaf\x18\x04 \x01(\x0c\"\xba\x01\n\x19\x46\x65tchSupplyLeavesResponse\x12\x35\n\x0fissuance_leaves\x18\x01 \x03(\x0b\x32\x1c.universerpc.SupplyLeafEntry\x12\x31\n\x0b\x62urn_leaves\x18\x02 \x03(\x0b\x32\x1c.universerpc.SupplyLeafEntry\x12\x33\n\rignore_leaves\x18\x03 \x03(\x0b\x32\x1c.universerpc.SupplyLeafEntry*Y\n\tProofType\x12\x1a\n\x16PROOF_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13PROOF_TYPE_ISSUANCE\x10\x01\x12\x17\n\x13PROOF_TYPE_TRANSFER\x10\x02*9\n\x10UniverseSyncMode\x12\x16\n\x12SYNC_ISSUANCE_ONLY\x10\x00\x12\r\n\tSYNC_FULL\x10\x01*\xd1\x01\n\x0e\x41ssetQuerySort\x12\x10\n\x0cSORT_BY_NONE\x10\x00\x12\x16\n\x12SORT_BY_ASSET_NAME\x10\x01\x12\x14\n\x10SORT_BY_ASSET_ID\x10\x02\x12\x16\n\x12SORT_BY_ASSET_TYPE\x10\x03\x12\x17\n\x13SORT_BY_TOTAL_SYNCS\x10\x04\x12\x18\n\x14SORT_BY_TOTAL_PROOFS\x10\x05\x12\x1a\n\x16SORT_BY_GENESIS_HEIGHT\x10\x06\x12\x18\n\x14SORT_BY_TOTAL_SUPPLY\x10\x07*@\n\rSortDirection\x12\x16\n\x12SORT_DIRECTION_ASC\x10\x00\x12\x17\n\x13SORT_DIRECTION_DESC\x10\x01*_\n\x0f\x41ssetTypeFilter\x12\x15\n\x11\x46ILTER_ASSET_NONE\x10\x00\x12\x17\n\x13\x46ILTER_ASSET_NORMAL\x10\x01\x12\x1c\n\x18\x46ILTER_ASSET_COLLECTIBLE\x10\x02\x32\x8f\x10\n\x08Universe\x12Y\n\x0eMultiverseRoot\x12\".universerpc.MultiverseRootRequest\x1a#.universerpc.MultiverseRootResponse\x12K\n\nAssetRoots\x12\x1d.universerpc.AssetRootRequest\x1a\x1e.universerpc.AssetRootResponse\x12N\n\x0fQueryAssetRoots\x12\x1b.universerpc.AssetRootQuery\x1a\x1e.universerpc.QueryRootResponse\x12P\n\x0f\x44\x65leteAssetRoot\x12\x1c.universerpc.DeleteRootQuery\x1a\x1f.universerpc.DeleteRootResponse\x12U\n\rAssetLeafKeys\x12!.universerpc.AssetLeafKeysRequest\x1a!.universerpc.AssetLeafKeyResponse\x12>\n\x0b\x41ssetLeaves\x12\x0f.universerpc.ID\x1a\x1e.universerpc.AssetLeafResponse\x12G\n\nQueryProof\x12\x18.universerpc.UniverseKey\x1a\x1f.universerpc.AssetProofResponse\x12G\n\x0bInsertProof\x12\x17.universerpc.AssetProof\x1a\x1f.universerpc.AssetProofResponse\x12J\n\tPushProof\x12\x1d.universerpc.PushProofRequest\x1a\x1e.universerpc.PushProofResponse\x12;\n\x04Info\x12\x18.universerpc.InfoRequest\x1a\x19.universerpc.InfoResponse\x12\x43\n\x0cSyncUniverse\x12\x18.universerpc.SyncRequest\x1a\x19.universerpc.SyncResponse\x12n\n\x15ListFederationServers\x12).universerpc.ListFederationServersRequest\x1a*.universerpc.ListFederationServersResponse\x12h\n\x13\x41\x64\x64\x46\x65\x64\x65rationServer\x12\'.universerpc.AddFederationServerRequest\x1a(.universerpc.AddFederationServerResponse\x12q\n\x16\x44\x65leteFederationServer\x12*.universerpc.DeleteFederationServerRequest\x1a+.universerpc.DeleteFederationServerResponse\x12\x46\n\rUniverseStats\x12\x19.universerpc.StatsRequest\x1a\x1a.universerpc.StatsResponse\x12P\n\x0fQueryAssetStats\x12\x1c.universerpc.AssetStatsQuery\x1a\x1f.universerpc.UniverseAssetStats\x12P\n\x0bQueryEvents\x12\x1f.universerpc.QueryEventsRequest\x1a .universerpc.QueryEventsResponse\x12t\n\x17SetFederationSyncConfig\x12+.universerpc.SetFederationSyncConfigRequest\x1a,.universerpc.SetFederationSyncConfigResponse\x12z\n\x19QueryFederationSyncConfig\x12-.universerpc.QueryFederationSyncConfigRequest\x1a..universerpc.QueryFederationSyncConfigResponse\x12h\n\x13IgnoreAssetOutPoint\x12\'.universerpc.IgnoreAssetOutPointRequest\x1a(.universerpc.IgnoreAssetOutPointResponse\x12\x65\n\x12UpdateSupplyCommit\x12&.universerpc.UpdateSupplyCommitRequest\x1a\'.universerpc.UpdateSupplyCommitResponse\x12\x62\n\x11\x46\x65tchSupplyCommit\x12%.universerpc.FetchSupplyCommitRequest\x1a&.universerpc.FetchSupplyCommitResponse\x12\x62\n\x11\x46\x65tchSupplyLeaves\x12%.universerpc.FetchSupplyLeavesRequest\x1a&.universerpc.FetchSupplyLeavesResponseB<Z:github.com/lightninglabs/taproot-assets/taprpc/universerpcb\x06proto3')
 
 _PROOFTYPE = DESCRIPTOR.enum_types_by_name['ProofType']
 ProofType = enum_type_wrapper.EnumTypeWrapper(_PROOFTYPE)
@@ -101,6 +102,17 @@ _GLOBALFEDERATIONSYNCCONFIG = DESCRIPTOR.message_types_by_name['GlobalFederation
 _ASSETFEDERATIONSYNCCONFIG = DESCRIPTOR.message_types_by_name['AssetFederationSyncConfig']
 _QUERYFEDERATIONSYNCCONFIGREQUEST = DESCRIPTOR.message_types_by_name['QueryFederationSyncConfigRequest']
 _QUERYFEDERATIONSYNCCONFIGRESPONSE = DESCRIPTOR.message_types_by_name['QueryFederationSyncConfigResponse']
+_IGNOREASSETOUTPOINTREQUEST = DESCRIPTOR.message_types_by_name['IgnoreAssetOutPointRequest']
+_IGNOREASSETOUTPOINTRESPONSE = DESCRIPTOR.message_types_by_name['IgnoreAssetOutPointResponse']
+_UPDATESUPPLYCOMMITREQUEST = DESCRIPTOR.message_types_by_name['UpdateSupplyCommitRequest']
+_UPDATESUPPLYCOMMITRESPONSE = DESCRIPTOR.message_types_by_name['UpdateSupplyCommitResponse']
+_FETCHSUPPLYCOMMITREQUEST = DESCRIPTOR.message_types_by_name['FetchSupplyCommitRequest']
+_SUPPLYCOMMITSUBTREEROOT = DESCRIPTOR.message_types_by_name['SupplyCommitSubtreeRoot']
+_FETCHSUPPLYCOMMITRESPONSE = DESCRIPTOR.message_types_by_name['FetchSupplyCommitResponse']
+_FETCHSUPPLYLEAVESREQUEST = DESCRIPTOR.message_types_by_name['FetchSupplyLeavesRequest']
+_SUPPLYLEAFKEY = DESCRIPTOR.message_types_by_name['SupplyLeafKey']
+_SUPPLYLEAFENTRY = DESCRIPTOR.message_types_by_name['SupplyLeafEntry']
+_FETCHSUPPLYLEAVESRESPONSE = DESCRIPTOR.message_types_by_name['FetchSupplyLeavesResponse']
 MultiverseRootRequest = _reflection.GeneratedProtocolMessageType('MultiverseRootRequest', (_message.Message,), {
   'DESCRIPTOR' : _MULTIVERSEROOTREQUEST,
   '__module__' : 'lndgrpc.compiled.universe_pb2'
@@ -474,6 +486,83 @@ QueryFederationSyncConfigResponse = _reflection.GeneratedProtocolMessageType('Qu
   })
 _sym_db.RegisterMessage(QueryFederationSyncConfigResponse)
 
+IgnoreAssetOutPointRequest = _reflection.GeneratedProtocolMessageType('IgnoreAssetOutPointRequest', (_message.Message,), {
+  'DESCRIPTOR' : _IGNOREASSETOUTPOINTREQUEST,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.IgnoreAssetOutPointRequest)
+  })
+_sym_db.RegisterMessage(IgnoreAssetOutPointRequest)
+
+IgnoreAssetOutPointResponse = _reflection.GeneratedProtocolMessageType('IgnoreAssetOutPointResponse', (_message.Message,), {
+  'DESCRIPTOR' : _IGNOREASSETOUTPOINTRESPONSE,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.IgnoreAssetOutPointResponse)
+  })
+_sym_db.RegisterMessage(IgnoreAssetOutPointResponse)
+
+UpdateSupplyCommitRequest = _reflection.GeneratedProtocolMessageType('UpdateSupplyCommitRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESUPPLYCOMMITREQUEST,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.UpdateSupplyCommitRequest)
+  })
+_sym_db.RegisterMessage(UpdateSupplyCommitRequest)
+
+UpdateSupplyCommitResponse = _reflection.GeneratedProtocolMessageType('UpdateSupplyCommitResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESUPPLYCOMMITRESPONSE,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.UpdateSupplyCommitResponse)
+  })
+_sym_db.RegisterMessage(UpdateSupplyCommitResponse)
+
+FetchSupplyCommitRequest = _reflection.GeneratedProtocolMessageType('FetchSupplyCommitRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHSUPPLYCOMMITREQUEST,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.FetchSupplyCommitRequest)
+  })
+_sym_db.RegisterMessage(FetchSupplyCommitRequest)
+
+SupplyCommitSubtreeRoot = _reflection.GeneratedProtocolMessageType('SupplyCommitSubtreeRoot', (_message.Message,), {
+  'DESCRIPTOR' : _SUPPLYCOMMITSUBTREEROOT,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.SupplyCommitSubtreeRoot)
+  })
+_sym_db.RegisterMessage(SupplyCommitSubtreeRoot)
+
+FetchSupplyCommitResponse = _reflection.GeneratedProtocolMessageType('FetchSupplyCommitResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHSUPPLYCOMMITRESPONSE,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.FetchSupplyCommitResponse)
+  })
+_sym_db.RegisterMessage(FetchSupplyCommitResponse)
+
+FetchSupplyLeavesRequest = _reflection.GeneratedProtocolMessageType('FetchSupplyLeavesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHSUPPLYLEAVESREQUEST,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.FetchSupplyLeavesRequest)
+  })
+_sym_db.RegisterMessage(FetchSupplyLeavesRequest)
+
+SupplyLeafKey = _reflection.GeneratedProtocolMessageType('SupplyLeafKey', (_message.Message,), {
+  'DESCRIPTOR' : _SUPPLYLEAFKEY,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.SupplyLeafKey)
+  })
+_sym_db.RegisterMessage(SupplyLeafKey)
+
+SupplyLeafEntry = _reflection.GeneratedProtocolMessageType('SupplyLeafEntry', (_message.Message,), {
+  'DESCRIPTOR' : _SUPPLYLEAFENTRY,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.SupplyLeafEntry)
+  })
+_sym_db.RegisterMessage(SupplyLeafEntry)
+
+FetchSupplyLeavesResponse = _reflection.GeneratedProtocolMessageType('FetchSupplyLeavesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHSUPPLYLEAVESRESPONSE,
+  '__module__' : 'lndgrpc.compiled.universe_pb2'
+  # @@protoc_insertion_point(class_scope:universerpc.FetchSupplyLeavesResponse)
+  })
+_sym_db.RegisterMessage(FetchSupplyLeavesResponse)
+
 _UNIVERSE = DESCRIPTOR.services_by_name['Universe']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
@@ -483,122 +572,144 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UNIVERSEROOT_AMOUNTSBYASSETIDENTRY._serialized_options = b'8\001'
   _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._options = None
   _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._serialized_options = b'8\001'
-  _PROOFTYPE._serialized_start=5331
-  _PROOFTYPE._serialized_end=5420
-  _UNIVERSESYNCMODE._serialized_start=5422
-  _UNIVERSESYNCMODE._serialized_end=5479
-  _ASSETQUERYSORT._serialized_start=5482
-  _ASSETQUERYSORT._serialized_end=5691
-  _SORTDIRECTION._serialized_start=5693
-  _SORTDIRECTION._serialized_end=5757
-  _ASSETTYPEFILTER._serialized_start=5759
-  _ASSETTYPEFILTER._serialized_end=5854
-  _MULTIVERSEROOTREQUEST._serialized_start=86
-  _MULTIVERSEROOTREQUEST._serialized_end=192
-  _MULTIVERSEROOTRESPONSE._serialized_start=194
-  _MULTIVERSEROOTRESPONSE._serialized_end=271
-  _ASSETROOTREQUEST._serialized_start=273
-  _ASSETROOTREQUEST._serialized_end=397
-  _MERKLESUMNODE._serialized_start=399
-  _MERKLESUMNODE._serialized_end=451
-  _ID._serialized_start=454
-  _ID._serialized_end=598
-  _UNIVERSEROOT._serialized_start=601
-  _UNIVERSEROOT._serialized_end=847
-  _UNIVERSEROOT_AMOUNTSBYASSETIDENTRY._serialized_start=792
-  _UNIVERSEROOT_AMOUNTSBYASSETIDENTRY._serialized_end=847
-  _ASSETROOTRESPONSE._serialized_start=850
-  _ASSETROOTRESPONSE._serialized_end=1025
-  _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._serialized_start=946
-  _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._serialized_end=1025
-  _ASSETROOTQUERY._serialized_start=1027
-  _ASSETROOTQUERY._serialized_end=1072
-  _QUERYROOTRESPONSE._serialized_start=1074
-  _QUERYROOTRESPONSE._serialized_end=1193
-  _DELETEROOTQUERY._serialized_start=1195
-  _DELETEROOTQUERY._serialized_end=1241
-  _DELETEROOTRESPONSE._serialized_start=1243
-  _DELETEROOTRESPONSE._serialized_end=1263
-  _OUTPOINT._serialized_start=1265
-  _OUTPOINT._serialized_end=1308
-  _ASSETKEY._serialized_start=1311
-  _ASSETKEY._serialized_end=1456
-  _ASSETLEAFKEYSREQUEST._serialized_start=1459
-  _ASSETLEAFKEYSREQUEST._serialized_end=1588
-  _ASSETLEAFKEYRESPONSE._serialized_start=1590
-  _ASSETLEAFKEYRESPONSE._serialized_end=1655
-  _ASSETLEAF._serialized_start=1657
-  _ASSETLEAF._serialized_end=1713
-  _ASSETLEAFRESPONSE._serialized_start=1715
-  _ASSETLEAFRESPONSE._serialized_end=1774
-  _UNIVERSEKEY._serialized_start=1776
-  _UNIVERSEKEY._serialized_end=1859
-  _ASSETPROOFRESPONSE._serialized_start=1862
-  _ASSETPROOFRESPONSE._serialized_end=2188
-  _ISSUANCEDATA._serialized_start=2191
-  _ISSUANCEDATA._serialized_end=2342
-  _ASSETPROOF._serialized_start=2344
-  _ASSETPROOF._serialized_end=2439
-  _PUSHPROOFREQUEST._serialized_start=2441
-  _PUSHPROOFREQUEST._serialized_end=2553
-  _PUSHPROOFRESPONSE._serialized_start=2555
-  _PUSHPROOFRESPONSE._serialized_end=2613
-  _INFOREQUEST._serialized_start=2615
-  _INFOREQUEST._serialized_end=2628
-  _INFORESPONSE._serialized_start=2630
-  _INFORESPONSE._serialized_end=2664
-  _SYNCTARGET._serialized_start=2666
-  _SYNCTARGET._serialized_end=2707
-  _SYNCREQUEST._serialized_start=2710
-  _SYNCREQUEST._serialized_end=2843
-  _SYNCEDUNIVERSE._serialized_start=2846
-  _SYNCEDUNIVERSE._serialized_end=3014
-  _STATSREQUEST._serialized_start=3016
-  _STATSREQUEST._serialized_end=3030
-  _SYNCRESPONSE._serialized_start=3032
-  _SYNCRESPONSE._serialized_end=3101
-  _UNIVERSEFEDERATIONSERVER._serialized_start=3103
-  _UNIVERSEFEDERATIONSERVER._serialized_end=3155
-  _LISTFEDERATIONSERVERSREQUEST._serialized_start=3157
-  _LISTFEDERATIONSERVERSREQUEST._serialized_end=3187
-  _LISTFEDERATIONSERVERSRESPONSE._serialized_start=3189
-  _LISTFEDERATIONSERVERSRESPONSE._serialized_end=3276
-  _ADDFEDERATIONSERVERREQUEST._serialized_start=3278
-  _ADDFEDERATIONSERVERREQUEST._serialized_end=3362
-  _ADDFEDERATIONSERVERRESPONSE._serialized_start=3364
-  _ADDFEDERATIONSERVERRESPONSE._serialized_end=3393
-  _DELETEFEDERATIONSERVERREQUEST._serialized_start=3395
-  _DELETEFEDERATIONSERVERREQUEST._serialized_end=3482
-  _DELETEFEDERATIONSERVERRESPONSE._serialized_start=3484
-  _DELETEFEDERATIONSERVERRESPONSE._serialized_end=3516
-  _STATSRESPONSE._serialized_start=3518
-  _STATSRESPONSE._serialized_end=3636
-  _ASSETSTATSQUERY._serialized_start=3639
-  _ASSETSTATSQUERY._serialized_end=3889
-  _ASSETSTATSSNAPSHOT._serialized_start=3892
-  _ASSETSTATSSNAPSHOT._serialized_end=4093
-  _ASSETSTATSASSET._serialized_start=4096
-  _ASSETSTATSASSET._serialized_end=4333
-  _UNIVERSEASSETSTATS._serialized_start=4335
-  _UNIVERSEASSETSTATS._serialized_end=4409
-  _QUERYEVENTSREQUEST._serialized_start=4411
-  _QUERYEVENTSREQUEST._serialized_end=4479
-  _QUERYEVENTSRESPONSE._serialized_start=4481
-  _QUERYEVENTSRESPONSE._serialized_end=4554
-  _GROUPEDUNIVERSEEVENTS._serialized_start=4556
-  _GROUPEDUNIVERSEEVENTS._serialized_end=4640
-  _SETFEDERATIONSYNCCONFIGREQUEST._serialized_start=4643
-  _SETFEDERATIONSYNCCONFIGREQUEST._serialized_end=4813
-  _SETFEDERATIONSYNCCONFIGRESPONSE._serialized_start=4815
-  _SETFEDERATIONSYNCCONFIGRESPONSE._serialized_end=4848
-  _GLOBALFEDERATIONSYNCCONFIG._serialized_start=4850
-  _GLOBALFEDERATIONSYNCCONFIG._serialized_end=4976
-  _ASSETFEDERATIONSYNCCONFIG._serialized_start=4978
-  _ASSETFEDERATIONSYNCCONFIG._serialized_end=5088
-  _QUERYFEDERATIONSYNCCONFIGREQUEST._serialized_start=5090
-  _QUERYFEDERATIONSYNCCONFIGREQUEST._serialized_end=5153
-  _QUERYFEDERATIONSYNCCONFIGRESPONSE._serialized_start=5156
-  _QUERYFEDERATIONSYNCCONFIGRESPONSE._serialized_end=5329
-  _UNIVERSE._serialized_start=5857
-  _UNIVERSE._serialized_end=7511
+  _PROOFTYPE._serialized_start=7171
+  _PROOFTYPE._serialized_end=7260
+  _UNIVERSESYNCMODE._serialized_start=7262
+  _UNIVERSESYNCMODE._serialized_end=7319
+  _ASSETQUERYSORT._serialized_start=7322
+  _ASSETQUERYSORT._serialized_end=7531
+  _SORTDIRECTION._serialized_start=7533
+  _SORTDIRECTION._serialized_end=7597
+  _ASSETTYPEFILTER._serialized_start=7599
+  _ASSETTYPEFILTER._serialized_end=7694
+  _MULTIVERSEROOTREQUEST._serialized_start=120
+  _MULTIVERSEROOTREQUEST._serialized_end=226
+  _MULTIVERSEROOTRESPONSE._serialized_start=228
+  _MULTIVERSEROOTRESPONSE._serialized_end=305
+  _ASSETROOTREQUEST._serialized_start=307
+  _ASSETROOTREQUEST._serialized_end=431
+  _MERKLESUMNODE._serialized_start=433
+  _MERKLESUMNODE._serialized_end=485
+  _ID._serialized_start=488
+  _ID._serialized_end=632
+  _UNIVERSEROOT._serialized_start=635
+  _UNIVERSEROOT._serialized_end=881
+  _UNIVERSEROOT_AMOUNTSBYASSETIDENTRY._serialized_start=826
+  _UNIVERSEROOT_AMOUNTSBYASSETIDENTRY._serialized_end=881
+  _ASSETROOTRESPONSE._serialized_start=884
+  _ASSETROOTRESPONSE._serialized_end=1059
+  _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._serialized_start=980
+  _ASSETROOTRESPONSE_UNIVERSEROOTSENTRY._serialized_end=1059
+  _ASSETROOTQUERY._serialized_start=1061
+  _ASSETROOTQUERY._serialized_end=1106
+  _QUERYROOTRESPONSE._serialized_start=1108
+  _QUERYROOTRESPONSE._serialized_end=1227
+  _DELETEROOTQUERY._serialized_start=1229
+  _DELETEROOTQUERY._serialized_end=1275
+  _DELETEROOTRESPONSE._serialized_start=1277
+  _DELETEROOTRESPONSE._serialized_end=1297
+  _OUTPOINT._serialized_start=1299
+  _OUTPOINT._serialized_end=1342
+  _ASSETKEY._serialized_start=1345
+  _ASSETKEY._serialized_end=1490
+  _ASSETLEAFKEYSREQUEST._serialized_start=1493
+  _ASSETLEAFKEYSREQUEST._serialized_end=1622
+  _ASSETLEAFKEYRESPONSE._serialized_start=1624
+  _ASSETLEAFKEYRESPONSE._serialized_end=1689
+  _ASSETLEAF._serialized_start=1691
+  _ASSETLEAF._serialized_end=1747
+  _ASSETLEAFRESPONSE._serialized_start=1749
+  _ASSETLEAFRESPONSE._serialized_end=1808
+  _UNIVERSEKEY._serialized_start=1810
+  _UNIVERSEKEY._serialized_end=1893
+  _ASSETPROOFRESPONSE._serialized_start=1896
+  _ASSETPROOFRESPONSE._serialized_end=2222
+  _ISSUANCEDATA._serialized_start=2225
+  _ISSUANCEDATA._serialized_end=2376
+  _ASSETPROOF._serialized_start=2378
+  _ASSETPROOF._serialized_end=2473
+  _PUSHPROOFREQUEST._serialized_start=2475
+  _PUSHPROOFREQUEST._serialized_end=2587
+  _PUSHPROOFRESPONSE._serialized_start=2589
+  _PUSHPROOFRESPONSE._serialized_end=2647
+  _INFOREQUEST._serialized_start=2649
+  _INFOREQUEST._serialized_end=2662
+  _INFORESPONSE._serialized_start=2664
+  _INFORESPONSE._serialized_end=2698
+  _SYNCTARGET._serialized_start=2700
+  _SYNCTARGET._serialized_end=2741
+  _SYNCREQUEST._serialized_start=2744
+  _SYNCREQUEST._serialized_end=2877
+  _SYNCEDUNIVERSE._serialized_start=2880
+  _SYNCEDUNIVERSE._serialized_end=3048
+  _STATSREQUEST._serialized_start=3050
+  _STATSREQUEST._serialized_end=3064
+  _SYNCRESPONSE._serialized_start=3066
+  _SYNCRESPONSE._serialized_end=3135
+  _UNIVERSEFEDERATIONSERVER._serialized_start=3137
+  _UNIVERSEFEDERATIONSERVER._serialized_end=3189
+  _LISTFEDERATIONSERVERSREQUEST._serialized_start=3191
+  _LISTFEDERATIONSERVERSREQUEST._serialized_end=3221
+  _LISTFEDERATIONSERVERSRESPONSE._serialized_start=3223
+  _LISTFEDERATIONSERVERSRESPONSE._serialized_end=3310
+  _ADDFEDERATIONSERVERREQUEST._serialized_start=3312
+  _ADDFEDERATIONSERVERREQUEST._serialized_end=3396
+  _ADDFEDERATIONSERVERRESPONSE._serialized_start=3398
+  _ADDFEDERATIONSERVERRESPONSE._serialized_end=3427
+  _DELETEFEDERATIONSERVERREQUEST._serialized_start=3429
+  _DELETEFEDERATIONSERVERREQUEST._serialized_end=3516
+  _DELETEFEDERATIONSERVERRESPONSE._serialized_start=3518
+  _DELETEFEDERATIONSERVERRESPONSE._serialized_end=3550
+  _STATSRESPONSE._serialized_start=3552
+  _STATSRESPONSE._serialized_end=3670
+  _ASSETSTATSQUERY._serialized_start=3673
+  _ASSETSTATSQUERY._serialized_end=3923
+  _ASSETSTATSSNAPSHOT._serialized_start=3926
+  _ASSETSTATSSNAPSHOT._serialized_end=4127
+  _ASSETSTATSASSET._serialized_start=4130
+  _ASSETSTATSASSET._serialized_end=4367
+  _UNIVERSEASSETSTATS._serialized_start=4369
+  _UNIVERSEASSETSTATS._serialized_end=4443
+  _QUERYEVENTSREQUEST._serialized_start=4445
+  _QUERYEVENTSREQUEST._serialized_end=4513
+  _QUERYEVENTSRESPONSE._serialized_start=4515
+  _QUERYEVENTSRESPONSE._serialized_end=4588
+  _GROUPEDUNIVERSEEVENTS._serialized_start=4590
+  _GROUPEDUNIVERSEEVENTS._serialized_end=4674
+  _SETFEDERATIONSYNCCONFIGREQUEST._serialized_start=4677
+  _SETFEDERATIONSYNCCONFIGREQUEST._serialized_end=4847
+  _SETFEDERATIONSYNCCONFIGRESPONSE._serialized_start=4849
+  _SETFEDERATIONSYNCCONFIGRESPONSE._serialized_end=4882
+  _GLOBALFEDERATIONSYNCCONFIG._serialized_start=4884
+  _GLOBALFEDERATIONSYNCCONFIG._serialized_end=5010
+  _ASSETFEDERATIONSYNCCONFIG._serialized_start=5012
+  _ASSETFEDERATIONSYNCCONFIG._serialized_end=5122
+  _QUERYFEDERATIONSYNCCONFIGREQUEST._serialized_start=5124
+  _QUERYFEDERATIONSYNCCONFIGREQUEST._serialized_end=5187
+  _QUERYFEDERATIONSYNCCONFIGRESPONSE._serialized_start=5190
+  _QUERYFEDERATIONSYNCCONFIGRESPONSE._serialized_end=5363
+  _IGNOREASSETOUTPOINTREQUEST._serialized_start=5365
+  _IGNOREASSETOUTPOINTREQUEST._serialized_end=5457
+  _IGNOREASSETOUTPOINTRESPONSE._serialized_start=5459
+  _IGNOREASSETOUTPOINTRESPONSE._serialized_end=5548
+  _UPDATESUPPLYCOMMITREQUEST._serialized_start=5550
+  _UPDATESUPPLYCOMMITREQUEST._serialized_end=5642
+  _UPDATESUPPLYCOMMITRESPONSE._serialized_start=5644
+  _UPDATESUPPLYCOMMITRESPONSE._serialized_end=5672
+  _FETCHSUPPLYCOMMITREQUEST._serialized_start=5675
+  _FETCHSUPPLYCOMMITREQUEST._serialized_end=5844
+  _SUPPLYCOMMITSUBTREEROOT._serialized_start=5847
+  _SUPPLYCOMMITSUBTREEROOT._serialized_end=6000
+  _FETCHSUPPLYCOMMITRESPONSE._serialized_start=6003
+  _FETCHSUPPLYCOMMITRESPONSE._serialized_end=6583
+  _FETCHSUPPLYLEAVESREQUEST._serialized_start=6586
+  _FETCHSUPPLYLEAVESREQUEST._serialized_end=6731
+  _SUPPLYLEAFKEY._serialized_start=6733
+  _SUPPLYLEAFKEY._serialized_end=6827
+  _SUPPLYLEAFENTRY._serialized_start=6830
+  _SUPPLYLEAFENTRY._serialized_end=6980
+  _FETCHSUPPLYLEAVESRESPONSE._serialized_start=6983
+  _FETCHSUPPLYLEAVESRESPONSE._serialized_end=7169
+  _UNIVERSE._serialized_start=7697
+  _UNIVERSE._serialized_end=9760
 # @@protoc_insertion_point(module_scope)

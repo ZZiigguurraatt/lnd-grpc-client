@@ -15,12 +15,21 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#lndgrpc/compiled/price_oracle.proto\x12\x0epriceoraclerpc\"0\n\nFixedPoint\x12\x13\n\x0b\x63oefficient\x18\x01 \x01(\t\x12\r\n\x05scale\x18\x02 \x01(\r\"\x92\x01\n\nAssetRates\x12\x34\n\x10subjectAssetRate\x18\x01 \x01(\x0b\x32\x1a.priceoraclerpc.FixedPoint\x12\x34\n\x10paymentAssetRate\x18\x02 \x01(\x0b\x32\x1a.priceoraclerpc.FixedPoint\x12\x18\n\x10\x65xpiry_timestamp\x18\x03 \x01(\x04\"p\n\x0e\x41ssetSpecifier\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x13\n\tgroup_key\x18\x03 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x04 \x01(\tH\x00\x42\x04\n\x02id\"\xbb\x02\n\x16QueryAssetRatesRequest\x12\x39\n\x10transaction_type\x18\x01 \x01(\x0e\x32\x1f.priceoraclerpc.TransactionType\x12\x35\n\rsubject_asset\x18\x02 \x01(\x0b\x32\x1e.priceoraclerpc.AssetSpecifier\x12 \n\x18subject_asset_max_amount\x18\x03 \x01(\x04\x12\x35\n\rpayment_asset\x18\x04 \x01(\x0b\x32\x1e.priceoraclerpc.AssetSpecifier\x12 \n\x18payment_asset_max_amount\x18\x05 \x01(\x04\x12\x34\n\x10\x61sset_rates_hint\x18\x06 \x01(\x0b\x32\x1a.priceoraclerpc.AssetRates\"L\n\x19QueryAssetRatesOkResponse\x12/\n\x0b\x61sset_rates\x18\x01 \x01(\x0b\x32\x1a.priceoraclerpc.AssetRates\";\n\x1aQueryAssetRatesErrResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"\x99\x01\n\x17QueryAssetRatesResponse\x12\x37\n\x02ok\x18\x01 \x01(\x0b\x32).priceoraclerpc.QueryAssetRatesOkResponseH\x00\x12;\n\x05\x65rror\x18\x02 \x01(\x0b\x32*.priceoraclerpc.QueryAssetRatesErrResponseH\x00\x42\x08\n\x06result*)\n\x0fTransactionType\x12\x0c\n\x08PURCHASE\x10\x00\x12\x08\n\x04SALE\x10\x01\x32q\n\x0bPriceOracle\x12\x62\n\x0fQueryAssetRates\x12&.priceoraclerpc.QueryAssetRatesRequest\x1a\'.priceoraclerpc.QueryAssetRatesResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/priceoraclerpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#lndgrpc/compiled/price_oracle.proto\x12\x0epriceoraclerpc\"0\n\nFixedPoint\x12\x13\n\x0b\x63oefficient\x18\x01 \x01(\t\x12\r\n\x05scale\x18\x02 \x01(\r\"\x92\x01\n\nAssetRates\x12\x34\n\x10subjectAssetRate\x18\x01 \x01(\x0b\x32\x1a.priceoraclerpc.FixedPoint\x12\x34\n\x10paymentAssetRate\x18\x02 \x01(\x0b\x32\x1a.priceoraclerpc.FixedPoint\x12\x18\n\x10\x65xpiry_timestamp\x18\x03 \x01(\x04\"p\n\x0e\x41ssetSpecifier\x12\x12\n\x08\x61sset_id\x18\x01 \x01(\x0cH\x00\x12\x16\n\x0c\x61sset_id_str\x18\x02 \x01(\tH\x00\x12\x13\n\tgroup_key\x18\x03 \x01(\x0cH\x00\x12\x17\n\rgroup_key_str\x18\x04 \x01(\tH\x00\x42\x04\n\x02id\"\x8e\x03\n\x16QueryAssetRatesRequest\x12\x39\n\x10transaction_type\x18\x01 \x01(\x0e\x32\x1f.priceoraclerpc.TransactionType\x12\x35\n\rsubject_asset\x18\x02 \x01(\x0b\x32\x1e.priceoraclerpc.AssetSpecifier\x12 \n\x18subject_asset_max_amount\x18\x03 \x01(\x04\x12\x35\n\rpayment_asset\x18\x04 \x01(\x0b\x32\x1e.priceoraclerpc.AssetSpecifier\x12 \n\x18payment_asset_max_amount\x18\x05 \x01(\x04\x12\x34\n\x10\x61sset_rates_hint\x18\x06 \x01(\x0b\x32\x1a.priceoraclerpc.AssetRates\x12&\n\x06intent\x18\x07 \x01(\x0e\x32\x16.priceoraclerpc.Intent\x12\x17\n\x0f\x63ounterparty_id\x18\x08 \x01(\x0c\x12\x10\n\x08metadata\x18\t \x01(\t\"L\n\x19QueryAssetRatesOkResponse\x12/\n\x0b\x61sset_rates\x18\x01 \x01(\x0b\x32\x1a.priceoraclerpc.AssetRates\";\n\x1aQueryAssetRatesErrResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"\x99\x01\n\x17QueryAssetRatesResponse\x12\x37\n\x02ok\x18\x01 \x01(\x0b\x32).priceoraclerpc.QueryAssetRatesOkResponseH\x00\x12;\n\x05\x65rror\x18\x02 \x01(\x0b\x32*.priceoraclerpc.QueryAssetRatesErrResponseH\x00\x42\x08\n\x06result*)\n\x0fTransactionType\x12\x0c\n\x08PURCHASE\x10\x00\x12\x08\n\x04SALE\x10\x01*\xcd\x01\n\x06Intent\x12\x16\n\x12INTENT_UNSPECIFIED\x10\x00\x12\x1b\n\x17INTENT_PAY_INVOICE_HINT\x10\x01\x12\x16\n\x12INTENT_PAY_INVOICE\x10\x02\x12\x1e\n\x1aINTENT_PAY_INVOICE_QUALIFY\x10\x03\x12\x1c\n\x18INTENT_RECV_PAYMENT_HINT\x10\x04\x12\x17\n\x13INTENT_RECV_PAYMENT\x10\x05\x12\x1f\n\x1bINTENT_RECV_PAYMENT_QUALIFY\x10\x06\x32q\n\x0bPriceOracle\x12\x62\n\x0fQueryAssetRates\x12&.priceoraclerpc.QueryAssetRatesRequest\x1a\'.priceoraclerpc.QueryAssetRatesResponseB?Z=github.com/lightninglabs/taproot-assets/taprpc/priceoraclerpcb\x06proto3')
 
 _TRANSACTIONTYPE = DESCRIPTOR.enum_types_by_name['TransactionType']
 TransactionType = enum_type_wrapper.EnumTypeWrapper(_TRANSACTIONTYPE)
+_INTENT = DESCRIPTOR.enum_types_by_name['Intent']
+Intent = enum_type_wrapper.EnumTypeWrapper(_INTENT)
 PURCHASE = 0
 SALE = 1
+INTENT_UNSPECIFIED = 0
+INTENT_PAY_INVOICE_HINT = 1
+INTENT_PAY_INVOICE = 2
+INTENT_PAY_INVOICE_QUALIFY = 3
+INTENT_RECV_PAYMENT_HINT = 4
+INTENT_RECV_PAYMENT = 5
+INTENT_RECV_PAYMENT_QUALIFY = 6
 
 
 _FIXEDPOINT = DESCRIPTOR.message_types_by_name['FixedPoint']
@@ -84,8 +93,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z=github.com/lightninglabs/taproot-assets/taprpc/priceoraclerpc'
-  _TRANSACTIONTYPE._serialized_start=981
-  _TRANSACTIONTYPE._serialized_end=1022
+  _TRANSACTIONTYPE._serialized_start=1064
+  _TRANSACTIONTYPE._serialized_end=1105
+  _INTENT._serialized_start=1108
+  _INTENT._serialized_end=1313
   _FIXEDPOINT._serialized_start=55
   _FIXEDPOINT._serialized_end=103
   _ASSETRATES._serialized_start=106
@@ -93,13 +104,13 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ASSETSPECIFIER._serialized_start=254
   _ASSETSPECIFIER._serialized_end=366
   _QUERYASSETRATESREQUEST._serialized_start=369
-  _QUERYASSETRATESREQUEST._serialized_end=684
-  _QUERYASSETRATESOKRESPONSE._serialized_start=686
-  _QUERYASSETRATESOKRESPONSE._serialized_end=762
-  _QUERYASSETRATESERRRESPONSE._serialized_start=764
-  _QUERYASSETRATESERRRESPONSE._serialized_end=823
-  _QUERYASSETRATESRESPONSE._serialized_start=826
-  _QUERYASSETRATESRESPONSE._serialized_end=979
-  _PRICEORACLE._serialized_start=1024
-  _PRICEORACLE._serialized_end=1137
+  _QUERYASSETRATESREQUEST._serialized_end=767
+  _QUERYASSETRATESOKRESPONSE._serialized_start=769
+  _QUERYASSETRATESOKRESPONSE._serialized_end=845
+  _QUERYASSETRATESERRRESPONSE._serialized_start=847
+  _QUERYASSETRATESERRRESPONSE._serialized_end=906
+  _QUERYASSETRATESRESPONSE._serialized_start=909
+  _QUERYASSETRATESRESPONSE._serialized_end=1062
+  _PRICEORACLE._serialized_start=1315
+  _PRICEORACLE._serialized_end=1428
 # @@protoc_insertion_point(module_scope)

@@ -217,6 +217,11 @@ class LightningStub(object):
                 request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.InvoiceSubscription.SerializeToString,
                 response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.FromString,
                 )
+        self.DeleteCanceledInvoice = channel.unary_unary(
+                '/lnrpc.Lightning/DeleteCanceledInvoice',
+                request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceReq.SerializeToString,
+                response_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceResp.FromString,
+                )
         self.DecodePayReq = channel.unary_unary(
                 '/lnrpc.Lightning/DecodePayReq',
                 request_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.PayReqString.SerializeToString,
@@ -810,6 +815,15 @@ class LightningServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteCanceledInvoice(self, request, context):
+        """lncli: `deletecanceledinvoice`
+        DeleteCanceledInvoice removes a canceled invoice from the database. If the
+        invoice is not in the canceled state, an error will be returned.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DecodePayReq(self, request, context):
         """lncli: `decodepayreq`
         DecodePayReq takes an encoded payment request string and attempts to decode
@@ -1081,9 +1095,10 @@ class LightningServicer(object):
 
     def CheckMacaroonPermissions(self, request, context):
         """
-        CheckMacaroonPermissions checks whether a request follows the constraints
-        imposed on the macaroon and that the macaroon is authorized to follow the
-        provided permissions.
+        CheckMacaroonPermissions checks whether the provided macaroon contains all
+        the provided permissions. If the macaroon is valid (e.g. all caveats are
+        satisfied), and all permissions provided in the request are met, then
+        this RPC returns true.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1336,6 +1351,11 @@ def add_LightningServicer_to_server(servicer, server):
                     servicer.SubscribeInvoices,
                     request_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.InvoiceSubscription.FromString,
                     response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.SerializeToString,
+            ),
+            'DeleteCanceledInvoice': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteCanceledInvoice,
+                    request_deserializer=lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceReq.FromString,
+                    response_serializer=lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceResp.SerializeToString,
             ),
             'DecodePayReq': grpc.unary_unary_rpc_method_handler(
                     servicer.DecodePayReq,
@@ -2146,6 +2166,23 @@ class Lightning(object):
         return grpc.experimental.unary_stream(request, target, '/lnrpc.Lightning/SubscribeInvoices',
             lndgrpc_dot_compiled_dot_lightning__pb2.InvoiceSubscription.SerializeToString,
             lndgrpc_dot_compiled_dot_lightning__pb2.Invoice.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteCanceledInvoice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/lnrpc.Lightning/DeleteCanceledInvoice',
+            lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceReq.SerializeToString,
+            lndgrpc_dot_compiled_dot_lightning__pb2.DelCanceledInvoiceResp.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -26,3 +26,15 @@ class UniverseRPC(BaseClient):
         response = self.get_universe_stub().QueryAssetStats(request)
         return response
 
+    @handle_rpc_errors
+    def asset_roots(self, **kwargs):
+        request = universe.AssetRootRequest(**kwargs)
+        response = self.get_universe_stub().AssetRoots(request)
+        return response
+
+    @handle_rpc_errors
+    def asset_leaves(self, **kwargs):
+        request = universe.ID(**kwargs)
+        response = self.get_universe_stub().AssetLeaves(request)
+        return response
+
